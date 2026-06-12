@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!-- saved from url=(0025)https://www.bikasoft.com/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -1238,6 +1239,173 @@
         font-size: 20px;
       }
     }
+    /* INDUSTRIES SECTION */
+    .industries-section {
+      position: relative;
+      height: 300vh;
+      background: var(--bg-section-alt-1);
+      border-top: 1px solid var(--line);
+    }
+
+    .industries-sticky-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .industries-layout {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 64px;
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .industries-left .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .industries-left h2 {
+      font-size: clamp(36px, 5vw, 64px);
+      margin-bottom: 20px;
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .industry-card {
+      aspect-ratio: 1 / 1;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 16px 32px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.85);
+      filter: blur(12px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.4s ease, box-shadow 0.4s ease;
+      will-change: transform, opacity, filter;
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="light"] .industry-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+      border-color: rgba(0,0,0,0.06);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.6), 0 16px 32px rgba(0,0,0,0.04);
+    }
+
+    .industry-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 60%);
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .industry-card::after {
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 60%);
+    }
+
+    .industry-card:hover {
+      border-color: rgba(0, 183, 255, 0.5);
+      box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="light"] .industry-card:hover {
+      box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px rgba(0, 119, 255, 0.15);
+    }
+
+    @media (hover: hover) {
+      .industry-card.is-revealed:hover,
+      .industry-card.is-visible:hover {
+        transform: scale(1.03);
+      }
+    }
+
+    .industry-card svg {
+      width: 44px;
+      height: 44px;
+      color: var(--blue-2);
+      filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
+      z-index: 1;
+    }
+
+    .industry-card span {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--text-main);
+      z-index: 1;
+      padding: 0 12px;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 981px) {
+      .industry-card.is-revealed {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .industries-section {
+        height: auto;
+        padding: 96px 0;
+      }
+      .industries-sticky-container {
+        position: relative;
+        top: auto;
+        height: auto;
+      }
+      .industries-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .industry-card {
+        transform: translateY(20px) scale(0.95);
+      }
+      .industry-card.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+      .industry-card svg {
+        width: 36px;
+        height: 36px;
+      }
+      .industry-card span {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .industries-section {
+        padding: 72px 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1526,6 +1694,63 @@
       </div>
     </section>
 
+    <section class="industries-section" id="industries" aria-labelledby="industries-title">
+      <div class="industries-sticky-container">
+        <div class="industries-layout">
+          <div class="industries-left">
+            <div class="eyebrow">Industries</div>
+            <h2 id="industries-title">Industries We <span>Serve.</span></h2>
+            <p class="section-copy" style="margin-bottom: 32px;">We build scalable digital systems for modern businesses across global industries.</p>
+            <a href="#contact" class="btn btn-solid">Explore Solutions</a>
+          </div>
+          <div class="industries-right">
+            <div class="industries-grid">
+              <!-- Card 1 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                <span>Healthcare</span>
+              </div>
+              <!-- Card 2 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
+                <span>Finance &amp; Banking</span>
+              </div>
+              <!-- Card 3 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Real Estate</span>
+              </div>
+              <!-- Card 4 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span>E-Commerce</span>
+              </div>
+              <!-- Card 5 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                <span>Education</span>
+              </div>
+              <!-- Card 6 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg>
+                <span>Manufacturing</span>
+              </div>
+              <!-- Card 7 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <span>Logistics &amp; Supply Chain</span>
+              </div>
+              <!-- Card 8 -->
+              <div class="industry-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                <span>Travel &amp; Hospitality</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section alt" id="solutions" aria-labelledby="solutions-title">
       <div class="container">
         <div class="section-head reveal" style="transition-delay: 140ms;">
@@ -1718,6 +1943,48 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    const indSection = document.getElementById('industries');
+    const indCards = document.querySelectorAll('.industry-card');
+
+    const updateIndustriesScroll = () => {
+      if (!indSection || window.innerWidth <= 980) return;
+      
+      const rect = indSection.getBoundingClientRect();
+      const scrollStart = rect.top;
+      const totalScroll = rect.height - window.innerHeight;
+      
+      let progress = -scrollStart / totalScroll;
+      if (progress < 0) progress = 0;
+      if (progress > 1) progress = 1;
+      
+      const cardsToReveal = 1 + Math.floor(progress * 7.99);
+      
+      indCards.forEach((card, index) => {
+        if (index < cardsToReveal) {
+          card.classList.add('is-revealed');
+        } else {
+          card.classList.remove('is-revealed');
+        }
+      });
+    };
+
+    if (indSection) {
+      updateIndustriesScroll();
+      window.addEventListener('scroll', updateIndustriesScroll, { passive: true });
+      window.addEventListener('resize', updateIndustriesScroll);
+
+      indCards.forEach((card, index) => {
+        card.style.transitionDelay = window.innerWidth <= 980 ? `${(index % 4) * 70}ms` : '0ms';
+        revealObserver.observe(card);
+      });
+      
+      window.addEventListener('resize', () => {
+        indCards.forEach((card, index) => {
+          card.style.transitionDelay = window.innerWidth <= 980 ? `${(index % 4) * 70}ms` : '0ms';
+        });
+      });
+    }
   </script>
 
 </body></html>
