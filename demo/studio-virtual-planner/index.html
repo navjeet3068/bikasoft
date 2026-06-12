@@ -1,1990 +1,522 @@
-
 <!DOCTYPE html>
-<!-- saved from url=(0025)https://www.bikasoft.com/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bikasoft | Software Solutions</title>
-  <meta name="description" content="Bikasoft is a premium web development, software, AI automation and digital marketing company in Chennai helping businesses build the future.">
-  <meta name="keywords" content="web development company chennai, software development company india, ai development company india, digital marketing agency chennai">
-  <meta name="author" content="Bikasoft">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://bikasoft.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Bikasoft | Build the Future Digitally">
-  <meta property="og:description" content="Software development, cloud solutions, AI automation, mobile apps and digital growth by Bikasoft.">
-  <meta property="og:url" content="https://bikasoft.com/">
-  <meta property="og:site_name" content="Bikasoft">
-  <meta property="og:image" content="https://bikasoft.com/assets/logo.png">
-  <meta property="og:locale" content="en_IN">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bikasoft | Build the Future Digitally">
-  <meta name="twitter:description" content="Premium web development, AI automation, software and digital marketing solutions from Chennai, India.">
-  <meta name="twitter:image" content="https://bikasoft.com/assets/logo.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Bikasoft",
-    "url": "https://bikasoft.com/",
-    "logo": "https://bikasoft.com/assets/logo.png",
-    "email": "info@bikasoft.com",
-    "telephone": "+91 9878169696",
-    "sameAs": [
-      "https://www.instagram.com/bika.soft",
-      "https://www.linkedin.com/company/bikasoft",
-      "https://www.facebook.com/bikasoft",
-      "https://x.com/bikasoft"
-    ],
-    "knowsAbout": [
-      "Software Development",
-      "Cloud Solutions",
-      "AI Automation",
-      "Mobile Apps",
-      "Digital Growth",
-      "Web Development",
-      "Digital Marketing"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Bikasoft",
-    "image": "https://bikasoft.com/assets/logo.png",
-    "url": "https://bikasoft.com/",
-    "telephone": "+91 9878169696",
-    "email": "info@bikasoft.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Chennai",
-      "addressRegion": "Tamil Nadu",
-      "addressCountry": "IN"
-    },
-    "areaServed": ["Chennai", "India", "Global"],
-    "priceRange": "$$",
-    "description": "Bikasoft is a web development company in Chennai offering software development, AI solutions, cloud solutions, mobile apps and digital marketing services."
-  }
-  </script>
-  <style>
-    :root {
-      --blue: #0076ff;
-      --blue-2: #00b7ff;
-      --blue-3: #003bff;
-      
-      --bg-main: #02050b;
-      --text-main: #f7fbff;
-      --muted: #a8b6c7;
-      --line: rgba(0, 119, 255, .34);
-      --line-soft: rgba(255, 255, 255, .12);
-      
-      --nav-bg: rgba(5, 11, 21, 0.35);
-      --nav-border: rgba(255, 255, 255, 0.08);
-      --nav-scrolled: rgba(2, 5, 12, 0.88);
-      
-      --mob-panel-bg: rgba(5, 11, 21, 0.95);
-      --mob-panel-border: rgba(255, 255, 255, 0.1);
-      
-      --text-nav: rgba(247, 251, 255, .78);
-      --text-nav-hover: #fff;
-      
-      --btn-text: #fff;
-      --btn-solid-text: #001120;
-      --btn-solid-bg: linear-gradient(135deg, #fff, var(--blue-2) 42%, var(--blue));
-      
-      --brand-bg: #f9fbff;
-      --brand-color: #001120;
-      
-      --bg-hero: #000;
-      --hero-overlay-1: rgba(0,0,0,.18);
-      --hero-overlay-2: rgba(0,0,0,.16);
-      
-      --bg-footer: #02050b;
-      --bg-section-1: #03070f;
-      --bg-section-2: #050b15;
-      --bg-section-alt-1: #02050b;
-      --bg-section-alt-2: #07101d;
-      
-      --bg-surface: rgba(0,0,0,.35);
-      --card-bg-1: rgba(0,119,255,.09);
-      --card-bg-2: rgba(255,255,255,.035);
-      
-      --shadow-base: rgba(0,0,0,.32);
-      --shadow-lg: rgba(0,0,0,.34);
-      --shadow-xl: rgba(0,0,0,.38);
-      
-      --max: 1180px;
-      --nav: 76px;
-    }
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture Studio</title>
 
-    [data-theme="light"] {
-      --bg-main: #f7fbff;
-      --text-main: #02050b;
-      --muted: #5c6c7c;
-      --line: rgba(0, 119, 255, .2);
-      --line-soft: rgba(0, 0, 0, .08);
-      
-      --nav-bg: rgba(255, 255, 255, 0.5);
-      --nav-border: rgba(0, 0, 0, 0.08);
-      --nav-scrolled: rgba(255, 255, 255, 0.9);
-      
-      --mob-panel-bg: rgba(255, 255, 255, 0.95);
-      --mob-panel-border: rgba(0, 0, 0, 0.1);
-      
-      --text-nav: rgba(2, 5, 11, .78);
-      --text-nav-hover: #02050b;
-      
-      --btn-text: #02050b;
-      --btn-solid-text: #fff;
-      --btn-solid-bg: linear-gradient(135deg, var(--blue), var(--blue-2) 42%, var(--blue-3));
-      
-      --brand-bg: #02050b;
-      --brand-color: #f7fbff;
-      
-      --bg-hero: #f7fbff;
-      --hero-overlay-1: rgba(255,255,255,.8);
-      --hero-overlay-2: rgba(255,255,255,.6);
-      
-      --bg-footer: #eef5fc;
-      --bg-section-1: #f7fbff;
-      --bg-section-2: #eef5fc;
-      --bg-section-alt-1: #eef5fc;
-      --bg-section-alt-2: #e5eff8;
-      
-      --bg-surface: rgba(255,255,255,.7);
-      --card-bg-1: rgba(0,119,255,.04);
-      --card-bg-2: rgba(255,255,255,.8);
-      
-      --shadow-base: rgba(0,0,0,.06);
-      --shadow-lg: rgba(0,0,0,.08);
-      --shadow-xl: rgba(0,0,0,.1);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-      background: var(--bg-main);
-    }
-
-    body {
-      min-height: 100vh;
-      color: var(--text-main);
-      background: var(--bg-main);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-      transition: background .3s ease, color .3s ease;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 20px;
-      top: -60px;
-      z-index: 1000;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--text-main);
-      color: var(--bg-main);
-      font-weight: 900;
-      transition: top .2s ease;
-    }
-
-    .skip-link:focus {
-      top: 14px;
-    }
-
-    .nav {
-      position: fixed;
-      top: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 60;
-      height: 72px;
-      width: min(var(--max), calc(100% - 48px));
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      padding: 0 12px 0 24px;
-      background: var(--nav-bg);
-      border: 1px solid var(--nav-border);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, top .25s ease;
-    }
-
-    .nav.is-scrolled {
-      background: var(--nav-scrolled);
-      border-color: rgba(0, 119, 255, 0.3);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 119, 255, 0.15);
-    }
-
-    .nav-inner {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 950;
-      font-size: 22px;
-      letter-spacing: -.04em;
-      text-shadow: 0 0 22px rgba(0, 119, 255, .38);
-    }
-
-.brand img {
-  width: auto;
-  height: 38px;
-  object-fit: contain;
-  /* Invert dark text to light while keeping the blue hue for dark mode */
-  filter: invert(1) hue-rotate(180deg) brightness(1.5);
-  transition: filter 0.3s ease;
+:root{
+--primary:#111111;
+--accent:#B08D57;
+--bg:#ffffff;
+--light:#f7f7f7;
 }
 
-[data-theme="light"] .brand img {
-  /* Remove filter so original dark text shows in light mode */
-  filter: none;
-    }
-
-    .nav-links {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .nav-links a {
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: var(--text-nav);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      transition: color .2s ease, background .2s ease, text-shadow .2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text-nav-hover);
-      background: rgba(0, 119, 255, .14);
-      text-shadow: 0 0 18px rgba(0, 119, 255, .8);
-      outline: none;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(0, 119, 255, .11);
-      color: var(--btn-text);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      box-shadow: inset 0 0 24px rgba(0, 119, 255, .16), 0 0 30px rgba(0, 119, 255, .18);
-      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-      white-space: nowrap;
-    }
-
-    .btn:hover,
-    .btn:focus-visible {
-      transform: translateY(-2px);
-      border-color: rgba(0, 183, 255, .9);
-      box-shadow: inset 0 0 28px rgba(0, 119, 255, .22), 0 0 42px rgba(0, 119, 255, .38);
-      outline: none;
-    }
-
-    .btn-solid {
-      color: var(--btn-solid-text);
-      background: var(--btn-solid-bg);
-      border-color: rgba(255,255,255,.6);
-    }
-
-    .theme-toggle {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      background: rgba(0, 119, 255, .11);
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all .2s ease;
-    }
-
-    .theme-toggle:hover {
-      background: rgba(0, 119, 255, .2);
-      transform: translateY(-2px);
-    }
-
-    .theme-toggle svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .moon-icon { display: none; }
-    [data-theme="light"] .sun-icon { display: none; }
-    [data-theme="light"] .moon-icon { display: block; }
-
-    .menu-btn {
-      display: none;
-      width: 42px;
-      height: 42px;
-      margin-left: auto;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: rgba(0,119,255,.13);
-      color: var(--text-main);
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .menu-btn svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .mobile-panel {
-      position: fixed;
-      inset: 110px 16px auto 16px;
-      z-index: 55;
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 14px;
-      background: rgba(5, 11, 21, 0.95);
-      backdrop-filter: blur(18px);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-16px);
-      transition: opacity .25s ease, transform .25s ease;
-    }
-
-    .mobile-panel.is-open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .mobile-panel a {
-      padding: 12px;
-      border-radius: 8px;
-      color: var(--text-nav);
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .mobile-panel a:hover {
-      background: rgba(0,119,255,.14);
-      color: var(--text-nav-hover);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      isolation: isolate;
-      overflow: hidden;
-      background: var(--bg-hero);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 4fr 6fr;
-      gap: 48px;
-      align-items: center;
-      text-align: left;
-    }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hero-image {
-      width: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-      opacity: 0;
-      animation: fadeUp .8s ease .6s forwards;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      aspect-ratio: 16/10;
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(0, 119, 255, 0.1);
-      color: var(--blue-2);
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: fadeUp .8s ease forwards;
-    }
-
-    .hero-kicker span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--blue-2);
-      box-shadow: 0 0 12px var(--blue-2);
-      animation: pulse 2s infinite;
-    }
-
-  .hero-content h1 {
-    font-size: clamp(32px, 4.8vw, 63px);
-    line-height: 1.05;
-    letter-spacing: -.03em;
-    margin-bottom: 24px;
-    text-transform: none;
-    opacity: 0;
-    animation: fadeUp .8s ease .15s forwards;
-  }
-
-  .hero-content h1 span {
-    background: linear-gradient(135deg, var(--text-main), var(--blue-2) 40%, var(--blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 0 32px rgba(0, 119, 255, 0.3);
-  }
-
-    .hero-content p {
-      font-size: clamp(17px, 2vw, 21px);
-      color: var(--muted);
-      max-width: 680px;
-      margin-bottom: 38px;
-      opacity: 0;
-      animation: fadeUp .8s ease .3s forwards;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      opacity: 0;
-      animation: fadeUp .8s ease .45s forwards;
-    }
-
-    .hero-full-vector {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;
-      min-width: 1200px;
-      height: auto;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.85;
-      animation: vectorBreathe 12s ease-in-out infinite alternate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 50% 58%, rgba(0,119,255,.14), transparent 27%),
-        radial-gradient(circle at 50% 92%, rgba(0,119,255,.18), transparent 18%),
-        linear-gradient(180deg, var(--hero-overlay-1), transparent 38%, var(--hero-overlay-2));
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      z-index: 1;
-      background:
-        linear-gradient(105deg, transparent 0 42%, rgba(0, 119, 255, .08) 48%, rgba(255,255,255,.18) 50%, rgba(0,119,255,.08) 52%, transparent 58% 100%);
-      transform: translateX(-58%);
-      animation: lightSweep 6.5s ease-in-out 1.1s infinite;
-      pointer-events: none;
-      mix-blend-mode: screen;
-    }
-
-    @keyframes vectorBreathe {
-      0% { transform: translateX(-50%) scale(1); filter: brightness(1); }
-      100% { transform: translateX(-50%) scale(1.03); filter: brightness(1.2); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    @keyframes lightSweep {
-      0%, 42% { transform: translateX(-58%); opacity: 0; }
-      50% { opacity: 1; }
-      62%, 100% { transform: translateX(58%); opacity: 0; }
-    }
-
-    .particles {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .particles i {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--blue-2);
-      box-shadow: 0 0 16px var(--blue);
-      opacity: .75;
-      animation: particleRise linear infinite;
-    }
-
-    .particles i:nth-child(1) { left: 51%; bottom: 21%; animation-duration: 5.4s; animation-delay: .2s; }
-    .particles i:nth-child(2) { left: 57%; bottom: 28%; animation-duration: 6.8s; animation-delay: 1.1s; }
-    .particles i:nth-child(3) { left: 63%; bottom: 20%; animation-duration: 5.8s; animation-delay: .6s; }
-    .particles i:nth-child(4) { left: 72%; bottom: 17%; animation-duration: 7.4s; animation-delay: 1.8s; }
-    .particles i:nth-child(5) { left: 82%; bottom: 25%; animation-duration: 6.1s; animation-delay: .9s; }
-    .particles i:nth-child(6) { left: 44%; bottom: 16%; animation-duration: 7.1s; animation-delay: 1.4s; }
-    .particles i:nth-child(7) { left: 68%; bottom: 34%; animation-duration: 6.4s; animation-delay: 2.2s; }
-    .particles i:nth-child(8) { left: 91%; bottom: 19%; animation-duration: 8s; animation-delay: 1.6s; }
-
-    @keyframes particleRise {
-      from {
-        transform: translateY(0) scale(.8);
-        opacity: 0;
-      }
-      20% {
-        opacity: .85;
-      }
-      to {
-        transform: translateY(-58vh) scale(1.4);
-        opacity: 0;
-      }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .scroll-cue {
-      position: absolute;
-      right: max(24px, calc((100vw - var(--max)) / 2));
-      bottom: 34px;
-      z-index: 4;
-      color: var(--text-nav);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      opacity: 0;
-      animation: fadeUp .9s ease 1.8s forwards;
-    }
-
-    .scroll-cue::after {
-      content: "";
-      display: inline-block;
-      width: 1px;
-      height: 54px;
-      margin-top: 12px;
-      background: linear-gradient(var(--blue), transparent);
-      box-shadow: 0 0 18px var(--blue);
-    }
-
-    .section {
-      position: relative;
-      padding: 96px 0;
-      background:
-        radial-gradient(circle at 10% 0%, rgba(0,119,255,.11), transparent 34rem),
-        linear-gradient(180deg, var(--bg-section-1), var(--bg-section-2));
-      border-top: 1px solid rgba(0,119,255,.16);
-    }
-
-    .section.alt {
-      background:
-        radial-gradient(circle at 88% 8%, rgba(0,119,255,.12), transparent 30rem),
-        linear-gradient(180deg, var(--bg-section-alt-1), var(--bg-section-alt-2));
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 44px;
-    }
-
-    .eyebrow {
-      color: var(--blue-2);
-      font-size: 12px;
-      font-weight: 950;
-      letter-spacing: .34em;
-      text-transform: uppercase;
-      text-shadow: 0 0 20px rgba(0,119,255,.7);
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-weight: 950;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin-top: 12px;
-      font-size: clamp(36px, 5vw, 74px);
-      line-height: .95;
-      letter-spacing: -.045em;
-    }
-
-    h2 span,
-    h3 span {
-      color: var(--blue);
-      text-shadow: 0 0 24px rgba(0,119,255,.65);
-    }
-
-    .section-copy {
-      max-width: 720px;
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .service-strip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--bg-surface);
-      box-shadow: inset 0 0 34px rgba(0,119,255,.08), 0 0 60px rgba(0,119,255,.12);
-    }
-
-    .service-mini {
-      min-height: 190px;
-      padding: 26px 20px;
-      border-right: 1px solid var(--line);
-      display: grid;
-      align-content: center;
-      justify-items: center;
-      text-align: center;
-      gap: 16px;
-      transition: background .22s ease, transform .22s ease;
-    }
-
-    .service-mini:last-child {
-      border-right: 0;
-    }
-
-    .service-mini:hover {
-      background: rgba(0,119,255,.13);
-      transform: translateY(-4px);
-    }
-
-    .service-mini svg {
-      width: 42px;
-      height: 42px;
-      color: var(--blue);
-      filter: drop-shadow(0 0 16px rgba(0,119,255,.8));
-    }
-
-    .service-mini h3 {
-      font-size: 16px;
-      line-height: 1.25;
-      letter-spacing: .06em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .card {
-      position: relative;
-      overflow: hidden;
-      min-height: 280px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
-      box-shadow: inset 0 0 34px rgba(0,119,255,.07), 0 18px 60px var(--shadow-base);
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 18% 0%, rgba(0,183,255,.2), transparent 34%);
-      opacity: 0;
-      transition: opacity .22s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0,183,255,.68);
-      box-shadow: inset 0 0 38px rgba(0,119,255,.12), 0 24px 76px rgba(0,119,255,.14);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .card svg {
-      width: 38px;
-      height: 38px;
-      color: var(--blue);
-      margin-bottom: 28px;
-      filter: drop-shadow(0 0 14px rgba(0,119,255,.8));
-    }
-
-    .card h3 {
-      font-size: 23px;
-      letter-spacing: -.02em;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .dashboard-panel {
-      min-height: 420px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 26px;
-      background:
-        linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2)),
-        radial-gradient(circle at 82% 0%, rgba(0,183,255,.18), transparent 30%);
-      box-shadow: inset 0 0 42px rgba(0,119,255,.08), 0 22px 80px var(--shadow-lg);
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .stat {
-      padding: 18px;
-      border: 1px solid var(--line-soft);
-      border-radius: 14px;
-      background: var(--bg-surface);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--blue-2);
-      font-size: 30px;
-      line-height: 1;
-      text-shadow: 0 0 20px rgba(0,119,255,.8);
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .chart {
-      height: 220px;
-      display: flex;
-      align-items: end;
-      gap: 10px;
-      padding: 18px;
-      border: 1px solid var(--line-soft);
-      border-radius: 16px;
-      background: var(--bg-surface);
-    }
-
-    .chart i {
-      flex: 1;
-      border-radius: 6px 6px 2px 2px;
-      background: linear-gradient(180deg, var(--text-main), var(--blue-2) 35%, rgba(0,119,255,.14));
-      box-shadow: 0 0 20px rgba(0,119,255,.4);
-    }
-
-    .cta-panel {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(38px, 6vw, 76px);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 18% 30%, rgba(0,119,255,.24), transparent 26%),
-        radial-gradient(circle at 88% 18%, rgba(0,183,255,.18), transparent 24%),
-        linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
-      box-shadow: inset 0 0 48px rgba(0,119,255,.08), 0 26px 86px var(--shadow-xl);
-    }
-
-    .cta-panel h2 {
-      max-width: 880px;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .showcase-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .showcase-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-
-    .showcase-panel {
-      position: relative;
-      border-radius: 24px;
-      padding: 16px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 24px 64px rgba(0, 0, 0, 0.2);
-      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease, border-color 0.6s ease;
-      cursor: pointer;
-      overflow: hidden;
-    }
-
-    [data-theme="light"] .showcase-panel {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 24px 64px rgba(0, 0, 0, 0.06);
-    }
-
-    .showcase-panel:hover {
-      transform: translateY(-8px) scale(1.01);
-      border-color: rgba(0, 183, 255, 0.5);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 32px 80px rgba(0, 119, 255, 0.15);
-    }
-
-    .showcase-image {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      background: radial-gradient(circle at 50% 30%, rgba(0, 183, 255, 0.15), transparent 60%), var(--bg-surface);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line-soft);
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .showcase-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.3));
-      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
-      z-index: 2;
-    }
-
-    [data-theme="light"] .showcase-image img {
-      filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.15));
-    }
-
-    .showcase-panel:hover .showcase-image img {
-      transform: scale(1.06);
-      filter: drop-shadow(0 32px 48px rgba(0, 119, 255, 0.25));
-    }
-
-    .glass-reflection {
-      position: absolute;
-      inset: -50%;
-      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.15) 55%, transparent 65%);
-      transform: translateX(-100%) rotate(15deg);
-      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .showcase-panel:hover .glass-reflection {
-      transform: translateX(100%) rotate(15deg);
-    }
-
-    .showcase-content {
-      padding: 24px 16px 12px;
-      text-align: center;
-    }
-
-    .showcase-content h3 {
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, var(--text-main), var(--blue-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .showcase-content p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0 auto;
-      max-width: 90%;
-    }
-
-    .showcase-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .showcase-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 8px;
-      background: rgba(0, 119, 255, 0.06);
-      border: 1px solid rgba(0, 119, 255, 0.15);
-      color: var(--text-main);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    [data-theme="light"] .showcase-tag {
-      background: rgba(0, 119, 255, 0.04);
-      border-color: rgba(0, 119, 255, 0.12);
-    }
-
-    .showcase-tag svg {
-      width: 14px;
-      height: 14px;
-      color: var(--blue-2);
-    }
-
-    .footer {
-      padding: 56px 0 28px;
-      background: var(--bg-footer);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.35fr repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .footer p,
-    .footer a,
-    .footer li {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer a:hover {
-      color: var(--blue-2);
-    }
-
-    .footer h3 {
-      font-size: 13px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .footer ul {
-      display: grid;
-      gap: 9px;
-      list-style: none;
-    }
-
-    .footer-bottom {
-      margin-top: 38px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      color: var(--muted);
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .8s ease-in-out, transform .8s ease-in-out;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-      }
-
-      .hero-text {
-        align-items: center;
-      }
-
-      .nav-links,
-      .nav .btn {
-        display: none;
-      }
-
-      .menu-btn,
-      .mobile-panel {
-        display: flex;
-      }
-
-      .service-strip,
-      .grid,
-      .split,
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .split {
-        gap: 16px;
-      }
-
-      .showcase-stack {
-        gap: 24px;
-        margin-top: 32px;
-      }
-
-      .showcase-row {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      :root {
-        --nav: 68px;
-      }
-
-      .container {
-        width: min(100% - 32px, var(--max));
-      }
-
-      .nav {
-        width: calc(100% - 32px);
-        top: 16px;
-        padding: 0 8px 0 20px;
-      }
-
-      .brand {
-        font-size: 20px;
-      }
-
-.brand img {
-  width: auto;
-  height: 34px;
-      }
-
-      .hero {
-        min-height: 100svh;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(28px, 7vw, 40px);
-        overflow-wrap: break-word;
-      }
-
-      .hero-content p {
-        font-size: 16px;
-      }
-
-      .hero-full-vector {
-        min-width: 800px;
-      }
-
-      .scroll-cue {
-        display: none;
-      }
-
-      .section {
-        padding: 72px 0;
-      }
-
-      h2 {
-        font-size: 42px;
-      }
-
-      .service-strip,
-      .grid,
-      .split,
-      .stats-row,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-mini {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .service-mini:last-child {
-        border-bottom: 0;
-      }
-
-      .cta-actions,
-      .btn {
-        width: 100%;
-      }
-
-      .showcase-panel {
-        padding: 12px;
-        border-radius: 20px;
-      }
-
-      .showcase-content {
-        padding: 20px 8px 8px;
-      }
-
-      .showcase-content h3 {
-        font-size: 20px;
-      }
-    }
-    /* INDUSTRIES SECTION */
-    .industries-section {
-      position: relative;
-      height: 300vh;
-      background: var(--bg-section-alt-1);
-      border-top: 1px solid var(--line);
-    }
-
-    .industries-sticky-container {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .industries-layout {
-      display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 64px;
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-      align-items: center;
-    }
-
-    .industries-left .eyebrow {
-      margin-bottom: 12px;
-    }
-
-    .industries-left h2 {
-      font-size: clamp(36px, 5vw, 64px);
-      margin-bottom: 20px;
-    }
-
-    .industries-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .industry-card {
-      aspect-ratio: 1 / 1;
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 16px 32px rgba(0,0,0,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      text-align: center;
-      opacity: 0;
-      transform: scale(0.85);
-      filter: blur(12px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                  transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                  filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-                  border-color 0.4s ease, box-shadow 0.4s ease;
-      will-change: transform, opacity, filter;
-      position: relative;
-      overflow: hidden;
-    }
-
-    [data-theme="light"] .industry-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
-      border-color: rgba(0,0,0,0.06);
-      box-shadow: inset 0 0 20px rgba(255,255,255,0.6), 0 16px 32px rgba(0,0,0,0.04);
-    }
-
-    .industry-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 60%);
-      pointer-events: none;
-    }
-
-    [data-theme="light"] .industry-card::after {
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 60%);
-    }
-
-    .industry-card:hover {
-      border-color: rgba(0, 183, 255, 0.5);
-      box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px rgba(0, 0, 0, 0.2);
-    }
-
-    [data-theme="light"] .industry-card:hover {
-      box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px rgba(0, 119, 255, 0.15);
-    }
-
-    @media (hover: hover) {
-      .industry-card.is-revealed:hover,
-      .industry-card.is-visible:hover {
-        transform: scale(1.03);
-      }
-    }
-
-    .industry-card svg {
-      width: 44px;
-      height: 44px;
-      color: var(--blue-2);
-      filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
-      z-index: 1;
-    }
-
-    .industry-card span {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      color: var(--text-main);
-      z-index: 1;
-      padding: 0 12px;
-      text-transform: uppercase;
-    }
-
-    @media (min-width: 981px) {
-      .industry-card.is-revealed {
-        opacity: 1;
-        transform: scale(1);
-        filter: blur(0);
-      }
-    }
-
-    @media (max-width: 980px) {
-      .industries-section {
-        height: auto;
-        padding: 96px 0;
-      }
-      .industries-sticky-container {
-        position: relative;
-        top: auto;
-        height: auto;
-      }
-      .industries-layout {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-      .industries-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-      .industry-card {
-        transform: translateY(20px) scale(0.95);
-      }
-      .industry-card.is-visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
-      .industry-card svg {
-        width: 36px;
-        height: 36px;
-      }
-      .industry-card span {
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .industries-section {
-        padding: 72px 0;
-      }
-    }
-  </style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#fff;
+color:#222;
+overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+font-family:'Bebas Neue',sans-serif;
+letter-spacing:2px;
+font-weight:400;
+}
+
+.container{
+width:min(1400px,90%);
+margin:auto;
+}
+
+.btn{
+display:inline-flex;
+padding:16px 32px;
+background:#111;
+color:#fff;
+text-decoration:none;
+border-radius:999px;
+}
+
+section{
+padding:100px 0;
+}
+
+img{
+width:100%;
+display:block;
+}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+background:url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2000') center/cover;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+color:#fff;
+max-width:700px;
+}
+
+.hero h1{
+font-size:6rem;
+line-height:.9;
+margin-bottom:20px;
+}
+
+.section-title{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.card{
+background:#fff;
+padding:35px;
+border-radius:24px;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.project{
+overflow:hidden;
+border-radius:24px;
+}
+
+.process{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+text-align:center;
+}
+
+.industries{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.industry{
+aspect-ratio:1;
+border-radius:28px;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.6);
+border:1px solid rgba(255,255,255,.8);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+.why{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.cta{
+background:#111;
+color:#fff;
+text-align:center;
+padding:120px 0;
+}
+
+.contact{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+}
+
+form{
+display:grid;
+gap:15px;
+}
+
+input,
+textarea{
+padding:16px;
+border-radius:12px;
+border:1px solid #ddd;
+font-family:Poppins;
+}
+
+footer{
+padding:40px 0;
+text-align:center;
+border-top:1px solid #eee;
+}
+
+@media(max-width:992px){
+
+.grid-2,
+.contact{
+grid-template-columns:1fr;
+}
+
+.services,
+.projects,
+.why,
+.testimonials{
+grid-template-columns:1fr 1fr;
+}
+
+.industries{
+grid-template-columns:repeat(2,1fr);
+}
+
+.process{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:4rem;
+}
+
+}
+
+</style>
 </head>
 <body>
-  <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#main" class="skip-link">Skip to content</a>
 
-  <header class="nav is-scrolled" id="siteNav">
-    <div class="nav-inner">
-      <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html" class="brand" aria-label="Bikasoft home">
-        <img src="/assets/logo.png" alt="Bikasoft Logo">
-      </a>
+<!-- HERO -->
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#services">Services</a>
-        <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Solutions</a>
-        <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#growth">Growth</a>
-        <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact">Contact</a>
-      </nav>
+<section class="hero">
 
-      <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact" class="btn btn-solid">Let’s Build</a>
+<div class="container">
 
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
+<div class="hero-content">
 
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
-          <path d="M4 7h16M4 12h16M4 17h16"></path>
-        </svg>
-      </button>
-    </div>
-  </header>
+<h1>Designing Spaces That Inspire Living</h1>
 
-  <div class="mobile-panel" id="mobilePanel">
-    <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#services">Services</a>
-    <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Solutions</a>
-    <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#growth">Growth</a>
-    <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact">Contact</a>
-  </div>
+<p>
+Contemporary architecture, interiors and project execution
+for residential, commercial and luxury developments.
+</p>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <svg class="hero-full-vector" viewBox="0 0 1440 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-        <defs>
-          <radialgradient id="glow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(0, 119, 255, 0.25)"></stop>
-            <stop offset="100%" stop-color="transparent"></stop>
-          </radialgradient>
-          <lineargradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(0, 119, 255, 0)"></stop>
-            <stop offset="50%" stop-color="rgba(0, 183, 255, 0.8)"></stop>
-            <stop offset="100%" stop-color="rgba(0, 119, 255, 0)"></stop>
-          </lineargradient>
-          <lineargradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(0, 119, 255, 0)"></stop>
-            <stop offset="50%" stop-color="rgba(255, 255, 255, 0.9)"></stop>
-            <stop offset="100%" stop-color="rgba(0, 119, 255, 0)"></stop>
-          </lineargradient>
-        </defs>
-        <circle cx="720" cy="550" r="400" fill="url(#glow)"></circle>
-        <g stroke="rgba(0, 119, 255, 0.15)" stroke-width="1.5">
-          <path d="M 720 300 L 720 700" stroke="rgba(0, 183, 255, 0.4)" filter="drop-shadow(0 0 8px rgba(0,183,255,0.8))"></path>
-          <path d="M 600 320 L 400 700"></path>
-          <path d="M 840 320 L 1040 700"></path>
-          <path d="M 480 350 L 80 700"></path>
-          <path d="M 960 350 L 1360 700"></path>
-          <path d="M 360 400 L -240 700"></path>
-          <path d="M 1080 400 L 1680 700"></path>
-        </g>
-        <g stroke-width="2" fill="none">
-          <path d="M -100 450 Q 360 380 720 420 T 1540 350" stroke="url(#lineGrad)" opacity="0.3"></path>
-          <path d="M -100 480 Q 360 420 720 450 T 1540 400" stroke="url(#lineGrad)" opacity="0.5"></path>
-          <path d="M -100 520 Q 360 470 720 490 T 1540 460" stroke="url(#lineGrad2)" opacity="0.9" filter="drop-shadow(0 0 10px rgba(0,183,255,0.8))"></path>
-          <path d="M -100 560 Q 360 520 720 540 T 1540 520" stroke="url(#lineGrad)" opacity="0.6"></path>
-          <path d="M -100 600 Q 360 580 720 590 T 1540 580" stroke="url(#lineGrad)" opacity="0.4"></path>
-          <path d="M -100 640 Q 360 630 720 640 T 1540 640" stroke="url(#lineGrad)" opacity="0.2"></path>
-        </g>
-      </svg>
-      <div class="particles" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 id="hero-title">Digital Systems, Engineered For <span>Growth</span></h1>
-          <div class="hero-actions">
-            <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact" class="btn btn-solid">Let's Build</a>
-            <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#services" class="btn">Explore Services</a>
-          </div>
-        </div>
-        <div class="hero-image">
-        <img src="/assets/hero-banner.png" alt="Bikasoft Digital Systems">
-        </div>
-      </div>
-      <div class="scroll-cue" aria-hidden="true">Scroll</div>
-    </section>
+<br>
 
-    <section class="section alt" id="capabilities" aria-labelledby="capabilities-title">
-      <div class="container">
-        <div class="section-head reveal is-visible" style="transition-delay: 0ms;">
-          <div class="eyebrow">Core Capabilities</div>
-          <h2 id="capabilities-title">Designing the <span>Future.</span></h2>
-          <p class="section-copy">Experience our foundational pillars that drive digital transformation through premium design, engineering, and intelligent growth strategies.</p>
-        </div>
+<a href="#" class="btn">Book Consultation</a>
 
-        <div class="showcase-stack">
-          <div class="showcase-row">
-            <article class="showcase-panel reveal is-visible" style="transition-delay: 70ms;">
-            
-              <div class="showcase-image">
-                <div class="glass-reflection"></div>
-                <img src="/assets/brand-architecture.png" alt="Brand Architecture">
-              </div>
-              <div class="showcase-content">
-                <h3>Brand Architecture</h3>
-                <div class="showcase-tags">
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    Brand Strategy
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                    Visual Identity
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                    UI/UX Design
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    Graphic Design
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                    Copywriting
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
-                    Motion Graphics
-                  </span>
-                </div>
-              </div>
-            </article>
-            <article class="showcase-panel reveal is-visible" style="transition-delay: 140ms;">
-              <div class="showcase-image">
-                <div class="glass-reflection"></div>
-                <img src="/assets/product-engineering.png" alt="Product Engineering">
-              </div>
-              <div class="showcase-content">
-                <h3>Product Engineering</h3>
-                <div class="showcase-tags">
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                    Web Development
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                    Mobile Apps
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                    Software Development
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
-                    Cloud Solutions
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-                    DevOps
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-                    QA Testing
-                  </span>
-                </div>
-              </div>
-            </article>
-          </div>
+</div>
 
-          <div class="showcase-row">
-            <article class="showcase-panel reveal is-visible" style="transition-delay: 210ms;">
-              <div class="showcase-image">
-                <div class="glass-reflection"></div>
-                <img src="/assets/growth-marketing.png" alt="Growth Marketing">
-              </div>
-              <div class="showcase-content">
-                <h3>Growth Marketing</h3>
-                <div class="showcase-tags">
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    SEO
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                    Performance Marketing
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    Content Marketing
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
-                    CRO
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                    Social Media
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    Email Marketing
-                  </span>
-                </div>
-              </div>
-            </article>
-            <article class="showcase-panel reveal is-visible" style="transition-delay: 280ms;">
-              <div class="showcase-image">
-                <div class="glass-reflection"></div>
-                <img src="/assets/intelligent-automation.png" alt="Intelligent Automation">
-              </div>
-              <div class="showcase-content">
-                <h3>Intelligent Automation</h3>
-                <div class="showcase-tags">
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    AI Chatbots
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
-                    AI Agents
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
-                    Workflow Automation
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    CRM Automation
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Data Analytics
-                  </span>
-                  <span class="showcase-tag">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                    Machine Learning
-                  </span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
 
-    <section class="section" id="services" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-head reveal" style="transition-delay: 0ms;">
-          <div class="eyebrow">Building Digital Excellence</div>
-          <h2 id="services-title">Code Today. <span>Impact Tomorrow.</span></h2>
-          <p class="section-copy">Bikasoft helps businesses move from static online presence to scalable digital systems. We design, build and grow software-driven experiences that feel premium, perform fast and convert attention into business outcomes.</p>
-        </div>
+</section>
 
-        <div class="service-strip reveal" aria-label="Core services" style="transition-delay: 70ms;">
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
-            <h3>Software<br>Development</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path><path d="M12 12v7"></path></svg>
-            <h3>Cloud<br>Solutions</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4"></path><path d="M12 18v4"></path><circle cx="12" cy="12" r="4"></circle><path d="M4.93 4.93l2.83 2.83"></path><path d="m16.24 16.24 2.83 2.83"></path></svg>
-            <h3>AI &amp;<br>Automation</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
-            <h3>Mobile<br>Apps</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#growth" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17 9 11l4 4 8-8"></path><path d="M14 7h7v7"></path></svg>
-            <h3>Digital<br>Growth</h3>
-          </a>
-        </div>
-      </div>
-    </section>
+<!-- ABOUT -->
 
-    <section class="industries-section" id="industries" aria-labelledby="industries-title">
-      <div class="industries-sticky-container">
-        <div class="industries-layout">
-          <div class="industries-left">
-            <div class="eyebrow">Industries</div>
-            <h2 id="industries-title">Industries We <span>Serve.</span></h2>
-            <p class="section-copy" style="margin-bottom: 32px;">We build scalable digital systems for modern businesses across global industries.</p>
-            <a href="#contact" class="btn btn-solid">Explore Solutions</a>
-          </div>
-          <div class="industries-right">
-            <div class="industries-grid">
-              <!-- Card 1 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                <span>Healthcare</span>
-              </div>
-              <!-- Card 2 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
-                <span>Finance &amp; Banking</span>
-              </div>
-              <!-- Card 3 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                <span>Real Estate</span>
-              </div>
-              <!-- Card 4 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                <span>E-Commerce</span>
-              </div>
-              <!-- Card 5 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                <span>Education</span>
-              </div>
-              <!-- Card 6 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M17 18h1"></path><path d="M12 18h1"></path><path d="M7 18h1"></path></svg>
-                <span>Manufacturing</span>
-              </div>
-              <!-- Card 7 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                <span>Logistics &amp; Supply Chain</span>
-              </div>
-              <!-- Card 8 -->
-              <div class="industry-card">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-                <span>Travel &amp; Hospitality</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section>
 
-    <section class="section alt" id="solutions" aria-labelledby="solutions-title">
-      <div class="container">
-        <div class="section-head reveal" style="transition-delay: 140ms;">
-          <div class="eyebrow">Smart Solutions. Real Impact.</div>
-          <h2 id="solutions-title">A futuristic stack for <span>serious businesses.</span></h2>
-          <p class="section-copy">The visual language is bold and future-facing, but the work is practical: websites that load fast, apps that reduce work, automation that saves hours and marketing systems that bring measurable growth.</p>
-        </div>
+<div class="container grid-2">
 
-        <div class="grid">
-          <article class="card reveal" style="transition-delay: 210ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 5h16v12H4z"></path><path d="M9 21h6"></path><path d="M12 17v4"></path></svg>
-            <h3>Website Development</h3>
-            <p>Premium business websites, landing pages, ecommerce stores and SEO-ready service pages for brands that need trust and conversion from the first click.</p>
-          </article>
-          <article class="card reveal" style="transition-delay: 280ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v16H4z"></path><path d="M9 9h6v6H9z"></path><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path></svg>
-            <h3>Custom Software</h3>
-            <p>Dashboards, internal tools, portals, CRM workflows and custom applications shaped around the way your business actually operates.</p>
-          </article>
-          <article class="card reveal" style="transition-delay: 0ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4"></path><path d="M12 18v4"></path><circle cx="12" cy="12" r="4"></circle><path d="M2 12h4"></path><path d="M18 12h4"></path></svg>
-            <h3>AI Automation</h3>
-            <p>AI chatbots, AI agents, lead qualification, support automation and workflow intelligence that help teams move faster with less manual effort.</p>
-          </article>
-          <article class="card reveal" style="transition-delay: 70ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-            <h3>Cloud Solutions</h3>
-            <p>Deployment, hosting, integrations, backups, scalability and cloud architecture for reliable digital products that are ready to grow.</p>
-          </article>
-          <article class="card reveal" style="transition-delay: 140ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
-            <h3>Mobile Apps</h3>
-            <p>Mobile-first product experiences, customer apps and operational tools built with sharp interfaces and practical user journeys.</p>
-          </article>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/healthcare.html" class="card reveal" style="transition-delay: 210ms;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20"></path><path d="M2 12h20"></path></svg>
-            <h3>Healthcare Solutions</h3>
-            <p>Healthcare websites, clinic SEO, patient appointment funnels and AI support systems for clinics, hospitals and medical brands.</p>
-          </a>
-        </div>
-      </div>
-    </section>
+<div>
 
-    <section class="section" id="growth" aria-labelledby="growth-title">
-      <div class="container split">
-        <div class="reveal" style="transition-delay: 280ms;">
-          <div class="eyebrow">Business Overview</div>
-          <h2 id="growth-title">Smart software. <span>Stronger business.</span></h2>
-          <p class="section-copy">Bikasoft combines design, engineering, AI and marketing into one connected digital growth system. We focus on the metrics that matter: better visibility, higher productivity, stronger customer experience and scalable operations.</p>
-          <div class="cta-actions">
-            <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact" class="btn btn-solid">Start a Project</a>
-            <a href="file:///C:/Users/harin_csnq67p/Downloads/healthcare.html" class="btn">Healthcare Page</a>
-          </div>
-        </div>
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200">
 
-        <aside class="dashboard-panel reveal" aria-label="Business growth dashboard" style="transition-delay: 0ms;">
-          <div class="stats-row">
-            <div class="stat"><strong>+98%</strong><span>Sales</span></div>
-            <div class="stat"><strong>+156%</strong><span>Customers</span></div>
-            <div class="stat"><strong>+112%</strong><span>Efficiency</span></div>
-          </div>
-          <div class="chart" aria-hidden="true">
-            <i style="height:34%"></i>
-            <i style="height:48%"></i>
-            <i style="height:42%"></i>
-            <i style="height:62%"></i>
-            <i style="height:58%"></i>
-            <i style="height:76%"></i>
-            <i style="height:84%"></i>
-            <i style="height:96%"></i>
-          </div>
-        </aside>
-      </div>
-    </section>
+</div>
 
-    <section class="section alt" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="cta-panel reveal" style="transition-delay: 70ms;">
-          <div class="eyebrow">Let’s Build Tomorrow</div>
-          <h2 id="contact-title">Ready to build a <span>future-ready</span> digital brand?</h2>
-          <p class="section-copy">Talk to Bikasoft about your website, software, AI automation, mobile app or marketing project. We will map the fastest path from idea to launch and growth.</p>
-          <div class="cta-actions">
-            <a href="tel:+919878169696" class="btn btn-solid">Book Free Consultation</a>
-            <a href="mailto:info@bikasoft.com?subject=Project%20Quote%20Request" class="btn">Request Quote</a>
-            <a href="https://www.instagram.com/bika.soft" class="btn" target="_blank" rel="noopener">Instagram</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html" class="brand">
-            <img src="/assets/logo.png" alt="Bikasoft Logo">
-          </a>
-          <p style="margin-top:14px">Powering business digitally with software development, cloud solutions, AI automation, mobile apps and digital growth.</p>
-        </div>
-        <div>
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html">Home</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#services">Services</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Solutions</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Services</h3>
-          <ul>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Software Development</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Cloud Solutions</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">AI &amp; Automation</a></li>
-            <li><a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions">Mobile Apps</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul>
-            <li>Bikasoft</li>
-            <li>Chennai, India</li>
-            <li><a href="tel:+919878169696">+91 9878169696</a></li>
-            <li><a href="mailto:info@bikasoft.com">info@bikasoft.com</a></li>
-            <li><a href="https://www.instagram.com/bika.soft" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">© 2026 Bikasoft. Build the future digitally.</div>
-    </div>
-  </footer>
+<h2 class="section-title">About Our Studio</h2>
 
-  <script>
-    const nav = document.getElementById('siteNav');
-    const menuBtn = document.getElementById('menuBtn');
-    const mobilePanel = document.getElementById('mobilePanel');
+<p>
+We create timeless architecture through thoughtful planning,
+innovative design and meticulous execution.
+Our mission is to transform ideas into inspiring spaces.
+</p>
 
-    const themeToggle = document.getElementById('themeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    if (currentTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+</div>
 
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const newTheme = isLight ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-    });
+</div>
 
-    const updateNav = () => {
-      nav.classList.toggle('is-scrolled', window.scrollY > 10);
-    };
+</section>
 
-    updateNav();
-    window.addEventListener('scroll', updateNav, { passive: true });
+<!-- SERVICES -->
 
-    menuBtn.addEventListener('click', () => {
-      const open = mobilePanel.classList.toggle('is-open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
+<section style="background:#f8f8f8">
 
-    mobilePanel.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobilePanel.classList.remove('is-open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.setAttribute('aria-label', 'Open menu');
-      });
-    });
+<div class="container">
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+<h2 class="section-title">Services</h2>
 
-    document.querySelectorAll('.reveal').forEach((el, index) => {
-      el.style.transitionDelay = `${Math.min(index % 5, 4) * 70}ms`;
-      revealObserver.observe(el);
-    });
+<div class="services">
 
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (!target) return;
-        event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+<div class="card">
+<h3>Architecture Design</h3>
+</div>
 
-    const indSection = document.getElementById('industries');
-    const indCards = document.querySelectorAll('.industry-card');
+<div class="card">
+<h3>Interior Design</h3>
+</div>
 
-    const updateIndustriesScroll = () => {
-      if (!indSection || window.innerWidth <= 980) return;
-      
-      const rect = indSection.getBoundingClientRect();
-      const scrollStart = rect.top;
-      const totalScroll = rect.height - window.innerHeight;
-      
-      let progress = -scrollStart / totalScroll;
-      if (progress < 0) progress = 0;
-      if (progress > 1) progress = 1;
-      
-      const cardsToReveal = 1 + Math.floor(progress * 7.99);
-      
-      indCards.forEach((card, index) => {
-        if (index < cardsToReveal) {
-          card.classList.add('is-revealed');
-        } else {
-          card.classList.remove('is-revealed');
-        }
-      });
-    };
+<div class="card">
+<h3>3D Visualization</h3>
+</div>
 
-    if (indSection) {
-      updateIndustriesScroll();
-      window.addEventListener('scroll', updateIndustriesScroll, { passive: true });
-      window.addEventListener('resize', updateIndustriesScroll);
+<div class="card">
+<h3>Project Management</h3>
+</div>
 
-      indCards.forEach((card, index) => {
-        card.style.transitionDelay = window.innerWidth <= 980 ? `${(index % 4) * 70}ms` : '0ms';
-        revealObserver.observe(card);
-      });
-      
-      window.addEventListener('resize', () => {
-        indCards.forEach((card, index) => {
-          card.style.transitionDelay = window.innerWidth <= 980 ? `${(index % 4) * 70}ms` : '0ms';
-        });
-      });
-    }
-  </script>
+<div class="card">
+<h3>Renovation</h3>
+</div>
 
-</body></html>
+<div class="card">
+<h3>Landscape Design</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0f">
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROCESS -->
+
+<section style="background:#f8f8f8">
+
+<div class="container">
+
+<h2 class="section-title">Our Process</h2>
+
+<div class="process">
+
+<div class="card">Discovery</div>
+<div class="card">Concept</div>
+<div class="card">Visualization</div>
+<div class="card">Execution</div>
+<div class="card">Handover</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INDUSTRIES -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">Industries We Serve</h2>
+
+<div class="industries">
+
+<div class="industry">Residential</div>
+<div class="industry">Commercial</div>
+<div class="industry">Hospitality</div>
+<div class="industry">Healthcare</div>
+<div class="industry">Education</div>
+<div class="industry">Retail</div>
+<div class="industry">Corporate</div>
+<div class="industry">Luxury Villas</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY US -->
+
+<section style="background:#f8f8f8">
+
+<div class="container">
+
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="why">
+
+<div class="card">Bespoke Designs</div>
+<div class="card">Sustainable Planning</div>
+<div class="card">End-to-End Delivery</div>
+<div class="card">Experienced Team</div>
+<div class="card">Transparent Process</div>
+<div class="card">Quality Execution</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">Client Testimonials</h2>
+
+<div class="testimonials">
+
+<div class="card">
+"Exceptional design and execution."
+</div>
+
+<div class="card">
+"Professional team with great vision."
+</div>
+
+<div class="card">
+"They transformed our dream into reality."
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2 class="section-title">
+Let's Build Something Extraordinary
+</h2>
+
+<a href="#" class="btn">
+Schedule Consultation
+</a>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section>
+
+<div class="container contact">
+
+<div>
+
+<h2 class="section-title">Contact Us</h2>
+
+<p>
+First Floor, D-107, Phase 7,<br>
+Industrial Area, Sector 73,<br>
+Sahibzada Ajit Singh Nagar,<br>
+Punjab 160071
+</p>
+
+<br>
+
+<p>
+Phone: 076963 21391
+</p>
+
+<br>
+
+<p>
+Mon – Sat : 9:30 AM – 7:00 PM<br>
+Sunday : By Appointment Only
+</p>
+
+</div>
+
+<form>
+
+<input placeholder="Your Name">
+<input placeholder="Phone Number">
+<input placeholder="Email Address">
+<input placeholder="Project Type">
+
+<textarea rows="6" placeholder="Tell us about your project"></textarea>
+
+<button class="btn">
+Send Inquiry
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Architecture Studio. All Rights Reserved.
+
+</footer>
+
+</body>
+</html>
