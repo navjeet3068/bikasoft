@@ -743,6 +743,14 @@
       filter: drop-shadow(0 0 16px rgba(0,119,255,.8));
     }
 
+    .service-mini strong {
+      display: block;
+      color: var(--blue-2);
+      font-size: 38px;
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(0,119,255,.8);
+    }
+
     .service-mini h3 {
       font-size: 16px;
       line-height: 1.25;
@@ -1204,21 +1212,21 @@
         font-size: 42px;
       }
 
-      .service-strip,
+      .stats-bento {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-card.large {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 320px;
+      }
+
       .grid,
       .split,
       .stats-row,
       .footer-grid {
         grid-template-columns: 1fr;
-      }
-
-      .service-mini {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .service-mini:last-child {
-        border-bottom: 0;
       }
 
       .cta-actions,
@@ -1247,6 +1255,17 @@
       border-top: 1px solid var(--line);
     }
 
+    .industries-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('/assets/industries-bg.png');
+      background-repeat: repeat;
+      opacity: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .industries-sticky-container {
       position: sticky;
       top: 0;
@@ -1254,6 +1273,7 @@
       display: flex;
       align-items: center;
       overflow: hidden;
+      z-index: 1;
     }
 
     .industries-layout {
@@ -1662,38 +1682,256 @@
       </div>
     </section>
 
-    <section class="section" id="services" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-head reveal" style="transition-delay: 0ms;">
-          <div class="eyebrow">Building Digital Excellence</div>
-          <h2 id="services-title">Code Today. <span>Impact Tomorrow.</span></h2>
-          <p class="section-copy">Bikasoft helps businesses move from static online presence to scalable digital systems. We design, build and grow software-driven experiences that feel premium, perform fast and convert attention into business outcomes.</p>
-        </div>
+    <style>
+      .stats-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 0;
+      }
+      
+      .stats-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
 
-        <div class="service-strip reveal" aria-label="Core services" style="transition-delay: 70ms;">
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
-            <h3>Software<br>Development</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path><path d="M12 12v7"></path></svg>
-            <h3>Cloud<br>Solutions</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v4"></path><path d="M12 18v4"></path><circle cx="12" cy="12" r="4"></circle><path d="M4.93 4.93l2.83 2.83"></path><path d="m16.24 16.24 2.83 2.83"></path></svg>
-            <h3>AI &amp;<br>Automation</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#solutions" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2"></path></svg>
-            <h3>Mobile<br>Apps</h3>
-          </a>
-          <a href="file:///C:/Users/harin_csnq67p/Downloads/index.html#growth" class="service-mini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17 9 11l4 4 8-8"></path><path d="M14 7h7v7"></path></svg>
-            <h3>Digital<br>Growth</h3>
-          </a>
+      .stats-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .stats-heading {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        color: #fff;
+      }
+
+      .stats-heading span {
+        color: #00b7ff;
+      }
+
+      .stats-image-wrapper {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      }
+
+      .stats-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        aspect-ratio: 16/9;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2.5rem 2rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        text-align: left;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(0, 183, 255, 0.3);
+      }
+
+      .stat-icon {
+        width: 48px;
+        height: 48px;
+        color: #00b7ff;
+        margin-bottom: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        font-family: monospace;
+        background: linear-gradient(90deg, #fff, #aaa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+      
+      .stat-plus {
+        font-size: 2.5rem;
+        color: #00b7ff;
+        font-weight: 700;
+        vertical-align: super;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 500;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 992px) {
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+        .stats-section {
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* FAQ SECTION */
+      .faq-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 880px;
+        margin-top: 48px;
+      }
+      .faq-item {
+        border: 1px solid var(--line-soft);
+        border-radius: 16px;
+        background: var(--bg-surface);
+        overflow: hidden;
+        transition: border-color .3s ease, background .3s ease;
+      }
+      .faq-item:hover,
+      .faq-item[open] {
+        border-color: rgba(0, 119, 255, 0.4);
+        background: linear-gradient(145deg, var(--card-bg-1), transparent);
+      }
+      .faq-item summary {
+        padding: 24px;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--text-main);
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item summary::after {
+        content: "+";
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--blue-2);
+        transition: transform .3s ease;
+      }
+      .faq-item[open] summary::after {
+        transform: rotate(45deg);
+      }
+      .faq-content {
+        padding: 0 24px 24px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    </style>
+
+    <section class="stats-section" id="services" aria-label="Company Statistics">
+      <div class="stats-container">
+        <div class="stats-content reveal">
+          <div>
+            <div class="eyebrow">By The Numbers</div>
+            <h2 class="stats-heading">Company <span>Statistics</span></h2>
+            <p class="section-copy" style="margin-bottom: 0;">Our impact across the digital landscape, reflecting our commitment to engineering growth and delivering excellence at scale.</p>
+          </div>
+          <div class="stats-image-wrapper">
+            <img src="https://placehold.co/800x450/1a1a1a/00b7ff?text=Data+Visualization" alt="Company Growth Chart">
+          </div>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-box reveal" style="transition-delay: 100ms;">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div><span class="stat-number stat-counter" data-target="10">0</span><span class="stat-plus">+</span></div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-box reveal" style="transition-delay: 200ms;">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div><span class="stat-number stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat-box reveal" style="transition-delay: 300ms;">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div><span class="stat-number stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-box reveal" style="transition-delay: 400ms;">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <div><span class="stat-number stat-counter" data-target="5">0</span><span class="stat-plus">★</span></div>
+            <div class="stat-label">Google Rating</div>
+          </div>
         </div>
       </div>
     </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.stat-counter');
+        const speed = 200;
+
+        const animateCounters = () => {
+          counters.forEach(counter => {
+            const updateCount = () => {
+              const target = +counter.getAttribute('data-target');
+              const count = +counter.innerText;
+              const inc = target / speed;
+
+              if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 10);
+              } else {
+                counter.innerText = target;
+              }
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+              if (entries[0].isIntersecting) {
+                updateCount();
+                observer.disconnect();
+              }
+            });
+            observer.observe(counter);
+          });
+        };
+        
+        animateCounters();
+      });
+    </script>
 
     <section class="industries-section" id="industries" aria-labelledby="industries-title">
       <div class="industries-sticky-container">
@@ -1748,6 +1986,100 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ecosystem-section" id="ecosystem" aria-labelledby="ecosystem-title">
+      <div class="ecosystem-sticky">
+        <div class="ecosystem-header">
+          <div class="eyebrow">Technology Ecosystem</div>
+          <h2 id="ecosystem-title">Transforming ideas into <span>scalable digital solutions.</span></h2>
+        </div>
+
+        <div class="laptop-container">
+          <div class="laptop-wrapper">
+            <div class="laptop-lid" id="laptopLid">
+              <div class="lid-back">
+                <div class="lid-logo"></div>
+              </div>
+              <div class="lid-front">
+                <div class="laptop-screen">
+                  <div class="screen-content">
+                    <div class="stage active" id="stage-0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                      <h3>DISCOVER</h3>
+                      <ul>
+                        <li>User Research</li>
+                        <li>Market Analysis</li>
+                        <li>Requirements Gathering</li>
+                      </ul>
+                    </div>
+                    <div class="stage" id="stage-1">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                      <h3>STRATEGIZE</h3>
+                      <ul>
+                        <li>Business Goals</li>
+                        <li>Roadmaps</li>
+                        <li>Solution Planning</li>
+                      </ul>
+                    </div>
+                    <div class="stage" id="stage-2">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                      <h3>DESIGN</h3>
+                      <ul>
+                        <li>Wireframes</li>
+                        <li>UI Design</li>
+                        <li>Interactive Prototypes</li>
+                      </ul>
+                    </div>
+                    <div class="stage" id="stage-3">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                      <h3>DEVELOP</h3>
+                      <ul>
+                        <li>Frontend Development</li>
+                        <li>Backend Engineering</li>
+                        <li>API Integration</li>
+                      </ul>
+                    </div>
+                    <div class="stage" id="stage-4">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                      <h3>LAUNCH</h3>
+                      <ul>
+                        <li>Quality Assurance</li>
+                        <li>Deployment</li>
+                        <li>Go Live</li>
+                      </ul>
+                    </div>
+                    <div class="stage" id="stage-5">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                      <h3>OPTIMIZE</h3>
+                      <ul>
+                        <li>Performance Monitoring</li>
+                        <li>Analytics</li>
+                        <li>Continuous Growth</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base">
+              <div class="keyboard"></div>
+              <div class="trackpad"></div>
+              <div class="base-front"></div>
+              <div class="laptop-lip"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="eco-progress">
+          <div class="eco-step active">Discover</div>
+          <div class="eco-step">Strategize</div>
+          <div class="eco-step">Design</div>
+          <div class="eco-step">Develop</div>
+          <div class="eco-step">Launch</div>
+          <div class="eco-step">Optimize</div>
         </div>
       </div>
     </section>
@@ -1824,6 +2156,49 @@
             <i style="height:96%"></i>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Got Questions?</div>
+          <h2 id="faq-title">Frequently Asked <span>Questions.</span></h2>
+          <p class="section-copy">Everything you need to know about our services, process, and how we can help your business grow.</p>
+        </div>
+
+        <div class="faq-grid reveal">
+          <details class="faq-item">
+            <summary>What services do you offer?</summary>
+            <div class="faq-content">
+              <p>We provide a comprehensive range of digital services including premium Website Development, Custom Software, AI Automation, Cloud Solutions, Mobile Apps, and Growth Marketing systems.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you build custom software or use templates?</summary>
+            <div class="faq-content">
+              <p>Everything we build is completely custom and tailored to your specific business requirements. We design and engineer scalable solutions from the ground up, ensuring they align perfectly with your operational needs rather than forcing a template to fit.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How does the AI automation process work?</summary>
+            <div class="faq-content">
+              <p>We start by analyzing your current workflows to identify repetitive tasks and bottlenecks. Then, we implement intelligent systems like AI chatbots, lead qualification algorithms, or automated CRMs to help your team move faster with less manual effort.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you offer ongoing support after launch?</summary>
+            <div class="faq-content">
+              <p>Yes. We view product launch as the beginning of our partnership. We offer ongoing maintenance, scaling, cloud architecture support, and growth marketing to ensure your digital systems continue to perform at their best as your business grows.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>What industries do you work with?</summary>
+            <div class="faq-content">
+              <p>While our methodology applies across verticals, we have extensive experience building scalable digital systems for Healthcare, Finance &amp; Banking, Real Estate, E-Commerce, Education, Manufacturing, Logistics, and Hospitality businesses.</p>
+            </div>
+          </details>
+        </div>
       </div>
     </section>
 
@@ -1959,7 +2334,7 @@
       if (progress < 0) progress = 0;
       if (progress > 1) progress = 1;
       
-      const cardsToReveal = 1 + Math.floor(progress * 7.99);
+      const cardsToReveal = Math.round(progress * indCards.length);
       
       indCards.forEach((card, index) => {
         if (index < cardsToReveal) {
