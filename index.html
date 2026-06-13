@@ -1255,17 +1255,6 @@
       border-top: 1px solid var(--line);
     }
 
-    .industries-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('assets/industries-bg.png');
-      background-repeat: repeat;
-      opacity: 5%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .industries-sticky-container {
       position: sticky;
       top: 0;
@@ -1683,128 +1672,97 @@
     </section>
 
     <style>
-      .stats-section {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.9)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      .stats-panel {
         position: relative;
-        overflow: hidden;
-        padding: 6rem 0;
-      }
-      
-      .stats-container {
+        border-radius: 24px;
+        padding: 56px;
+        background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
+        border: 1px solid var(--line);
+        box-shadow: inset 0 0 34px rgba(0,119,255,.07), 0 24px 64px var(--shadow-base);
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 64px;
         align-items: center;
-        width: 100%;
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 0 2rem;
+        overflow: hidden;
+      }
+
+      .stats-panel::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0;
+        width: 50%; height: 100%;
+        background: radial-gradient(circle at 80% 50%, rgba(0,183,255,.15), transparent 70%);
+        pointer-events: none;
+      }
+
+      .stats-header {
         position: relative;
         z-index: 2;
       }
 
-      .stats-content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .stats-heading {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        line-height: 1.1;
-        margin-bottom: 1rem;
-        color: #fff;
-      }
-
-      .stats-heading span {
-        color: #00b7ff;
-      }
-
-      .stats-image-wrapper {
-        border-radius: 1rem;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      }
-
-      .stats-image-wrapper img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
-        aspect-ratio: 16/9;
-      }
-
-      .stats-grid {
+      .stats-grid-new {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 24px;
+        position: relative;
+        z-index: 2;
       }
 
-      .stat-box {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 2.5rem 2rem;
-        border-radius: 1rem;
-        backdrop-filter: blur(10px);
-        text-align: left;
-        transition: transform 0.3s ease, background 0.3s ease;
+      .stat-item-new {
+        padding: 32px;
+        border-radius: 20px;
+        background: var(--bg-surface);
+        border: 1px solid var(--line-soft);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .stat-box:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(0, 183, 255, 0.3);
+      .stat-item-new:hover {
+        transform: translateY(-6px);
+        border-color: rgba(0, 183, 255, 0.4);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
       }
 
-      .stat-icon {
-        width: 48px;
-        height: 48px;
-        color: #00b7ff;
-        margin-bottom: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 3.5rem;
-        font-weight: 700;
+      .stat-number-new {
+        font-size: 54px;
+        font-weight: 900;
         line-height: 1;
-        margin-bottom: 0.5rem;
-        font-family: monospace;
-        background: linear-gradient(90deg, #fff, #aaa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: inline-block;
+        margin-bottom: 8px;
+        color: var(--text-main);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        letter-spacing: -0.02em;
+      }
+
+      .stat-number-new span.stat-plus {
+        color: var(--blue-2);
+        font-size: 40px;
       }
       
-      .stat-plus {
-        font-size: 2.5rem;
-        color: #00b7ff;
+      .stat-label-new {
+        font-size: 14px;
+        color: var(--muted);
         font-weight: 700;
-        vertical-align: super;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
-      .stat-label {
-        font-size: 1.1rem;
-        color: rgba(255, 255, 255, 0.7);
-        font-weight: 500;
-        margin-top: 0.5rem;
-      }
-
-      @media (max-width: 992px) {
-        .stats-container {
+      @media (max-width: 980px) {
+        .stats-panel {
           grid-template-columns: 1fr;
-        }
-        .stats-section {
-          min-height: auto;
+          padding: 40px 32px;
+          gap: 40px;
         }
       }
 
-      @media (max-width: 576px) {
-        .stats-grid {
+      @media (max-width: 640px) {
+        .stats-grid-new {
           grid-template-columns: 1fr;
+        }
+        .stat-number-new {
+          font-size: 46px;
         }
       }
 
@@ -1861,39 +1819,31 @@
       }
     </style>
 
-    <section class="stats-section" id="services" aria-label="Company Statistics">
-      <div class="stats-container">
-        <div class="stats-content reveal">
-          <div>
+    <section class="section" id="statistics" aria-labelledby="stats-title">
+      <div class="container">
+        <div class="stats-panel reveal">
+          <div class="stats-header">
             <div class="eyebrow">By The Numbers</div>
-            <h2 class="stats-heading">Company <span>Statistics</span></h2>
-            <p class="section-copy" style="margin-bottom: 0;">Our impact across the digital landscape, reflecting our commitment to engineering growth and delivering excellence at scale.</p>
+            <h2 id="stats-title">Company <span>Statistics.</span></h2>
+            <p class="section-copy">Our impact across the digital landscape, reflecting our commitment to engineering growth and delivering excellence at scale.</p>
           </div>
-          <div class="stats-image-wrapper">
-            <img src="https://placehold.co/800x450/1a1a1a/00b7ff?text=Data+Visualization" alt="Company Growth Chart">
-          </div>
-        </div>
-        
-        <div class="stats-grid">
-          <div class="stat-box reveal" style="transition-delay: 100ms;">
-            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <div><span class="stat-number stat-counter" data-target="10">0</span><span class="stat-plus">+</span></div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="stat-box reveal" style="transition-delay: 200ms;">
-            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            <div><span class="stat-number stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
-            <div class="stat-label">Projects Delivered</div>
-          </div>
-          <div class="stat-box reveal" style="transition-delay: 300ms;">
-            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            <div><span class="stat-number stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
-            <div class="stat-label">Happy Clients</div>
-          </div>
-          <div class="stat-box reveal" style="transition-delay: 400ms;">
-            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <div><span class="stat-number stat-counter" data-target="5">0</span><span class="stat-plus">★</span></div>
-            <div class="stat-label">Google Rating</div>
+          <div class="stats-grid-new">
+            <div class="stat-item-new reveal" style="transition-delay: 100ms;">
+              <div class="stat-number-new"><span class="stat-counter" data-target="10">0</span><span class="stat-plus">+</span></div>
+              <div class="stat-label-new">Years Experience</div>
+            </div>
+            <div class="stat-item-new reveal" style="transition-delay: 200ms;">
+              <div class="stat-number-new"><span class="stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
+              <div class="stat-label-new">Projects Delivered</div>
+            </div>
+            <div class="stat-item-new reveal" style="transition-delay: 300ms;">
+              <div class="stat-number-new"><span class="stat-counter" data-target="500">0</span><span class="stat-plus">+</span></div>
+              <div class="stat-label-new">Happy Clients</div>
+            </div>
+            <div class="stat-item-new reveal" style="transition-delay: 400ms;">
+              <div class="stat-number-new"><span class="stat-counter" data-target="5">0</span><span class="stat-plus">★</span></div>
+              <div class="stat-label-new">Google Rating</div>
+            </div>
           </div>
         </div>
       </div>
