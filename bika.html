@@ -1,0 +1,171 @@
+<section class="bika-universe">
+
+    <div class="bika-main">
+
+        <div class="speech-bubble">
+            👋 Hi, I'm Bika
+        </div>
+
+        <img src="images/bika.webp" alt="Bika" class="main-bika">
+
+        <h2>Meet Bika</h2>
+
+        <p>
+            The friendly face behind Bikasoft.
+            My family and I help businesses design,
+            develop and grow digital products.
+        </p>
+
+    </div>
+
+    <div class="bika-family">
+
+        <div class="family-member">
+            <img src="images/pixika.webp" alt="Pixika">
+            <h3>Pixika</h3>
+            <span>UI/UX Designer</span>
+        </div>
+
+        <div class="family-member">
+            <img src="images/codika.webp" alt="Codika">
+            <h3>Codika</h3>
+            <span>Web Developer</span>
+        </div>
+
+        <div class="family-member">
+            <img src="images/aika.webp" alt="Aika">
+            <h3>Aika</h3>
+            <span>AI Specialist</span>
+        </div>
+
+        <div class="family-member">
+            <img src="images/boostika.webp" alt="Boostika">
+            <h3>Boostika</h3>
+            <span>Growth Expert</span>
+        </div>
+
+    </div>
+
+</section>
+.bika-universe{
+    padding:120px 5%;
+    background:#07111f;
+    text-align:center;
+    overflow:hidden;
+}
+
+.bika-main{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.speech-bubble{
+    display:inline-block;
+    background:#ffffff;
+    color:#111;
+    padding:18px 28px;
+    border-radius:20px;
+    margin-bottom:30px;
+    font-weight:600;
+    position:relative;
+}
+
+.speech-bubble:after{
+    content:"";
+    position:absolute;
+    bottom:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    border-left:12px solid transparent;
+    border-right:12px solid transparent;
+    border-top:12px solid white;
+}
+
+.main-bika{
+    width:420px;
+    max-width:90%;
+    animation:float 4s ease-in-out infinite;
+    filter:drop-shadow(0 25px 40px rgba(0,0,0,.35));
+}
+
+.bika-main h2{
+    color:#fff;
+    font-size:clamp(3rem,6vw,5rem);
+    margin:20px 0;
+}
+
+.bika-main p{
+    max-width:650px;
+    margin:auto;
+    color:#9fb3c8;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+.bika-family{
+    margin-top:80px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+.family-member{
+    width:220px;
+    padding:25px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    backdrop-filter:blur(10px);
+    transition:.4s;
+}
+
+.family-member:hover{
+    transform:translateY(-12px);
+    border-color:#4f9cff;
+}
+
+.family-member img{
+    width:140px;
+    animation:float 5s ease-in-out infinite;
+}
+
+.family-member h3{
+    color:white;
+    margin:15px 0 5px;
+}
+
+.family-member span{
+    color:#6fb3ff;
+    font-size:.95rem;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .main-bika{
+        width:280px;
+    }
+
+    .family-member{
+        width:100%;
+        max-width:300px;
+    }
+
+}
