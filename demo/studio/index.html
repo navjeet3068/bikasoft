@@ -17,11 +17,16 @@
         :root {
             --bg-dark: #050505;
             --bg-light: #0d0d0d;
+            --bg-white: #ffffff;
+            --bg-gray: #f4f4f5;
             --accent: #ffffff;
             --accent-dim: #999999;
             --text-light: #ffffff;
+            --text-dark: #050505;
             --text-muted: #888888;
+            --text-muted-light: #555555;
             --border-color: rgba(255, 255, 255, 0.1);
+            --border-color-light: rgba(0, 0, 0, 0.1);
             --font-head: 'Space Grotesk', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
         }
@@ -48,8 +53,7 @@
         a { text-decoration: none; color: inherit; }
         
         .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 40px; }
-        @media (max-width: 768px) { .container { padding: 0 20px; } }
-
+        
         .section { padding: 160px 0; position: relative; z-index: 1; }
         .section-title { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 24px; font-weight: 500; }
         .section-subtitle { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-muted); max-width: 700px; margin-bottom: 60px; line-height: 1.5; font-weight: 400; }
@@ -65,6 +69,33 @@
         .btn-secondary { background: rgba(255, 255, 255, 0.05); border-color: var(--border-color); color: var(--text-light); backdrop-filter: blur(10px); }
         .btn-secondary:hover { background: var(--text-light); color: var(--bg-dark); border-color: var(--text-light); }
 
+        /* Light Section Styling */
+        .section-light {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+        }
+        .section-light .section-subtitle { color: var(--text-muted-light); }
+        .section-light .btn { background: var(--text-dark); color: var(--bg-white); border-color: var(--text-dark); }
+        .section-light .btn:hover { background: transparent; color: var(--text-dark); }
+        .section-light .btn-secondary { background: transparent; color: var(--text-dark); border-color: var(--border-color-light); }
+        .section-light .btn-secondary:hover { background: var(--text-dark); color: var(--bg-white); border-color: var(--text-dark); }
+        
+        .section-light .stat-item { background: var(--bg-gray); border-color: var(--border-color-light); }
+        .section-light .process-item { border-bottom-color: var(--border-color-light); }
+        .section-light .process-list { border-top-color: var(--border-color-light); }
+        .section-light .process-num { color: var(--text-muted-light); }
+        .section-light .process-item p { color: var(--text-muted-light); }
+        .section-light .testimonial-card { background: var(--bg-gray); border-color: var(--border-color-light); }
+        .section-light .testimonial-quote { color: var(--text-dark); }
+        .section-light .author-info p { color: var(--text-muted-light); }
+        .section-light .contact-container { background: var(--bg-white); border-color: var(--border-color-light); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .section-light .contact-container p { color: var(--text-muted-light); }
+        .section-light .contact-details .icon { border-color: var(--border-color-light); background: var(--bg-gray); color: var(--text-dark); }
+        .section-light .contact-details span { color: var(--text-muted-light); }
+        .section-light .filters button { color: var(--text-muted-light); border-color: var(--border-color-light); }
+        .section-light .filters button.active, .section-light .filters button:hover { background: var(--text-dark); color: var(--bg-white); border-color: var(--text-dark); }
+        .section-light .project-info p { color: var(--text-muted-light); }
+
         /* Header */
         header {
             position: fixed; top: 0; left: 0; width: 100%; padding: 24px 0;
@@ -77,7 +108,6 @@
 
         .header-actions { display: flex; gap: 16px; align-items: center; z-index: 101; position: relative; }
         .header-actions .btn { padding: 12px 24px; font-size: 0.9rem; border-color: var(--border-color); }
-        @media (max-width: 768px) { .header-actions .btn { display: none; } }
 
         .menu-toggle {
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -124,7 +154,6 @@
         
         .hero .container { position: relative; z-index: 1; padding-top: 80px; width: 100%; }
         .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
-        @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; gap: 60px; } }
 
         .hero h1 { font-size: clamp(3.5rem, 7vw, 6.5rem); margin-bottom: 24px; line-height: 1.05; }
         .hero h1 span { color: var(--accent-dim); font-style: italic; font-weight: 300; }
@@ -147,12 +176,11 @@
         .contact-form button { width: 100%; margin-top: 10px; }
 
         /* Services */
-        #services { background: var(--bg-dark); }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
         .service-card {
             position: relative; height: 480px; border-radius: 24px; overflow: hidden;
             display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 40px; text-decoration: none; border: 1px solid var(--border-color);
+            padding: 40px; text-decoration: none; border: 1px solid var(--border-color-light);
         }
         .service-card-bg-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
         .service-card-bg {
@@ -169,14 +197,12 @@
         .service-card:hover .service-card-content { transform: translateY(0); }
         .service-icon { margin-bottom: 24px; color: var(--text-light); }
         .service-icon svg { width: 40px; height: 40px; stroke-width: 1.5; }
-        .service-card h3 { font-size: 2rem; margin-bottom: 16px; font-weight: 500; }
-        .service-card p { color: var(--text-muted); opacity: 0; transition: opacity 0.4s ease; font-size: 1rem; }
+        .service-card h3 { color: var(--text-light); font-size: 2rem; margin-bottom: 16px; font-weight: 500; }
+        .service-card p { color: rgba(255,255,255,0.8); opacity: 0; transition: opacity 0.4s ease; font-size: 1rem; }
         .service-card:hover p { opacity: 1; }
 
         /* About */
-        #about { background: var(--bg-light); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        @media (max-width: 992px) { .about-grid { grid-template-columns: 1fr; } }
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .stat-item {
             background: rgba(255,255,255,0.02); border: 1px solid var(--border-color);
@@ -186,7 +212,6 @@
         .stat-label { color: var(--text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem; }
 
         /* Projects */
-        #projects { background: var(--bg-dark); }
         .filters { display: flex; gap: 12px; margin-bottom: 60px; flex-wrap: wrap; }
         .filters button {
             background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);
@@ -197,7 +222,6 @@
         .filters button.active { background: var(--text-light); color: var(--bg-dark); border-color: var(--text-light); }
 
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 40px; }
-        @media (max-width: 768px) { .projects-grid { grid-template-columns: 1fr; gap: 24px; } }
         
         .project-card { border-radius: 24px; overflow: hidden; cursor: pointer; position: relative; display: block; }
         .project-img-wrapper { position: relative; overflow: hidden; border-radius: 24px; aspect-ratio: 4/3; }
@@ -208,20 +232,19 @@
         .project-info h3 { font-size: 1.5rem; margin-bottom: 8px; }
         .project-info p { color: var(--text-muted); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
+        .load-more-wrapper { text-align: center; margin-top: 60px; }
+
         /* Process */
-        #process { background: var(--bg-light); }
         .process-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border-color); }
         .process-item {
             display: grid; grid-template-columns: 100px 1fr 1fr; gap: 40px;
             padding: 60px 0; border-bottom: 1px solid var(--border-color); align-items: center;
         }
-        @media (max-width: 768px) { .process-item { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; } }
         .process-num { font-family: var(--font-head); font-size: 1.5rem; color: var(--text-muted); }
         .process-item h4 { font-size: 2.5rem; }
         .process-item p { color: var(--text-muted); font-size: 1.1rem; }
 
         /* Testimonials */
-        #testimonials { background: var(--bg-dark); }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
         .testimonial-card {
             background: var(--bg-light); padding: 48px; border-radius: 24px;
@@ -235,12 +258,10 @@
         .quote-icon { position: absolute; top: 40px; right: 40px; font-size: 4rem; font-family: serif; color: var(--border-color); line-height: 1; }
 
         /* Contact */
-        #contact { background: var(--bg-dark); }
         .contact-container {
             background: var(--bg-light); border: 1px solid var(--border-color);
             border-radius: 32px; padding: 80px; text-align: center; max-width: 1000px; margin: 0 auto;
         }
-        @media (max-width: 768px) { .contact-container { padding: 40px 20px; } }
         .contact-container h3 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 24px; }
         .contact-container p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 60px; }
         .contact-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left; }
@@ -254,8 +275,6 @@
         /* Footer */
         footer { padding: 80px 0 40px 0; background: var(--bg-dark); border-top: 1px solid var(--border-color); }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
-        @media (max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
-        @media (max-width: 576px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-about p { color: var(--text-muted); margin-top: 24px; max-width: 320px; }
         .social-links { display: flex; gap: 16px; margin-top: 32px; }
         .social-links a {
@@ -271,6 +290,36 @@
         .footer-bottom { text-align: center; color: var(--text-muted); font-size: 0.9rem; padding-top: 40px; border-top: 1px solid var(--border-color); }
 
         .reveal-up { opacity: 0; transform: translateY(40px); }
+
+        /* Mobile UX Improvements */
+        @media (max-width: 1024px) { 
+            .hero-grid { grid-template-columns: 1fr; gap: 60px; } 
+            .about-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+        }
+        @media (max-width: 768px) { 
+            .container { padding: 0 20px; }
+            .header-actions .btn { display: none; }
+            .section { padding: 80px 0; }
+            .hero { padding-top: 100px; min-height: 100vh; }
+            .hero-grid { gap: 40px; }
+            .hero h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+            .hero p { font-size: 1rem; margin-bottom: 30px; }
+            .hero-form-wrapper { padding: 30px 20px; }
+            .section-title { font-size: 2.5rem; margin-bottom: 16px; }
+            .section-subtitle { font-size: 1rem; margin-bottom: 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; gap: 24px; }
+            .process-item { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+            .contact-container { padding: 40px 20px; border-radius: 20px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 16px; }
+            .about-grid { gap: 40px; }
+            .project-info h3 { font-size: 1.3rem; }
+            .offcanvas-menu nav a { font-size: 2.5rem; margin: 10px 0; }
+        }
+        @media (max-width: 576px) { 
+            .footer-grid { grid-template-columns: 1fr; } 
+        }
     </style>
 </head>
 <body>
@@ -295,6 +344,7 @@
     <nav>
         <ul>
             <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#projects">Work</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -331,7 +381,8 @@
         </div>
     </section>
 
-    <section id="services" class="section">
+    <!-- Alternating: Light -->
+    <section id="services" class="section section-light">
         <div class="container">
             <h2 class="section-title reveal-up">Our Expertise</h2>
             <p class="section-subtitle reveal-up">From initial sketches to final renders, we provide a complete suite of visualization services to bring your vision to life.</p>
@@ -412,6 +463,7 @@
         </div>
     </section>
 
+    <!-- Alternating: Dark -->
     <section id="about" class="section">
         <div class="container about-grid">
             <div class="about-content">
@@ -429,7 +481,8 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <!-- Alternating: Light -->
+    <section id="projects" class="section section-light">
         <div class="container">
             <h2 class="section-title reveal-up">Our Digital Craftsmanship</h2>
             <p class="section-subtitle reveal-up">Explore a selection of our work, showcasing a diverse range of styles and project scopes.</p>
@@ -439,7 +492,7 @@
                 <button onclick="filterProjects('commercial', this)">Commercial</button>
                 <button onclick="filterProjects('hospitality', this)">Hospitality</button>
             </div>
-            <div class="projects-grid">
+            <div class="projects-grid" id="projects-container">
                 <div class="project-card hospitality reveal-up">
                     <div class="project-img-wrapper">
                         <div class="project-img-inner"><img src="./assets/projects/1.webp" alt="Grand Hotel Lobby"></div>
@@ -513,9 +566,14 @@
                     <div class="project-info"><h3>Retail Space Fit-Out</h3><p>Commercial</p></div>
                 </div>
             </div>
+            
+            <div class="load-more-wrapper reveal-up">
+                <button class="btn" id="loadMoreBtn">Load More Projects</button>
+            </div>
         </div>
     </section>
 
+    <!-- Alternating: Dark -->
     <section id="process" class="section">
         <div class="container">
             <h2 class="section-title reveal-up">Our Streamlined Process</h2>
@@ -566,7 +624,8 @@
         </div>
     </section>
 
-    <section id="testimonials" class="section">
+    <!-- Alternating: Light -->
+    <section id="testimonials" class="section section-light">
         <div class="container">
             <h2 class="section-title reveal-up">Trusted by Industry Leaders</h2>
             <p class="section-subtitle reveal-up">Don't just take our word for it. Here's what our clients have to say about their experience.</p>
@@ -600,6 +659,7 @@
         </div>
     </section>
 
+    <!-- Alternating: Dark -->
     <section id="contact" class="section">
         <div class="container">
             <div class="contact-container reveal-up">
@@ -782,7 +842,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     });
     
-    // Parallax on Service cards bg
     const serviceBgs = document.querySelectorAll('.service-card-bg');
     serviceBgs.forEach(bg => {
         gsap.to(bg, {
@@ -809,23 +868,66 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         });
     });
-});
 
-// Project Filtering globally available
-window.filterProjects = function(category, buttonElement) {
-    document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
-    if (buttonElement) buttonElement.classList.add('active');
+    // 8. Projects Load More and Filtering
+    let currentItemsCount = 2; // initial limit
+    const projectCards = document.querySelectorAll('.project-card');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    
+    function updateProjectsDisplay() {
+        let visibleCount = 0;
+        const activeFilterBtn = document.querySelector('.filters button.active');
+        const activeFilter = activeFilterBtn ? activeFilterBtn.textContent.toLowerCase() : 'all';
+        
+        projectCards.forEach((card) => {
+            const matchesFilter = activeFilter === 'all' || card.classList.contains(activeFilter);
+            
+            if (matchesFilter) {
+                if (visibleCount < currentItemsCount) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
 
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-            card.style.display = 'block';
-            gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+        if (visibleCount > currentItemsCount) {
+            loadMoreBtn.style.display = 'inline-flex';
         } else {
-            card.style.display = 'none';
+            loadMoreBtn.style.display = 'none';
         }
-    });
-};
+        
+        ScrollTrigger.refresh();
+    }
+
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            currentItemsCount += 100; // Load all remaining
+            updateProjectsDisplay();
+        });
+    }
+
+    window.filterProjects = function(category, buttonElement) {
+        document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
+        if (buttonElement) buttonElement.classList.add('active');
+        
+        currentItemsCount = 2; // Reset limit on filter change
+        updateProjectsDisplay();
+
+        // Optional smooth reveal animation for cards that match
+        projectCards.forEach(card => {
+            if (card.style.display === 'block') {
+                gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+            }
+        });
+    };
+
+    // Initialize projects display
+    updateProjectsDisplay();
+});
 </script>
 
 </body>
