@@ -1247,6 +1247,81 @@
         font-size: 20px;
       }
     }
+
+    /* BIKA SHOWCASE SECTION */
+    .bika-showcase-container {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      align-items: center;
+      gap: 24px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bika-showcase-text {
+      position: relative;
+      z-index: 2;
+    }
+    .bika-showcase-text h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.1;
+    }
+    .bika-showcase-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 380px;
+      z-index: 2;
+    }
+    .bika-glow {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(0, 119, 255, 0.25), transparent 60%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+    .bika-floating-img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 25px 40px rgba(0,0,0,0.5));
+      animation: floatBika 5s ease-in-out infinite;
+    }
+    [data-theme="light"] .bika-floating-img {
+      filter: drop-shadow(0 25px 40px rgba(0,0,0,0.25));
+    }
+    @keyframes floatBika {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes pulseGlow {
+      0% { transform: scale(0.8); opacity: 0.4; }
+      100% { transform: scale(1.1); opacity: 0.8; }
+    }
+    @media (max-width: 980px) {
+      .bika-showcase-container {
+        grid-template-columns: 1fr;
+        padding: 48px 32px;
+        text-align: center;
+        gap: 40px;
+      }
+      .bika-showcase-visual {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 640px) {
+      .bika-showcase-container {
+        padding: 40px 20px;
+      }
+      .bika-floating-img {
+        max-width: 364px;
+      }
+    }
     /* INDUSTRIES SECTION */
     .industries-section {
       position: relative;
