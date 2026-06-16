@@ -1324,12 +1324,11 @@
     }
     .bika-robot-image {
       width: 100%;
-      max-width: 520px;
       display: block;
       border-radius: 30px;
     }
     .bika-superpowers {
-      margin-top: 0;
+      margin-top: 60px;
       padding: 45px;
       border-radius: 32px;
       background: rgba(5,14,35,.75);
@@ -1339,27 +1338,23 @@
       width: min(var(--max), calc(100% - 48px));
       margin-left: auto;
       margin-right: auto;
-    }
-    .bika-superpowers h3 {
-      color: var(--blue-2);
-      font-size: 13px;
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: .34em;
-      margin-bottom: 35px;
-    }
-    .bika-powers-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
+      grid-template-columns: 30% repeat(5, 1fr);
+      gap: 20px;
     }
     .bika-power-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      min-height: 120px;
+      background: rgba(0, 119, 255, 0.05);
+      border: 1px solid rgba(0, 119, 255, 0.15);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .bika-power-card:hover {
+      background: rgba(0, 119, 255, 0.1);
+      border-color: rgba(0, 183, 255, 0.4);
     }
     .bika-power-card::after {
       content: "";
@@ -1374,46 +1369,6 @@
     .bika-power-card:hover::after {
       transform: translateX(100%) rotate(15deg);
     }
-    .bika-power-card:not(:first-child)::before {
-      content: '';
-      position: absolute;
-      background: rgba(0, 140, 255, 0.15);
-      left: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 60%;
-    }
-    .bika-power-icon {
-      width: 78px;
-      height: 90px;
-      min-width: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      background: rgba(0, 119, 255, 0.08);
-      color: var(--blue-2);
-      transition: all 0.3s ease;
-    }
-    .bika-power-card:hover .bika-power-icon {
-      background: rgba(0, 119, 255, 0.2);
-      transform: scale(1.1);
-      color: #fff;
-      text-shadow: 0 0 15px rgba(0, 183, 255, 0.8);
-    }
-    .bika-power-card h4 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: var(--text-main);
-      font-weight: 800;
-    }
-    .bika-power-card p {
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 15px;
-    }
     @media(max-width:1100px) {
       .bika-hero-container {
         grid-template-columns: 1fr;
@@ -1425,14 +1380,11 @@
       .bika-hero-buttons {
         justify-content: center;
       }
-      .bika-powers-grid {
-        grid-template-columns: 1fr 1fr;
+      .bika-superpowers {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     @media(max-width:768px) {
-      .bika-powers-grid {
-        grid-template-columns: 1fr;
-      }
       .bika-superpowers {
         padding: 30px;
       }
@@ -1442,18 +1394,12 @@
       .bika-hero-buttons > a {
         flex: 1;
       }
-      .bika-powers-grid {
-        gap: 0;
-      }
-      .bika-power-card::before {
-        display: none;
-      }
-      .bika-power-card:not(:first-child) {
-        border-top: 1px solid rgba(0, 140, 255, 0.15);
-        padding-top: 30px;
-        margin-top: 30px;
+      .bika-superpowers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
       }
     }
+
     /* INDUSTRIES SECTION */
     .industries-section {
       position: relative;
@@ -2076,7 +2022,6 @@
             <a href="#contact" class="bika-btn-primary">
               LET'S BUILD TOGETHER →
             </a>
-           
           </div>
 
         </div>
@@ -2094,37 +2039,12 @@
 
       <!-- SUPERPOWERS -->
       <div class="bika-superpowers reveal" style="transition-delay: 140ms;">
-        <h3>MR. BIKA'S SUPERPOWERS</h3>
-        <div class="bika-powers-grid">
-          <div class="bika-power-card">
-            <div class="bika-power-icon">✏</div>
-            <div>
-              <h4>DIGITAL DESIGN</h4>
-              <p>Beautiful interfaces that users love.</p>
-            </div>
-          </div>
-          <div class="bika-power-card">
-            <div class="bika-power-icon">&lt;/&gt;</div>
-            <div>
-              <h4>DEVELOPMENT</h4>
-              <p>Robust, scalable &amp; future-ready code.</p>
-            </div>
-          </div>
-          <div class="bika-power-card">
-            <div class="bika-power-icon">⚙</div>
-            <div>
-              <h4>SYSTEMS</h4>
-              <p>Powerful architecture that just works.</p>
-            </div>
-          </div>
-          <div class="bika-power-card">
-            <div class="bika-power-icon">☁</div>
-            <div>
-              <h4>SUPPORT</h4>
-              <p>Always here. Always one step ahead.</p>
-            </div>
-          </div>
-        </div>
+        <div class="bika-power-card"></div>
+        <div class="bika-power-card"></div>
+        <div class="bika-power-card"></div>
+        <div class="bika-power-card"></div>
+        <div class="bika-power-card"></div>
+        <div class="bika-power-card"></div>
       </div>
     </section>
 
@@ -2347,6 +2267,7 @@
         });
       });
     }
+
   </script>
 
 </body></html>
