@@ -1410,7 +1410,7 @@
       margin-bottom: 35px;
     }
     .bika-powers-grid {
-      display: flex;
+      display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
     }
@@ -1418,6 +1418,32 @@
       display: flex;
       align-items: flex-start;
       gap: 18px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .bika-power-card::after {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 65%);
+      transform: translateX(-100%) rotate(15deg);
+      transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .bika-power-card:hover::after {
+      transform: translateX(100%) rotate(15deg);
+    }
+    .bika-power-card:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      background: rgba(0, 140, 255, 0.15);
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
     }
     .bika-power-icon {
       width: 78px;
@@ -1480,9 +1506,26 @@
       .bika-superpowers {
         padding: 30px;
       }
+      .bika-hero-buttons {
+        flex-wrap: nowrap;
+      }
+      .bika-hero-buttons > a {
+        flex: 1;
+      }
       .bika-chat-bubble {
         position: relative;
         margin-top: 20px;
+      }
+      .bika-powers-grid {
+        gap: 0;
+      }
+      .bika-power-card::before {
+        display: none;
+      }
+      .bika-power-card:not(:first-child) {
+        border-top: 1px solid rgba(0, 140, 255, 0.15);
+        padding-top: 30px;
+        margin-top: 30px;
       }
     }
     /* INDUSTRIES SECTION */
