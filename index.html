@@ -1252,6 +1252,10 @@
     .bika-hero {
       padding: 80px 0;
       position: relative;
+      background:
+        radial-gradient(circle at 75% 30%, rgba(0,153,255,.12), transparent 25%),
+        radial-gradient(circle at 20% 20%, rgba(0,153,255,.06), transparent 35%),
+        linear-gradient(180deg,#020816,#01040d);
       border-top: 1px solid var(--line);
       overflow: hidden;
     }
@@ -1267,7 +1271,7 @@
     }
     .bika-hero-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.35fr 0.65fr;
       gap: 60px;
       align-items: center;
       position: relative;
@@ -1314,18 +1318,6 @@
       justify-content: center;
       align-items: center;
     }
-    .bika-code-glow {
-      position: absolute;
-      left: 0;
-      top: 100px;
-      font-size: clamp(60px, 8vw, 110px);
-      font-weight: 900;
-      color: #11b2ff;
-      text-shadow:
-        0 0 10px #11b2ff,
-        0 0 30px #11b2ff,
-        0 0 60px #11b2ff;
-    }
     .bika-robot-wrapper {
       position: relative;
       cursor: pointer;
@@ -1335,30 +1327,6 @@
       max-width: 520px;
       display: block;
       border-radius: 30px;
-    }
-    .bika-chat-bubble {
-      position: absolute;
-      right: -110px;
-      top: 80px;
-      padding: 20px 22px;
-      border-radius: 18px;
-      background: rgba(5,14,35,.95);
-      border: 1px solid rgba(0,140,255,.25);
-      line-height: 1.6;
-      font-size: 18px;
-      box-shadow: 0 0 25px rgba(0,140,255,.15);
-      color: white;
-      opacity: 1; /* Always visible */
-      visibility: visible; /* Always visible */
-      transform: translateY(0); /* Always visible */
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      pointer-events: auto; /* Allow interaction if needed, or keep none if purely decorative */
-      /* Removed hover styles as per request */
-
-    }
-    .bika-chat-bubble span {
-      color: #11b2ff;
-      font-weight: 700;
     }
     .bika-superpowers {
       margin-top: 0;
@@ -1457,15 +1425,6 @@
       .bika-hero-buttons {
         justify-content: center;
       }
-      .bika-chat-bubble {
-        right: 0;
-        top: 0;
-      }
-      .bika-code-glow {
-        left: 50%;
-        transform: translateX(-50%);
-        top: -50px;
-      }
       .bika-powers-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1482,10 +1441,6 @@
       }
       .bika-hero-buttons > a {
         flex: 1;
-      }
-      .bika-chat-bubble {
-        position: relative;
-        margin-top: 20px;
       }
       .bika-powers-grid {
         gap: 0;
@@ -2108,8 +2063,7 @@
           </div>
 
           <h2 id="bika-title">
-            SAY HELLO TO <br>
-            <span>MR. BIKA.</span>
+            MR. <span>BIKA.</span>
           </h2>
 
           <p class="section-copy" style="margin-bottom: 40px;">
@@ -2122,9 +2076,7 @@
             <a href="#contact" class="bika-btn-primary">
               LET'S BUILD TOGETHER →
             </a>
-            <a href="#services" class="bika-btn-secondary">
-              ▶ WATCH INTRO
-            </a>
+           
           </div>
 
         </div>
@@ -2132,16 +2084,8 @@
         <!-- RIGHT SIDE -->
         <div class="bika-hero-visual">
 
-          <div class="bika-code-glow">
-            &lt;/&gt;
-          </div>
-
           <div class="bika-robot-wrapper">
-            <img src="assets/bika.png" alt="Mr Bika" class="bika-robot-image" loading="lazy">
-            <div class="bika-chat-bubble">
-              Need a system update?<br>
-              <span>I've got you.</span>
-            </div>
+            <video src="assets/bika-video.mp4" autoplay loop muted playsinline class="bika-robot-image"></video>
           </div>
 
         </div>
