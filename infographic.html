@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Elements - 6 Boxes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .infographic-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .infographic-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+
+        .infographic-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Dotted line connecting boxes */
+        .infographic-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-image: radial-gradient(circle, #666 2px, transparent 2px);
+            background-size: 20px 20px;
+            background-position: center;
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .info-box {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            max-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .box-arch {
+            width: 100%;
+            padding: 40px 20px 30px;
+            border-radius: 100px 100px 20px 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .box-arch:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Box colors */
+        .box-1 {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+        }
+
+        .box-2 {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+
+        .box-3 {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+        }
+
+        .box-4 {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+
+        .box-5 {
+            background: linear-gradient(135deg, #e91e8c, #c2187b);
+        }
+
+        .box-6 {
+            background: linear-gradient(135deg, #a8e063, #7cb342);
+        }
+
+        /* Icon circle */
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            top: -35px;
+        }
+
+        .icon-circle svg {
+            width: 36px;
+            height: 36px;
+            stroke: #333;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Box content */
+        .box-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .box-description {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 11px;
+            line-height: 1.5;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Connection dots */
+        .connection-dot {
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            background: #666;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .dot-left {
+            left: -20px;
+        }
+
+        .dot-right {
+            right: -20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .infographic-wrapper {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            .info-box {
+                flex: 0 0 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+
+            .infographic-wrapper::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .infographic-title {
+                font-size: 32px;
+            }
+
+            .info-box {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .box-arch {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Arrow at the end */
+        .arrow-end {
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid #666;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic-container">
+        <h1 class="infographic-title">INFOgraphic elements</h1>
+        
+        <div class="infographic-wrapper">
+            <!-- Box 1 - Yellow - Lightbulb -->
+            <div class="info-box">
+                <div class="box-arch box-1">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 21h6M12 3a6 6 0 0 0-4 10.5V17h8v-3.5A6 6 0 0 0 12 3z"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+            </div>
+
+            <!-- Box 2 - Purple - Users -->
+            <div class="info-box">
+                <div class="box-arch box-2">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+            </div>
+
+            <!-- Box 3 - Red - Gears -->
+            <div class="info-box">
+                <div class="box-arch box-3">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+            </div>
+
+            <!-- Box 4 - Teal - Chart -->
+            <div class="info-box">
+                <div class="box-arch box-4">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                            <line x1="2" y1="20" x2="22" y2="20"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+            </div>
+
+            <!-- Box 5 - Pink - Target -->
+            <div class="info-box">
+                <div class="box-arch box-5">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                            <line x1="12" y1="2" x2="12" y2="4"/>
+                            <line x1="12" y1="20" x2="12" y2="22"/>
+                            <line x1="2" y1="12" x2="4" y2="12"/>
+                            <line x1="20" y1="12" x2="22" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+            </div>
+
+            <!-- Box 6 - Green - Search/Check -->
+            <div class="info-box">
+                <div class="box-arch box-6">
+                    <div class="icon-circle">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            <path d="M11 8l3 3 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="box-title">LOREM IPSUM</h3>
+                    <p class="box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</p>
+                </div>
+                <div class="arrow-end"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
