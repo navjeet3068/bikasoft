@@ -1523,6 +1523,99 @@
         padding: 72px 0;
       }
     }
+
+    /* PROCESS CTA SECTION */
+    .process-cta-wrapper {
+      display: grid;
+      grid-template-columns: 20% 40% 40%;
+      gap: 32px;
+      align-items: center;
+      width: 100%;
+      margin: 0 auto;
+      padding: 48px;
+      border-radius: 24px;
+      border: 1px solid var(--line-soft);
+      background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 16px 32px var(--shadow-base);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                  border-color 0.4s ease, 
+                  box-shadow 0.4s ease;
+    }
+
+    .process-cta-wrapper:hover {
+      transform: translateY(-6px);
+      border-color: var(--blue-2);
+      box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px var(--shadow-lg);
+    }
+
+    .process-cta-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(0, 119, 255, 0.1);
+      border: 2px solid var(--blue-2);
+      flex-shrink: 0;
+    }
+
+    .process-cta-icon svg {
+      width: 50%;
+      height: 50%;
+      color: var(--blue-2);
+      filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
+    }
+
+    .process-cta-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .process-cta-content h2 {
+      margin-top: 0;
+      font-size: clamp(20px, 2.5vw, 32px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .process-cta-content h2 span {
+      color: var(--blue);
+      text-shadow: 0 0 24px rgba(0,119,255,.65);
+    }
+
+    .process-cta-description {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .process-cta-wrapper {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 32px 24px;
+        text-align: center;
+        max-width: 100%;
+      }
+
+      .process-cta-icon {
+        max-width: 64px;
+        margin: 0 auto;
+      }
+
+      .process-cta-content h2 {
+        font-size: 22px;
+      }
+
+      .process-cta-description {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1896,6 +1989,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
         border: 1px solid var(--line-soft);
         background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
         backdrop-filter: blur(24px);
@@ -1989,19 +2083,99 @@
         }
       }
 
-      @media (max-width: 640px) {
-        .process-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-        .process-card-inner {
-          width: 100%;
-          max-width: none;
-        }
-      }
-    </style>
+       @media (max-width: 640px) {
+         .process-grid {
+           grid-template-columns: 1fr;
+           gap: 24px;
+         }
+         .process-card-inner {
+           width: 100%;
+           max-width: none;
+         }
+       }
 
-    <!-- DESIGN TO DELIVERY -->
+       /* PROCESS DETAILS SECTION - 20:40:40 */
+       .process-details-wrapper {
+         display: grid;
+         grid-template-columns: 10% 40% 50%;
+         gap: 15px;
+         align-items: center;
+         width: 100%;
+         margin: 30px auto 0;
+         border: 2px solid var(--line-soft);
+         border-radius: 24px;
+         padding: 25px 0px 25px 20px;
+         background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
+         backdrop-filter: blur(24px);
+         -webkit-backdrop-filter: blur(24px);
+         box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 16px 32px var(--shadow-base);
+         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                     border-color 0.4s ease, 
+                     box-shadow 0.4s ease;
+       }
+
+       .process-details-wrapper:hover {
+         transform: translateY(-6px);
+         border-color: var(--blue-2);
+         box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px var(--shadow-lg);
+       }
+
+       .process-details-icon {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         
+       }
+
+       .process-details-icon svg {
+         width: 32px;
+         height: 32px;
+         color: var(--blue-2);
+         filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
+       }
+
+       .process-details-heading h2 {
+         margin-top: 0;
+         font-size: 32px;
+         line-height: 1.1;
+         letter-spacing: -.02em;
+         text-transform: uppercase;
+         font-weight: 200;
+         color: #ffffff;
+         text-shadow: none;
+       }
+
+       .process-details-heading h2 span {
+         color: #ffffff;
+         text-transform: uppercase;
+          font-weight: 600;
+         text-shadow: none;
+       }
+
+       .process-details-para p {
+         color: var(--muted);
+         font-size: 16px;
+         color: #ffffff;
+         line-height: 1.6;
+         margin: 0;
+       }
+
+       @media (max-width: 768px) {
+         .process-details-wrapper {
+           grid-template-columns: 1fr;
+           width: 100%;
+           text-align: center;
+         }
+         .process-details-icon {
+           margin: 0 auto;
+         }
+         .process-details-icon svg {
+           max-width: 60px;
+         }
+       }
+     </style>
+
+     <!-- DESIGN TO DELIVERY -->
     <section class="section" id="design-to-delivery" aria-labelledby="d2d-title">
       <div class="container">
         <div class="section-head reveal">
@@ -2087,7 +2261,44 @@
             </div>
           </div>
           </div>
+
+          <!-- NEW PROCESS DETAILS SECTION - 20:40:40 -->
+          <div class="process-details-wrapper reveal" style="transition-delay: 300ms;">
+            <div class="process-details-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="process-details-heading">
+              <h2>From <span>Concept</span> to <span>Launch</span></h2>
+            </div>
+            <div class="process-details-para">
+              <p>We uses AI across discovery, architecture, modeling, automation, and observability to accelerate delivery and drive continuous value.
+
+</p>
+            </div>
+          </div>
     </section>
+
+    <!-- CTA SECTION AFTER PROCESS -->
+    <section class="section alt" id="process-cta" aria-labelledby="process-cta-title">
+      <div class="container">
+        <div class="process-cta-wrapper reveal" style="transition-delay: 200ms;">
+          <div class="process-cta-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <div class="process-cta-content">
+            <h2 id="process-cta-title">Ready to Transform Your <span>Digital Future?</span></h2>
+            <p class="process-cta-description">Let's discuss your project and create a tailored solution that drives real business results. Our team is ready to bring your vision to life.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="industries-section" id="industries" aria-labelledby="industries-title">
       <div class="industries-sticky-container">
         <div class="industries-layout">
