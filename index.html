@@ -1716,11 +1716,12 @@
 
     <section class="section alt" id="capabilities" aria-labelledby="capabilities-title">
       <div class="container">
-        <div class="section-head reveal is-visible" style="transition-delay: 0ms;">
-          <div class="eyebrow">Core Capabilities</div>
-          <h2 id="capabilities-title">Designing the <span>Future.</span></h2>
-          <p class="section-copy">Experience our foundational pillars that drive digital transformation through premium design, engineering, and intelligent growth strategies.</p>
-        </div>
+          <div class="section-head reveal is-visible" style="transition-delay: 0ms;">
+            <div class="eyebrow">Core Capabilities</div>
+            <h2 id="capabilities-title">Designing the <span>Excellence.</span></h2>
+            <p class="section-copy" >Experience our foundational pillars that drive digital transformation through premium design, engineering, and intelligent growth strategies.
+
+          </div>
 
         <div class="showcase-stack">
           <div class="showcase-row">
@@ -2485,6 +2486,16 @@
         letter-spacing: 0.02em;
       }
 
+      .triple-column-item h5 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--blue-2);
+        margin: 8px 0 12px 0;
+        text-transform: none;
+        letter-spacing: 0.01em;
+        text-shadow: 0 0 20px rgba(0, 119, 255, 0.5);
+      }
+
       .triple-column-item p {
         color: var(--muted);
         font-size: 14px;
@@ -2493,8 +2504,8 @@
       }
 
       .triple-column-icon {
-        width: 48px;
-        height: 48px;
+        width: 68px;
+        height: 68px;
         margin-bottom: 12px;
         object-fit: contain;
         filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
@@ -2505,6 +2516,8 @@
         transform: scale(1.15);
         filter: drop-shadow(0 0 16px rgba(0, 119, 255, 0.8));
       }
+
+ 
 
       @media (max-width: 768px) {
         .split-container {
@@ -2530,6 +2543,95 @@
           align-self: center;
         }
       }
+
+      /* CONTEXT66 SECTION STYLES */
+      .context66-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding: 20px 0px;
+
+      }
+  
+
+      .context66-slider {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .context66-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 10px;
+        width: 300%;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .context66-box {
+        position: relative;
+        padding: 32px 24px;
+        border-radius: 20px;
+        border: 1px solid var(--line-soft);
+        background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 16px 32px var(--shadow-base);
+        transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-height: 220px;
+      }
+
+      .context66-box:hover {
+        transform: translateY(-6px);
+        border-color: var(--blue-2);
+        box-shadow: inset 0 0 30px rgba(0, 119, 255, 0.1), 0 24px 48px var(--shadow-lg);
+      }
+
+      .context66-icon-left,
+      .context66-icon-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: rgba(0, 119, 255, 0.1);
+        border: 1px solid rgba(0, 119, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .context66-icon-left svg,
+      .context66-icon-right svg {
+        width: 24px;
+        height: 24px;
+        color: var(--blue-2);
+        filter: drop-shadow(0 0 8px rgba(0, 119, 255, 0.5));
+      }
+
+      .context66-box:hover .context66-icon-left,
+      .context66-box:hover .context66-icon-right {
+        background: rgba(0, 119, 255, 0.2);
+        border-color: var(--blue-2);
+        transform: scale(1.1);
+      }
+
+      .context66-box h4 {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--text-main);
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .context66-box p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0;
+        flex-grow: 1;
+      }
     </style>
 
     <section class="split-section reveal" id="split-section" aria-labelledby="split-title">
@@ -2554,17 +2656,277 @@
         <div class="triple-column-item">
           <img src="assets/create-icon.png" alt="Create" class="triple-column-icon">
           <h4>Create</h4>
-          <p>Pioneering solutions that push boundaries and redefine possibilities for modern enterprises.</p>
+          <h5>Design That Converts</h5>
+          <p>Turn ideas into intuitive UI/UX, memorable branding, and engaging visual experiences that strengthen your business identity.</p>
         </div>
         <div class="triple-column-item">
-          <img src="assets/create-icon.png" alt="Launch" class="triple-column-icon">
-          <h4>Launch</h4>
-          <p>Delivering premium quality with precision engineering and meticulous attention to detail.</p>
+          <img src="assets/create-icon.png" alt="Build" class="triple-column-icon">
+          <h4>Build</h4>
+          <h5>Production-Ready Software</h5>
+          <p>Transform concepts into scalable websites, web applications, mobile apps, and enterprise software engineered for long-term growth.</p>
         </div>
         <div class="triple-column-item">
-          <img src="assets/create-icon.png" alt="Scale" class="triple-column-icon">
-          <h4>Scale</h4>
-          <p>Driving measurable business outcomes through strategic technology implementation.</p>
+          <img src="assets/create-icon.png" alt="Digital" class="triple-column-icon">
+          <h4>Digital</h4>
+          <h5>Smarter Digital Growth</h5>
+          <p>Combine AI, automation, SEO, and digital marketing to attract customers, streamline operations, and accelerate business growth.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="context66" aria-labelledby="context66-title">
+      <div class="container">
+        <div class="context66-header" style="display: grid; grid-template-columns: 70% 30%;  align-items: center; margin-bottom: 40px;">
+          <div class="context66-header-left">
+            <div class="eyebrow" style="margin-bottom: 12px;">WHY CONTEXT66</div>
+            <h2 id="context66-title" style="margin-top: 0;">The <span>Context66</span> Difference</h2>
+            <p class="section-copy" style="max-width: 100%;">We don't just implement. We engineer the enterprise context that powers AI, analytics, automation, intelligent agents, and better decisions.</p>
+          </div>
+          <div class="context66-header-right" style="display: flex; align-items: center; justify-content: flex-end; gap: 12px;">
+            <button class="context66-btn" id="context66Prev" aria-label="Previous" style="width: 44px; height: 44px; border-radius: 10%; border: 1px solid var(--line); background: rgba(0,119,255,.1); color: var(--blue-2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s ease;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="context66-btn" id="context66PlayPause" aria-label="Play/Pause" style="width: 44px; height: 44px; border-radius: 10%; border: 1px solid var(--line); background: rgba(0,119,255,.1); color: var(--blue-2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s ease;">
+              <svg id="context66PlayIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </button>
+            <button class="context66-btn" id="context66Next" aria-label="Next" style="width: 44px; height: 44px; border-radius: 10%; border: 1px solid var(--line); background: rgba(0,119,255,.1); color: var(--blue-2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s ease;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 22px; height: 22px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+        <div class="context66-wrapper reveal" style="transition-delay: 140ms;">
+          <div class="context66-slider" id="context66Slider">
+            <div class="context66-grid">
+              <!-- Box 1 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <h4>AI Integration</h4>
+                <p>Seamlessly embed AI capabilities into your existing workflows</p>
+              </div>
+
+              <!-- Box 2 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                  </svg>
+                </div>
+                <h4>Analytics</h4>
+                <p>Transform raw data into actionable business insights</p>
+              </div>
+
+              <!-- Box 3 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                    <line x1="7" y1="2" x2="7" y2="22"></line>
+                    <line x1="17" y1="2" x2="17" y2="22"></line>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <line x1="2" y1="7" x2="7" y2="7"></line>
+                    <line x1="2" y1="17" x2="7" y2="17"></line>
+                    <line x1="17" y1="17" x2="22" y2="17"></line>
+                    <line x1="17" y1="7" x2="22" y2="7"></line>
+                  </svg>
+                </div>
+                <h4>Automation</h4>
+                <p>Streamline operations with intelligent process automation</p>
+              </div>
+
+              <!-- Box 4 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <polyline points="17 11 19 13 23 9"></polyline>
+                  </svg>
+                </div>
+                <h4>Intelligent Agents</h4>
+                <p>Deploy autonomous agents that learn and adapt</p>
+              </div>
+
+              <!-- Box 5 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <h4>Quality Assurance</h4>
+                <p>Enterprise-grade testing and validation frameworks</p>
+              </div>
+
+              <!-- Box 6 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                </div>
+                <h4>Multi-Platform</h4>
+                <p>Consistent experience across web, mobile, and desktop</p>
+              </div>
+
+              <!-- Box 7 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                </div>
+                <h4>Security First</h4>
+                <p>Bank-grade security with end-to-end encryption</p>
+              </div>
+
+              <!-- Box 8 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 20V10"></path>
+                    <path d="M12 20V4"></path>
+                    <path d="M6 20v-6"></path>
+                  </svg>
+                </div>
+                <h4>Scalable</h4>
+                <p>Built to grow with your business demands</p>
+              </div>
+
+              <!-- Duplicate Box 1 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <h4>AI Integration</h4>
+                <p>Seamlessly embed AI capabilities into your existing workflows</p>
+              </div>
+
+              <!-- Duplicate Box 2 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                  </svg>
+                </div>
+                <h4>Analytics</h4>
+                <p>Transform raw data into actionable business insights</p>
+              </div>
+
+              <!-- Duplicate Box 3 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                    <line x1="7" y1="2" x2="7" y2="22"></line>
+                    <line x1="17" y1="2" x2="17" y2="22"></line>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <line x1="2" y1="7" x2="7" y2="7"></line>
+                    <line x1="2" y1="17" x2="7" y2="17"></line>
+                    <line x1="17" y1="17" x2="22" y2="17"></line>
+                    <line x1="17" y1="7" x2="22" y2="7"></line>
+                  </svg>
+                </div>
+                <h4>Automation</h4>
+                <p>Streamline operations with intelligent process automation</p>
+              </div>
+
+              <!-- Duplicate Box 4 -->
+              <div class="context66-box">
+                <div class="context66-icon-left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                  </svg>
+                </div>
+                <div class="context66-icon-right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <polyline points="17 11 19 13 23 9"></polyline>
+                  </svg>
+                </div>
+                <h4>Intelligent Agents</h4>
+                <p>Deploy autonomous agents that learn and adapt</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2859,6 +3221,126 @@
         indCards.forEach((card, index) => {
           card.style.transitionDelay = window.innerWidth <= 980 ? `${(index % 4) * 70}ms` : '0ms';
         });
+      });
+    }
+
+    // CONTEXT66 AUTO-SLIDE FUNCTIONALITY
+    const context66Slider = document.getElementById('context66Slider');
+    const context66Grid = document.querySelector('.context66-grid');
+    const context66Prev = document.getElementById('context66Prev');
+    const context66Next = document.getElementById('context66Next');
+    const context66PlayPause = document.getElementById('context66PlayPause');
+    const context66PlayIcon = document.getElementById('context66PlayIcon');
+    
+    if (context66Slider && context66Grid) {
+      let currentSlide = 0;
+      const totalItems = 12;
+      const slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
+      const maxSlide = totalItems - slidesPerView;
+      let slideTimeout;
+      let isPaused = false;
+      let isAutoPlaying = true;
+      
+      const updateSlide = (animate = true) => {
+        const slideWidth = 100 / totalItems;
+        if (!animate) {
+          context66Grid.style.transition = 'none';
+        }
+        context66Grid.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        if (!animate) {
+          context66Grid.offsetHeight;
+          context66Grid.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+      };
+      
+      const goToSlide = (index) => {
+        currentSlide = index;
+        if (currentSlide > maxSlide) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = maxSlide;
+        updateSlide(true);
+      };
+      
+      const slideNext = () => {
+        if (isPaused) return;
+        currentSlide = currentSlide + 1;
+        if (currentSlide > maxSlide) currentSlide = 0;
+        updateSlide(true);
+        slideTimeout = setTimeout(slideNext, 2500);
+      };
+      
+      const startAutoPlay = () => {
+        isAutoPlaying = true;
+        isPaused = false;
+        context66PlayIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+        clearTimeout(slideTimeout);
+        slideTimeout = setTimeout(slideNext, 2500);
+      };
+      
+      const stopAutoPlay = () => {
+        isAutoPlaying = false;
+        isPaused = true;
+        clearTimeout(slideTimeout);
+        context66PlayIcon.innerHTML = '<polyline points="6 4 6 20"></polyline><polyline points="18 4 18 20"></polyline>';
+      };
+      
+      // Prev button
+      if (context66Prev) {
+        context66Prev.addEventListener('click', () => {
+          stopAutoPlay();
+          currentSlide = currentSlide - 1;
+          if (currentSlide < 0) currentSlide = maxSlide;
+          updateSlide(true);
+        });
+      }
+      
+      // Next button
+      if (context66Next) {
+        context66Next.addEventListener('click', () => {
+          stopAutoPlay();
+          currentSlide = currentSlide + 1;
+          if (currentSlide > maxSlide) currentSlide = 0;
+          updateSlide(true);
+        });
+      }
+      
+      // Play/Pause button
+      if (context66PlayPause) {
+        context66PlayPause.addEventListener('click', () => {
+          if (isAutoPlaying) {
+            stopAutoPlay();
+          } else {
+            startAutoPlay();
+          }
+        });
+      }
+      
+      // Start auto-slide after initial 3 second delay
+      slideTimeout = setTimeout(slideNext, 3000);
+      
+      // Pause on hover
+      context66Slider.addEventListener('mouseenter', () => {
+        if (isAutoPlaying) {
+          isPaused = true;
+          clearTimeout(slideTimeout);
+        }
+      });
+      
+      // Resume on leave
+      context66Slider.addEventListener('mouseleave', () => {
+        if (isAutoPlaying) {
+          isPaused = false;
+          slideTimeout = setTimeout(slideNext, 2500);
+        }
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        const newSlidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
+        const newMaxSlide = totalItems - newSlidesPerView;
+        if (currentSlide > newMaxSlide) {
+          currentSlide = newMaxSlide;
+        }
+        updateSlide(true);
       });
     }
 
