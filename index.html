@@ -2456,6 +2456,7 @@
         width: min(var(--max), calc(100% - 48px));
         margin-left: auto;
         margin-right: auto;
+        padding: 20px 0;
       }
 
       .triple-column-item {
@@ -2489,6 +2490,20 @@
         font-size: 14px;
         line-height: 1.6;
         margin: 0;
+      }
+
+      .triple-column-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 12px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 12px rgba(0, 119, 255, 0.5));
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+      }
+
+      .triple-column-item:hover .triple-column-icon {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 16px rgba(0, 119, 255, 0.8));
       }
 
       @media (max-width: 768px) {
@@ -2537,15 +2552,18 @@
 
       <div class="triple-column-container">
         <div class="triple-column-item">
-          <h4>Innovation</h4>
+          <img src="assets/create-icon.png" alt="Create" class="triple-column-icon">
+          <h4>Create</h4>
           <p>Pioneering solutions that push boundaries and redefine possibilities for modern enterprises.</p>
         </div>
         <div class="triple-column-item">
-          <h4>Excellence</h4>
+          <img src="assets/create-icon.png" alt="Launch" class="triple-column-icon">
+          <h4>Launch</h4>
           <p>Delivering premium quality with precision engineering and meticulous attention to detail.</p>
         </div>
         <div class="triple-column-item">
-          <h4>Growth</h4>
+          <img src="assets/create-icon.png" alt="Scale" class="triple-column-icon">
+          <h4>Scale</h4>
           <p>Driving measurable business outcomes through strategic technology implementation.</p>
         </div>
       </div>
