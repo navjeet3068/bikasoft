@@ -2616,7 +2616,7 @@
 
       .context66-box {
         position: relative;
-        padding: 32px 24px;
+        padding: 34px 20px 34px ;
         border-radius: 20px;
         border: 1px solid var(--line-soft);
         background: linear-gradient(145deg, var(--card-bg-1), var(--card-bg-2));
@@ -2626,7 +2626,7 @@
         transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 6px;
         min-height: 220px;
       }
 
@@ -2664,18 +2664,57 @@
         transform: scale(1.1);
       }
 
+      .context66-box img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        margin: 0 auto;
+        padding: 0 0 30px 0;
+        display: block;
+      }
+
+      .context66-box .box-number {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(0, 119, 255, 0.15);
+        border: 2px solid var(--blue-2);
+        color: var(--blue-2);
+        font-size: 14px;
+        font-weight: 800;
+        text-align: center;
+        letter-spacing: 0.05em;
+        margin: 0 auto 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 16px rgba(0, 119, 255, 0.4), inset 0 0 12px rgba(0, 119, 255, 0.2);
+        text-shadow: 0 0 8px rgba(0, 119, 255, 0.8);
+      }
+
       .context66-box h4 {
         font-size: 18px;
         font-weight: 800;
         color: var(--text-main);
         margin: 0;
         text-transform: uppercase;
+        text-align: center;
         letter-spacing: 0.02em;
+      }
+
+      .context66-box .gradient-line {
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--blue-2), var(--blue));
+        margin: 8px auto;
+        border-radius: 2px;
+        box-shadow: 0 0 12px rgba(0, 119, 255, 0.6);
       }
 
       .context66-box p {
         color: var(--muted);
         font-size: 14px;
+        text-align: center;
         line-height: 1.6;
         margin: 0;
         flex-grow: 1;
@@ -2772,232 +2811,76 @@
             <div class="context66-grid">
               <!-- Box 1 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <h4>AI Integration</h4>
+                <div class="box-number">01</div>
+                <img src="assets/think-deeper.png" alt="Think Deeper">
+                <h4>Think Deeper</h4>
+                <div class="gradient-line"></div>
                 <p>Seamlessly embed AI capabilities into your existing workflows</p>
               </div>
 
               <!-- Box 2 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                  </svg>
-                </div>
-                <h4>Analytics</h4>
+                <div class="box-number">02</div>
+                <img src="assets/design-smarter.png" alt="Design Smarter">
+                <h4>Design Smarter</h4>
+                <div class="gradient-line"></div>
                 <p>Transform raw data into actionable business insights</p>
               </div>
 
               <!-- Box 3 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                    <line x1="7" y1="2" x2="7" y2="22"></line>
-                    <line x1="17" y1="2" x2="17" y2="22"></line>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <line x1="2" y1="7" x2="7" y2="7"></line>
-                    <line x1="2" y1="17" x2="7" y2="17"></line>
-                    <line x1="17" y1="17" x2="22" y2="17"></line>
-                    <line x1="17" y1="7" x2="22" y2="7"></line>
-                  </svg>
-                </div>
-                <h4>Automation</h4>
+                <div class="box-number">03</div>
+                <img src="assets/built-better.png" alt="Build Better">
+                <h4>Build Better</h4>
+                <div class="gradient-line"></div>
                 <p>Streamline operations with intelligent process automation</p>
               </div>
 
               <!-- Box 4 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="8.5" cy="7" r="4"></circle>
-                    <polyline points="17 11 19 13 23 9"></polyline>
-                  </svg>
-                </div>
-                <h4>Intelligent Agents</h4>
+                <div class="box-number">04</div>
+                <img src="assets/move-faster.png" alt="Move Faster">
+                <h4>Move Faster</h4>
+                <div class="gradient-line"></div>
                 <p>Deploy autonomous agents that learn and adapt</p>
               </div>
 
               <!-- Box 5 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <h4>Quality Assurance</h4>
+                <div class="box-number">05</div>
+                <img src="assets/scale-naturally.png" alt="Scale Naturally">
+                <h4>Scale Naturally</h4>
+                <div class="gradient-line"></div>
                 <p>Enterprise-grade testing and validation frameworks</p>
               </div>
 
               <!-- Box 6 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                  </svg>
-                </div>
-                <h4>Multi-Platform</h4>
+                <div class="box-number">06</div>
+                <img src="assets/measure-everything.png" alt="Measure Everything">
+                <h4>Measure Everything</h4>
+                <div class="gradient-line"></div>
                 <p>Consistent experience across web, mobile, and desktop</p>
               </div>
 
               <!-- Box 7 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    <polyline points="9 12 11 14 15 10"></polyline>
-                  </svg>
-                </div>
-                <h4>Security First</h4>
+                <div class="box-number">07</div>
+                <img src="assets/refine-constantly.png" alt="Refine Constantly">
+                <h4>Refine Constantly</h4>
+                <div class="gradient-line"></div>
                 <p>Bank-grade security with end-to-end encryption</p>
               </div>
 
               <!-- Box 8 -->
               <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 20V10"></path>
-                    <path d="M12 20V4"></path>
-                    <path d="M6 20v-6"></path>
-                  </svg>
-                </div>
-                <h4>Scalable</h4>
+                <div class="box-number">08</div>
+                <img src="assets/deliver-impact.png" alt="Deliver Impact">
+                <h4>Deliver Impact</h4>
+                <div class="gradient-line"></div>
                 <p>Built to grow with your business demands</p>
               </div>
 
-              <!-- Duplicate Box 1 -->
-              <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </div>
-                <h4>AI Integration</h4>
-                <p>Seamlessly embed AI capabilities into your existing workflows</p>
-              </div>
-
-              <!-- Duplicate Box 2 -->
-              <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                  </svg>
-                </div>
-                <h4>Analytics</h4>
-                <p>Transform raw data into actionable business insights</p>
-              </div>
-
-              <!-- Duplicate Box 3 -->
-              <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"></circle>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                    <line x1="7" y1="2" x2="7" y2="22"></line>
-                    <line x1="17" y1="2" x2="17" y2="22"></line>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <line x1="2" y1="7" x2="7" y2="7"></line>
-                    <line x1="2" y1="17" x2="7" y2="17"></line>
-                    <line x1="17" y1="17" x2="22" y2="17"></line>
-                    <line x1="17" y1="7" x2="22" y2="7"></line>
-                  </svg>
-                </div>
-                <h4>Automation</h4>
-                <p>Streamline operations with intelligent process automation</p>
-              </div>
-
-              <!-- Duplicate Box 4 -->
-              <div class="context66-box">
-                <div class="context66-icon-left">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                  </svg>
-                </div>
-                <div class="context66-icon-right">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="8.5" cy="7" r="4"></circle>
-                    <polyline points="17 11 19 13 23 9"></polyline>
-                  </svg>
-                </div>
-                <h4>Intelligent Agents</h4>
-                <p>Deploy autonomous agents that learn and adapt</p>
-              </div>
             </div>
           </div>
         </div>
