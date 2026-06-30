@@ -2548,60 +2548,6 @@
         margin: 0 20px;
       }
 
-      .slider-dots {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 24px;
-      }
-
-      .slider-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--line-soft);
-        border: 1px solid var(--line);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .slider-dot.active {
-        background: var(--blue-2);
-        border-color: var(--blue-2);
-        box-shadow: 0 0 12px rgba(0, 119, 255, 0.6);
-        transform: scale(1.2);
-      }
-
-      .slider-arrows {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-top: 16px;
-      }
-
-      .slider-arrow {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        border: 1px solid var(--line);
-        background: rgba(0, 119, 255, 0.1);
-        color: var(--blue-2);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-      }
-
-      .slider-arrow:hover {
-        background: rgba(0, 119, 255, 0.2);
-        transform: scale(1.1);
-      }
-
-      .slider-arrow svg {
-        width: 20px;
-        height: 20px;
-      }
 
  
 
@@ -3630,18 +3576,6 @@
       // Handle window resize
       window.addEventListener('resize', () => {
         updateSlider(currentIndex);
-      });
-    }
-
-  </script>
-      // Handle window resize
-      window.addEventListener('resize', () => {
-        const newSlidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
-        const newMaxSlide = totalItems - newSlidesPerView;
-        if (currentSlide > newMaxSlide) {
-          currentSlide = newMaxSlide;
-        }
-        updateSlide(true);
       });
     }
 
