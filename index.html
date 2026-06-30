@@ -2744,25 +2744,6 @@
             <p>Combine AI, automation, SEO, and digital marketing to attract customers, streamline operations, and accelerate business growth.</p>
           </div>
         </div>
-        <!-- Slider Dots -->
-        <div class="slider-dots" id="sliderDots">
-          <span class="slider-dot active" data-index="0"></span>
-          <span class="slider-dot" data-index="1"></span>
-          <span class="slider-dot" data-index="2"></span>
-        </div>
-        <!-- Slider Arrows -->
-        <div class="slider-arrows">
-          <button class="slider-arrow" id="sliderPrev" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button class="slider-arrow" id="sliderNext" aria-label="Next slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
       </div>
     </section>
 
@@ -3438,44 +3419,33 @@
 
     // TRIPLE COLUMN MOBILE SLIDER FUNCTIONALITY
     const tripleSlider = document.getElementById('tripleColumnSlider');
-    const sliderDots = document.querySelectorAll('.slider-dot');
-    const sliderPrev = document.getElementById('sliderPrev');
-    const sliderNext = document.getElementById('sliderNext');
     
-    if (tripleSlider && sliderDots.length > 0) {
+    if (tripleSlider) {
       let currentIndex = 0;
       const totalSlides = 3;
       let autoSlideInterval;
       let isUserInteracting = false;
       
-      const updateSlider = (index) => {
-        currentIndex = index;
+      const slideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24;
+      
+      const nextSlide = () => {
+        currentIndex = currentIndex + 1;
         if (currentIndex >= totalSlides) currentIndex = 0;
-        if (currentIndex < 0) currentIndex = totalSlides - 1;
         
-        const slideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24; // item width + gap
         tripleSlider.scrollTo({
           left: currentIndex * slideWidth,
           behavior: 'smooth'
         });
-        
-        // Update dots
-        sliderDots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentIndex);
-        });
-      };
-      
-      const goToSlide = (index) => {
-        updateSlider(index);
-        resetAutoSlide();
-      };
-      
-      const nextSlide = () => {
-        updateSlider(currentIndex + 1);
       };
       
       const prevSlide = () => {
-        updateSlider(currentIndex - 1);
+        currentIndex = currentIndex - 1;
+        if (currentIndex < 0) currentIndex = totalSlides - 1;
+        
+        tripleSlider.scrollTo({
+          left: currentIndex * slideWidth,
+          behavior: 'smooth'
+        });
       };
       
       const startAutoSlide = () => {
@@ -3487,46 +3457,7 @@
         clearInterval(autoSlideInterval);
       };
       
-      const resetAutoSlide = () => {
-        stopAutoSlide();
-        startAutoSlide();
-      };
-      
-      // Dot navigation
-      sliderDots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-          const index = parseInt(dot.getAttribute('data-index'));
-          goToSlide(index);
-        });
-      });
-      
-      // Arrow navigation
-      if (sliderPrev) {
-        sliderPrev.addEventListener('click', () => {
-          prevSlide();
-          resetAutoSlide();
-        });
-      }
-      
-      if (sliderNext) {
-        sliderNext.addEventListener('click', () => {
-          nextSlide();
-          resetAutoSlide();
-        });
-      }
-      
-      // Pause on hover
-      tripleSlider.addEventListener('mouseenter', () => {
-        isUserInteracting = true;
-        stopAutoSlide();
-      });
-      
-      tripleSlider.addEventListener('mouseleave', () => {
-        isUserInteracting = false;
-        startAutoSlide();
-      });
-      
-      // Touch events for mobile
+      // Touch events for mobile swipe
       let touchStartX = 0;
       let touchEndX = 0;
       
@@ -3556,17 +3487,13 @@
         }
       };
       
-      // Update active dot on scroll
+      // Update current index on scroll
       tripleSlider.addEventListener('scroll', () => {
-        const slideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24;
         const scrollPosition = tripleSlider.scrollLeft;
         const newIndex = Math.round(scrollPosition / slideWidth);
         
-        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
+        if (newIndex >= 0 && newIndex < totalSlides) {
           currentIndex = newIndex;
-          sliderDots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-          });
         }
       }, { passive: true });
       
@@ -3575,7 +3502,11 @@
       
       // Handle window resize
       window.addEventListener('resize', () => {
-        updateSlider(currentIndex);
+        const newSlideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24;
+        tripleSlider.scrollTo({
+          left: currentIndex * newSlideWidth,
+          behavior: 'smooth'
+        });
       });
     }
 
