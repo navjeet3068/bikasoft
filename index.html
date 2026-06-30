@@ -2517,6 +2517,92 @@
         filter: drop-shadow(0 0 16px rgba(0, 119, 255, 0.8));
       }
 
+      /* Mobile Slider Styles */
+      .triple-column-wrapper {
+        position: relative;
+        overflow: hidden;
+        margin-top: 48px;
+        padding: 20px 0;
+      }
+
+      .triple-column-slider {
+        display: flex;
+        gap: 24px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 5px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .triple-column-slider::-webkit-scrollbar {
+        display: none;
+      }
+
+      .triple-column-slider .triple-column-item {
+        flex: 0 0 calc(100% - 40px);
+        min-width: calc(100% - 40px);
+        scroll-snap-align: center;
+        margin: 0 20px;
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .slider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--line-soft);
+        border: 1px solid var(--line);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .slider-dot.active {
+        background: var(--blue-2);
+        border-color: var(--blue-2);
+        box-shadow: 0 0 12px rgba(0, 119, 255, 0.6);
+        transform: scale(1.2);
+      }
+
+      .slider-arrows {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .slider-arrow {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: rgba(0, 119, 255, 0.1);
+        color: var(--blue-2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .slider-arrow:hover {
+        background: rgba(0, 119, 255, 0.2);
+        transform: scale(1.1);
+      }
+
+      .slider-arrow svg {
+        width: 20px;
+        height: 20px;
+      }
+
  
 
       @media (max-width: 768px) {
@@ -2541,6 +2627,21 @@
 
         .inner-box .btn {
           align-self: center;
+        }
+
+        /* Hide grid on mobile, show slider */
+        .triple-column-container {
+          display: none;
+        }
+
+        .triple-column-wrapper {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .triple-column-wrapper {
+          display: none;
         }
       }
 
@@ -2653,6 +2754,7 @@
         </div>
       </div>
 
+      <!-- Desktop Grid View -->
       <div class="triple-column-container">
         <div class="triple-column-item">
           <img src="assets/create-icon.png" alt="Create" class="triple-column-icon">
@@ -2671,6 +2773,49 @@
           <h4>Digital</h4>
           <h5>Smarter Digital Growth</h5>
           <p>Combine AI, automation, SEO, and digital marketing to attract customers, streamline operations, and accelerate business growth.</p>
+        </div>
+      </div>
+
+      <!-- Mobile Slider View -->
+      <div class="triple-column-wrapper">
+        <div class="triple-column-slider" id="tripleColumnSlider">
+          <div class="triple-column-item">
+            <img src="assets/create-icon.png" alt="Create" class="triple-column-icon">
+            <h4>Create</h4>
+            <h5>Design That Converts</h5>
+            <p>Turn ideas into intuitive UI/UX, memorable branding, and engaging visual experiences that strengthen your business identity.</p>
+          </div>
+          <div class="triple-column-item">
+            <img src="assets/create-icon.png" alt="Build" class="triple-column-icon">
+            <h4>Build</h4>
+            <h5>Production-Ready Software</h5>
+            <p>Transform concepts into scalable websites, web applications, mobile apps, and enterprise software engineered for long-term growth.</p>
+          </div>
+          <div class="triple-column-item">
+            <img src="assets/create-icon.png" alt="Digital" class="triple-column-icon">
+            <h4>Digital</h4>
+            <h5>Smarter Digital Growth</h5>
+            <p>Combine AI, automation, SEO, and digital marketing to attract customers, streamline operations, and accelerate business growth.</p>
+          </div>
+        </div>
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="sliderDots">
+          <span class="slider-dot active" data-index="0"></span>
+          <span class="slider-dot" data-index="1"></span>
+          <span class="slider-dot" data-index="2"></span>
+        </div>
+        <!-- Slider Arrows -->
+        <div class="slider-arrows">
+          <button class="slider-arrow" id="sliderPrev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="slider-arrow" id="sliderNext" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
@@ -3334,6 +3479,161 @@
         }
       });
       
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        const newSlidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
+        const newMaxSlide = totalItems - newSlidesPerView;
+        if (currentSlide > newMaxSlide) {
+          currentSlide = newMaxSlide;
+        }
+        updateSlide(true);
+      });
+    }
+
+    // TRIPLE COLUMN MOBILE SLIDER FUNCTIONALITY
+    const tripleSlider = document.getElementById('tripleColumnSlider');
+    const sliderDots = document.querySelectorAll('.slider-dot');
+    const sliderPrev = document.getElementById('sliderPrev');
+    const sliderNext = document.getElementById('sliderNext');
+    
+    if (tripleSlider && sliderDots.length > 0) {
+      let currentIndex = 0;
+      const totalSlides = 3;
+      let autoSlideInterval;
+      let isUserInteracting = false;
+      
+      const updateSlider = (index) => {
+        currentIndex = index;
+        if (currentIndex >= totalSlides) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = totalSlides - 1;
+        
+        const slideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24; // item width + gap
+        tripleSlider.scrollTo({
+          left: currentIndex * slideWidth,
+          behavior: 'smooth'
+        });
+        
+        // Update dots
+        sliderDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      };
+      
+      const goToSlide = (index) => {
+        updateSlider(index);
+        resetAutoSlide();
+      };
+      
+      const nextSlide = () => {
+        updateSlider(currentIndex + 1);
+      };
+      
+      const prevSlide = () => {
+        updateSlider(currentIndex - 1);
+      };
+      
+      const startAutoSlide = () => {
+        if (isUserInteracting) return;
+        autoSlideInterval = setInterval(nextSlide, 3000);
+      };
+      
+      const stopAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+      };
+      
+      const resetAutoSlide = () => {
+        stopAutoSlide();
+        startAutoSlide();
+      };
+      
+      // Dot navigation
+      sliderDots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'));
+          goToSlide(index);
+        });
+      });
+      
+      // Arrow navigation
+      if (sliderPrev) {
+        sliderPrev.addEventListener('click', () => {
+          prevSlide();
+          resetAutoSlide();
+        });
+      }
+      
+      if (sliderNext) {
+        sliderNext.addEventListener('click', () => {
+          nextSlide();
+          resetAutoSlide();
+        });
+      }
+      
+      // Pause on hover
+      tripleSlider.addEventListener('mouseenter', () => {
+        isUserInteracting = true;
+        stopAutoSlide();
+      });
+      
+      tripleSlider.addEventListener('mouseleave', () => {
+        isUserInteracting = false;
+        startAutoSlide();
+      });
+      
+      // Touch events for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      tripleSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isUserInteracting = true;
+        stopAutoSlide();
+      }, { passive: true });
+      
+      tripleSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        isUserInteracting = false;
+        startAutoSlide();
+      }, { passive: true });
+      
+      const handleSwipe = () => {
+        const diff = touchStartX - touchEndX;
+        const threshold = 50;
+        
+        if (Math.abs(diff) > threshold) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      };
+      
+      // Update active dot on scroll
+      tripleSlider.addEventListener('scroll', () => {
+        const slideWidth = tripleSlider.querySelector('.triple-column-item').offsetWidth + 24;
+        const scrollPosition = tripleSlider.scrollLeft;
+        const newIndex = Math.round(scrollPosition / slideWidth);
+        
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
+          currentIndex = newIndex;
+          sliderDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+          });
+        }
+      }, { passive: true });
+      
+      // Start auto-slide
+      startAutoSlide();
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        updateSlider(currentIndex);
+      });
+    }
+
+  </script>
       // Handle window resize
       window.addEventListener('resize', () => {
         const newSlidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
