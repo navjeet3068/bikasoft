@@ -241,6 +241,19 @@
     .contact-info-cards .card { min-height: auto; padding: 28px; }
     .contact-info-cards .card svg.card-icon { width: 32px; height: 32px; margin-bottom: 16px; }
     .contact-info-cards .card h3 { font-size: 18px; margin-top: 0; margin-bottom: 8px; }
+    .map-container { 
+      margin-top: 24px; 
+      border-radius: 20px; 
+      overflow: hidden; 
+      border: 1px solid var(--line-soft);
+      box-shadow: 0 16px 32px var(--shadow-base);
+    }
+    .map-container iframe { 
+      width: 100%; 
+      height: 300px; 
+      border: none; 
+      display: block;
+    }
     
     .contact-form-panel { padding: 48px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
@@ -390,7 +403,18 @@
           <div class="card">
             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
             <h3>Visit Us</h3>
-            <p>Shakti Tower 1<br>766, Anna Salai<br>Thousand Lights<br>Chennai, Tamil Nadu 600002<br>India</p>
+            <p>Plot No: 13, Industrial Area<br>Sector 66 A<br>Sahibzada Ajit Singh Nagar<br>Punjab 160066<br>India</p>
+          </div>
+          
+          <!-- Google Maps Embed -->
+          <div class="map-container reveal" style="transition-delay: 200ms;">
+            <iframe 
+              src="https://share.google/mSy1kWf5xbcXaALl4" 
+              title="Bikasoft Location - Plot No: 13, Industrial Area, Sector 66 A, SAS Nagar, Punjab 160066"
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
 
@@ -560,7 +584,7 @@
           <div class="cta-summary">
             <div><strong>Phone</strong> +91 9878069696</div>
             <div><strong>Email</strong> hello@bikasoft.com</div>
-            <div><strong>Location</strong> Shakti Tower 1, Chennai</div>
+          <div><strong>Location</strong> Plot No: 13, Industrial Area, Sector 66 A, SAS Nagar, Punjab 160066</div>
           </div>
         </div>
       </div>
@@ -599,7 +623,7 @@
           <h3>Contact</h3>
           <ul>
             <li>Bikasoft</li>
-            <li>Chennai, India</li>
+          <li>Plot No: 13, Industrial Area, Sector 66 A, SAS Nagar, Punjab 160066, India</li>
             <li><a href="tel:+919878069696">+91 9878069696</a></li>
             <li><a href="mailto:hello@bikasoft.com">hello@bikasoft.com</a></li>
             <li><a href="https://www.instagram.com/bika.soft" target="_blank" rel="noopener">Instagram</a></li>

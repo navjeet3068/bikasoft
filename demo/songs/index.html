@@ -1,0 +1,67 @@
+--- e:\Work\Bikasoft\demo\songs\index.html
++++ e:\Work\Bikasoft\demo\songs\index.html
+@@ -1,48 +1,52 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Document</title>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>My Music Page</title>
++  <style>
++    body {
++      margin: 0;
++      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
++      background-color: #121212;
++      color: #ffffff;
++    }
++
++    .hero {
++      /* Full-screen hero section */
++      height: 100vh;
++      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070') no-repeat center center;
++      background-size: cover;
++
++      /* Center content vertically and horizontally */
++      display: flex;
++      flex-direction: column;
++      justify-content: center;
++      align-items: center;
++      text-align: center;
++      padding: 20px;
++      box-sizing: border-box;
++    }
++
++    .hero h1 {
++      font-size: 3.5rem;
++      margin: 0;
++    }
++
++    .hero p {
++      font-size: 1.5rem;
++      margin-bottom: 40px;
++    }
++
++    .spotify-player {
++      width: 100%;
++      max-width: 700px; /* Prevents player from being too wide on large screens */
++    }
++  </style>
+ </head>
+ <body>
+-
+   <section class="hero">
+     <h1>My Vibe</h1>
+     <p>Listen to my favorite tunes.</p>
+-  </section>
+-  <section class="player-section">
+-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2AVjI8Z57bqMJVtU3V9X1Q?utm_source=generator&theme=0" width="80%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
++    <div class="spotify-player">
++      <!-- Compact Spotify Player -->
++      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2AVjI8Z57bqMJVtU3V9X1Q?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
++    </div>
+   </section>
+ </body>
+ </html>
