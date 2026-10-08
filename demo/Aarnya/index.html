@@ -52,6 +52,36 @@
       <div class="hero-copy"><h1>Turn Every Contract Into a <span>Growth Catalyst</span></h1><p class="lead">Aaranya delivers world‑class contract drafting, review, and management solutions, ensuring precision, compliance, risk control, and sustainable business growth.</p><div class="hero-actions"><a class="button" href="#contact">Talk to our team <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="button button-light" href="#services">Explore our services</a></div></div>
     </div>
   </section>
+  <section class="section capability-section" id="drafting-support" aria-labelledby="capability-title">
+    <div class="wrap">
+      <div class="capability-heading">
+        <div><span class="eyebrow">One connected capability</span><h2 id="capability-title">Contract Drafting &amp; Pre-Litigation Support</h2></div>
+        <p class="lead">Two distinct services, working together to help businesses move from stronger agreements to dispute readiness.</p>
+      </div>
+      <div class="capability-flow" aria-label="Service progression"><span>Draft</span><i></i><span>Strengthen</span><i></i><span>Identify</span><i></i><span>Prepare</span></div>
+      <div class="capability-panels" data-capabilities>
+        <article class="capability-panel is-active" data-panel="drafting">
+          <button class="capability-trigger" type="button" id="drafting-trigger" aria-expanded="true" aria-controls="drafting-content">
+            <span class="capability-number">01</span><span class="capability-title-wrap"><strong>Contract Drafting</strong><span>Draft, review, standardize and strengthen agreements around business requirements.</span></span>
+          </button>
+          <div class="capability-content" id="drafting-content" role="region" aria-labelledby="drafting-trigger">
+            <p>Draft, review, standardize and strengthen agreements around business requirements.</p>
+            <ul class="capability-list"><li>Contract Drafting</li><li>Contract Review</li><li>Contract Standardization</li><li>Clause Development</li><li>Contract Templates</li><li>Amendments &amp; Addendums</li></ul>
+          </div>
+        </article>
+        <article class="capability-panel" data-panel="prelitigation">
+          <button class="capability-trigger" type="button" id="prelitigation-trigger" aria-expanded="false" aria-controls="prelitigation-content">
+            <span class="capability-number">02</span><span class="capability-title-wrap"><strong>Pre-Litigation Support</strong><span>Assess contractual issues and prepare businesses to address disputes before formal proceedings.</span></span>
+          </button>
+          <div class="capability-content" id="prelitigation-content" role="region" aria-labelledby="prelitigation-trigger" hidden>
+            <p>Assess contractual issues and prepare businesses to address disputes before formal proceedings.</p>
+            <ul class="capability-list"><li>Dispute Assessment</li><li>Contractual Obligations</li><li>Legal Notices &amp; Responses</li><li>Documentation</li><li>Evidence Preparation</li><li>Pre-Litigation Strategy</li></ul>
+          </div>
+        </article>
+      </div>
+      <div class="capability-footer"><p>From stronger contracts to better-prepared businesses.</p><a href="#contact">Talk to our team <span aria-hidden="true">&#8594;</span></a></div>
+    </div>
+  </section>
   <section class="section outcomes" id="outcomes" aria-labelledby="outcomes-title">
     <div class="wrap">
       <div class="outcomes-intro">
@@ -97,6 +127,7 @@
   <footer><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="/" style="color:white"><img src="assets/logo.png" alt="Aaranya Consulting Inc."></a><p>Contract management services that bring greater clarity, control and confidence to your operations.</p><a href="mailto:hello@aarnaya.com">hello@aarnaya.com</a></div><div class="footer-links"><div><strong>Explore</strong><a href="#solutions">Solutions</a><a href="#approach">Our approach</a><a href="#services">Services</a></div><div><strong>Company</strong><a href="#contact">Contact</a><a href="#insights">Insights</a><a href="#industries">Industries</a></div><div><strong>Services</strong><a href="#services">Lifecycle management</a><a href="#services">Contract repository</a><a href="#services">Managed services</a></div></div></div><div class="footer-bottom"><span>Â© 2026 Aarnaya. All rights reserved.</span><span>Contract lifecycle management, with clarity.</span></div></div></footer>
   <script>
     (function(){var button=document.querySelector('.menu-button'),nav=document.getElementById('primary-nav');if(!button||!nav)return;button.addEventListener('click',function(){var open=nav.classList.toggle('open');button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation':'Open navigation')});nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){nav.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation')})});window.addEventListener('resize',function(){if(window.innerWidth>720){nav.classList.remove('open');button.setAttribute('aria-expanded','false')}})})();
+    (function(){var root=document.querySelector('[data-capabilities]');if(!root)return;var panels=[].slice.call(root.querySelectorAll('.capability-panel'));panels.forEach(function(panel){var trigger=panel.querySelector('.capability-trigger');trigger.addEventListener('click',function(){panels.forEach(function(item){var active=item===panel;item.classList.toggle('is-active',active);item.querySelector('.capability-trigger').setAttribute('aria-expanded',String(active));item.querySelector('.capability-content').hidden=!active})})})})();
   </script>
 </body>
 </html>
