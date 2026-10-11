@@ -985,6 +985,27 @@
     @media(max-width:1000px){.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:720px){.why-aaranya{padding:76px 0}.why-aaranya .wrap{width:min(100% - 36px,560px)}.why-heading{margin-bottom:34px}.why-grid{grid-template-columns:1fr;gap:14px}.why-card{padding:24px 20px}.why-cta{margin-top:32px}}
     @media(prefers-reduced-motion:reduce){.why-card{transition:none}}
+
+    /* Aaranya Advantage — impact metrics band. */
+    .advantage-section{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 82% 12%,rgba(37,99,235,.28),transparent 38%),radial-gradient(ellipse at 12% 88%,rgba(32,122,207,.2),transparent 40%),linear-gradient(135deg,#091a35 0%,#102b52 52%,#0b2042 100%);color:#fff}
+    .advantage-section:before{position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(183,210,248,.2) .7px,transparent .8px);background-size:18px 18px;opacity:.22;content:"";pointer-events:none}
+    .advantage-section .wrap{position:relative;z-index:1;width:min(1200px,calc(100% - 48px))}
+    .advantage-heading{max-width:720px;margin:0 auto 48px}
+    .advantage-heading .eyebrow{color:#8eb8ff;font-size:.74rem;font-weight:800;letter-spacing:.1em}
+    .advantage-heading .eyebrow:before{background:#6fa7ff}
+    .advantage-heading h2{margin:12px 0;color:#fff;font-size:clamp(2.3rem,4vw,3.6rem);font-weight:700;letter-spacing:-.055em;line-height:1.08}
+    .advantage-heading .lead{max-width:640px;margin:0 auto;color:#c3d4ea;font-size:1.02rem;line-height:1.75}
+    .advantage-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .advantage-stat{padding:28px 24px;border:1px solid rgba(255,255,255,.14);border-radius:19px;background:rgba(255,255,255,.05);transition:transform .25s ease,border-color .25s ease,background .25s ease}
+    .advantage-stat:hover{transform:translateY(-5px);border-color:rgba(140,184,255,.5);background:rgba(255,255,255,.08)}
+    .advantage-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:18px;border-radius:14px;background:rgba(120,170,255,.16);color:#8fbcff}
+    .advantage-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+    .advantage-value{margin:0 0 10px;color:#8bbaff;font-size:clamp(2.4rem,4vw,3.4rem);font-weight:800;letter-spacing:-.055em;line-height:1;font-variant-numeric:tabular-nums}
+    .advantage-stat h3{margin:0 0 9px;color:#f4f8ff;font-size:1.05rem;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+    .advantage-stat p{margin:0;color:#aebfd9;font-size:.86rem;line-height:1.6}
+    @media(max-width:1000px){.advantage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.advantage-section{padding:76px 0}.advantage-section .wrap{width:min(100% - 36px,560px)}.advantage-heading{margin-bottom:34px}.advantage-grid{grid-template-columns:1fr;gap:14px}.advantage-stat{padding:24px 20px}}
+    @media(prefers-reduced-motion:reduce){.advantage-stat{transition:none}}
     .capability-service-row{border-color:#dce7f5;background:#f4f8ff;box-shadow:none}
     .capability-service-row h3{color:#142c50}
     .capability-service-row--drafting,.capability-service-row--litigation{border-left-color:#dce7f5}
