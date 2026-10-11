@@ -266,7 +266,7 @@
     .trust-logos span{font-size:1.1rem;font-weight:800;letter-spacing:-.04em;opacity:.72}
     .section{padding:112px 0}
     .section-head{max-width:700px;margin-bottom:48px}
-    .section-head.center{margin:0 auto 54px;text-align:center}.section-head.center .eyebrow{justify-content:center}.section-head.center .lead{margin-inline:auto}
+    .section-head.center{margin:0 auto 11px;text-align:center}.section-head.center .eyebrow{justify-content:center}.section-head.center .lead{margin-inline:auto}
     .challenge{background:#fff}
     .challenge-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
     .challenge-aside{position:sticky;top:120px}
@@ -964,6 +964,27 @@
     .capability-panel:first-child .capability-content h3,.capability-panel:nth-child(2) .capability-content h3{color:#142c50}
     .capability-panel:first-child .capability-content>p,.capability-panel:nth-child(2) .capability-content>p{color:#667991}
     .capability-panel:first-child .capability-panel-icon,.capability-panel:nth-child(2) .capability-panel-icon{border-color:#dce7f5;background:#edf4ff;color:#2864c8;box-shadow:none}
+
+    /* Why Aaranya Consulting section. */
+    .why-aaranya{background:var(--ice)}
+    .why-aaranya .wrap{width:min(1200px,calc(100% - 48px))}
+    .why-heading{max-width:720px;margin:0 auto 48px}
+    .why-heading .eyebrow{color:#3470d8;font-size:.74rem;font-weight:800;letter-spacing:.1em}
+    .why-heading .eyebrow:before{background:#4a85ef}
+    .why-heading h2{margin:12px 0;color:#142c50;font-size:clamp(2.3rem,4vw,3.6rem);font-weight:700;letter-spacing:-.055em;line-height:1.08}
+    .why-heading .lead{max-width:640px;margin:0 auto;color:#61748f;font-size:1.02rem;line-height:1.75}
+    .why-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .why-card{padding:28px 24px;border:1px solid #e2eaf5;border-radius:19px;background:#fff;box-shadow:0 8px 28px rgba(16,42,86,.045);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+    .why-card:hover{transform:translateY(-5px);border-color:#b8cef1;box-shadow:var(--shadow)}
+    .why-card-icon{display:grid;place-items:center;width:52px;height:52px;margin-bottom:18px;border-radius:14px;background:#edf4ff;color:#2864c8}
+    .why-card-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .why-card h3{margin:0 0 9px;color:#142c50;font-size:1.12rem;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+    .why-card p{margin:0;color:#62758f;font-size:.88rem;line-height:1.65}
+    .why-cta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:44px}
+    .why-cta .button-light{background:#fff;color:var(--ink)}
+    @media(max-width:1000px){.why-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.why-aaranya{padding:76px 0}.why-aaranya .wrap{width:min(100% - 36px,560px)}.why-heading{margin-bottom:34px}.why-grid{grid-template-columns:1fr;gap:14px}.why-card{padding:24px 20px}.why-cta{margin-top:32px}}
+    @media(prefers-reduced-motion:reduce){.why-card{transition:none}}
     .capability-service-row{border-color:#dce7f5;background:#f4f8ff;box-shadow:none}
     .capability-service-row h3{color:#142c50}
     .capability-service-row--drafting,.capability-service-row--litigation{border-left-color:#dce7f5}
