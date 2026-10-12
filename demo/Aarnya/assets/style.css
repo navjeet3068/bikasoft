@@ -1030,7 +1030,7 @@
     .process-step p{margin:0;color:#62758f;font-size:.86rem;line-height:1.55}
     @media(max-width:1000px){.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid:before{display:none}.process-step:not(:last-child):after{display:none}}
     @media(max-width:720px){.process-section{padding:76px 0}.process-section .wrap{width:min(100% - 36px,560px)}.process-heading{margin-bottom:34px}.process-grid{grid-template-columns:1fr;gap:26px}}
-    @media(prefers-reduced-motion:reduce){.process-step{transition:none}}
+    @media(prefers-reduced-motion:reduce){.process-step{transition:none}} 
 
     /* Challenges We Solve section. */
     .challenges-section{background:#fff}
