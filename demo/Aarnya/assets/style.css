@@ -1111,3 +1111,12 @@
     @media(max-width:800px){.contact-cta-content{align-items:flex-start;flex-direction:column;gap:22px}.contact-layout{grid-template-columns:1fr;padding-top:52px;padding-bottom:52px}.contact-details{padding:0}.contact-methods{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.contact-method{align-items:flex-start;flex-direction:column;gap:8px}}
     @media(max-width:560px){.contact-cta-band{padding:38px 18px}.contact-layout{width:min(100% - 36px,560px);gap:20px}.contact-methods{grid-template-columns:1fr}.contact-method{align-items:center;flex-direction:row}.contact-form{padding:22px 18px}.contact-form-grid{grid-template-columns:1fr;gap:13px}.contact-message{grid-column:auto}.contact-map{height:250px}}
     @media(prefers-reduced-motion:reduce){.contact-cta-button,.contact-submit{transition:none}}
+    /* New services row under the capability intro (added Oct 2026). */
+    .capability-services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:8px}
+    .capability-service-card{padding:24px 22px;border:1px solid #dfe9f6;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(16,42,86,.06);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+    .capability-service-card:hover{transform:translateY(-4px);border-color:#c3d7f3;box-shadow:0 18px 38px rgba(16,42,86,.11)}
+    .capability-service-num{display:inline-block;margin-bottom:12px;color:#3470d8;font-size:.74rem;font-weight:800;letter-spacing:.1em}
+    .capability-service-card h3{margin:0 0 8px;color:#142b48;font-size:1.06rem;font-weight:700;letter-spacing:-.02em;line-height:1.35}
+    .capability-service-card p{margin:0;color:#5b7191;font-size:.87rem;line-height:1.6}
+    @media(max-width:1000px){.capability-services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:720px){.capability-services-grid{grid-template-columns:1fr;gap:13px}.capability-service-card{padding:20px 18px}.capability-service-card h3{font-size:.99rem}}
