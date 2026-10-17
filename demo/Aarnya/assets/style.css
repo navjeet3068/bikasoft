@@ -1673,3 +1673,17 @@ body footer .footer-bottom a{color:#d8e4f3;text-decoration:none}
 @media(max-width:520px){.focus-detail-page .focus-agreement-grid{grid-template-columns:1fr}.focus-detail-page .focus-agreement-card{min-height:0;padding:17px}}
 .focus-detail-page .focus-agreement-grid{align-items:start}
 .focus-detail-page .focus-agreement-card{min-height:0;align-self:start}
+.focus-end-to-end-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("end-to-end-bg-v2.png") right center/auto 88% no-repeat}
+.focus-corporate-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("corporate-legal-bg-v2.png") right center/cover no-repeat}
+.focus-privacy-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("data-privacy-bg-v2.png") right center/cover no-repeat}
+.focus-operations-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("legal-operations-bg-v2.png") right center/cover no-repeat}
+.focus-litigation-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("litigation-support-bg-v2.png") right center/cover no-repeat}
+.focus-prelitigation-page .focus-detail-hero::before{background:linear-gradient(90deg,#f0f6ff 0%,rgba(240,246,255,.96) 17%,rgba(240,246,255,.62) 49%,rgba(240,246,255,.12) 100%),url("pre-litigation-bg-v2.png") right center/cover no-repeat}
+@media(max-width:720px){
+.focus-end-to-end-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("end-to-end-bg-v2.png") right center/auto 75% no-repeat}
+.focus-corporate-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("corporate-legal-bg-v2.png") center/cover no-repeat}
+.focus-privacy-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("data-privacy-bg-v2.png") center/cover no-repeat}
+.focus-operations-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("legal-operations-bg-v2.png") center/cover no-repeat}
+.focus-litigation-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("litigation-support-bg-v2.png") center/cover no-repeat}
+.focus-prelitigation-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("pre-litigation-bg-v2.png") center/cover no-repeat}
+}
