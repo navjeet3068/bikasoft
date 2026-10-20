@@ -4,8 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#2b1a12">
-  <meta name="description" content="A nostalgic radio for 90s Hindi film songs, set in an illustrated Indian street-corner saloon.">
-  <title>Deluxe Saloon — 90s Hindi Songs &amp; Nostalgia</title>
+  <meta name="description" content="Listen to a YouTube playlist of songs about Narendra Modi. Play, pause, skip tracks, and adjust playback with custom audio controls.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Narendra Modi Songs | Listen to the Playlist">
+  <meta property="og:description" content="Listen to a YouTube playlist of songs about Narendra Modi, with simple custom playback controls.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Narendra Modi Songs | Listen to the Playlist">
+  <meta name="twitter:description" content="Listen to a YouTube playlist of songs about Narendra Modi, with simple custom playback controls.">
+  <title>Narendra Modi Songs | Listen to the Playlist</title>
   <style>
     :root {
       color-scheme: dark;
@@ -45,26 +52,30 @@
     .hero h1 span { display: block; }
     .hero-kicker { margin: 18px 0 0; color: rgba(255,241,213,.78); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .34em; text-transform: uppercase; text-shadow: 0 2px 14px rgba(30,16,11,.9); }
     .player-dock { position: absolute; z-index: 5; inset: auto 0 max(20px, env(safe-area-inset-bottom)); display: flex; justify-content: center; padding: 0 14px; }
-    .custom-player { display: grid; grid-template-columns: 58px minmax(0, 1fr); grid-template-rows: auto auto; align-items: center; column-gap: 14px; row-gap: 9px; width: min(50%, 760px); min-width: 410px; padding: 15px 19px; border: 1px solid rgba(255,255,255,.24); border-radius: 25px; background: linear-gradient(135deg, rgba(248,248,250,.2), rgba(235,235,245,.1)); box-shadow: 0 18px 48px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.3); -webkit-backdrop-filter: blur(30px) saturate(170%); backdrop-filter: blur(30px) saturate(170%); }
-    .track-art { grid-column: 1; grid-row: 1 / 3; display: block; width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.26); border-radius: 12px; object-fit: cover; box-shadow: 0 5px 14px rgba(0,0,0,.25); }
-    .custom-play { display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.15); color: #fff; cursor: pointer; transition: background .18s, transform .18s; }
-    .custom-play:hover:not(:disabled) { background: rgba(255,255,255,.25); transform: scale(1.05); }
+    .custom-player { display: grid; grid-template-columns: 52px minmax(70px, 1fr) auto; grid-template-rows: auto; align-items: center; column-gap: 5px; width: min(40%, 600px); min-width: 370px; padding: 9px 12px 9px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; background: linear-gradient(115deg, rgba(48,31,23,.9), rgba(32,23,20,.88)); box-shadow: 0 16px 50px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.16); -webkit-backdrop-filter: blur(22px) saturate(135%); backdrop-filter: blur(22px) saturate(135%); }
+    .track-art { grid-column: 1; grid-row: 1; display: block; width: 58px; height: 58px; margin-right: 8px; border: 1px solid rgba(255,255,255,.26); border-radius: 50%; object-fit: cover; box-shadow: 0 5px 14px rgba(0,0,0,.25); }
+    .custom-play { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; background: #fff8e9; color: #24170f; cursor: pointer; transition: background .18s, transform .18s; }
+    .custom-play:hover:not(:disabled) { background: #fff; transform: scale(1.05); }
     .custom-play:disabled { cursor: wait; opacity: .5; }
     .custom-play:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
     .custom-play svg { width: 17px; height: 17px; fill: currentColor; }
     .custom-play .pause-icon { display: none; }
     .custom-play[aria-pressed="true"] .play-icon { display: none; }
     .custom-play[aria-pressed="true"] .pause-icon { display: block; }
-    .custom-actions { grid-column: 2; grid-row: 2; display: flex; align-items: center;  gap: clamp(4px, .8vw, 10px); min-width: 0; }
+    .custom-actions { grid-column: 3; grid-row: 1; display: flex; align-items: center; gap: clamp(5px, .8vw, 12px); min-width: 0; }
     .custom-skip, .custom-mute { display: grid; flex: 0 0 auto; place-items: center; min-width: 28px; height: 34px; padding: 0 4px; border: 0; background: transparent; color: rgba(255,255,255,.82); font-size: 10px; cursor: pointer; }
     .custom-skip:hover:not(:disabled), .custom-mute:hover:not(:disabled) { color: #fff; }
     .custom-skip:disabled, .custom-mute:disabled { cursor: wait; opacity: .5; }
     .custom-skip svg { width: 16px; height: 16px; fill: currentColor; }
+    .custom-mute svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .custom-mute .mute-slash { display: none; }
+    .custom-mute[aria-pressed="true"] .volume-waves { display: none; }
+    .custom-mute[aria-pressed="true"] .mute-slash { display: block; }
     .custom-skip:focus-visible, .custom-mute:focus-visible, .volume-range:focus-visible, .seek-range:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-    .seek-line { display: flex; align-items: center; gap: 7px; margin-top: 7px; }
+    .seek-line { display: flex; align-items: center; gap: 7px; margin-top: 8px; }
     .seek-range, .volume-range { height: 3px; margin: 0; border-radius: 99px; accent-color: #fff; cursor: pointer; }
     .seek-range { min-width: 0; flex: 1; }
-    .volume-range { width: 56px; }
+    .volume-range { width: 56px; margin-right: 8px; }
     .time-readout { flex: 0 0 auto; color: rgba(255,255,255,.65); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
     .youtube-player-host { position: fixed; top: 0; left: -10000px; width: 200px; height: 200px; overflow: hidden; opacity: 0; pointer-events: none; }
     .youtube-player-host iframe { display: block; width: 200px; height: 200px; border: 0; }
@@ -88,9 +99,9 @@
       .hero h1 { font-size: clamp(2.25rem, 10vw, 4.2rem); }
       .hero-kicker { margin-top: 14px; font-size: 9px; letter-spacing: .23em; }
       .player-dock { bottom: max(13px, env(safe-area-inset-bottom)); padding: 0 10px; }
-      .custom-player { width: min(100%, 520px); min-width: 0; grid-template-columns: 52px minmax(0, 1fr); gap: 9px 11px; padding: 12px 14px; border-radius: 21px; }
-      .track-art { grid-row: 1; width: 52px; height: 52px; }
-      .custom-actions { grid-column: 1 / -1; grid-row: 2;  gap: 8px; }
+      .custom-player { width: min(100%, 520px); min-width: 0; grid-template-columns: 52px minmax(0, 1fr); grid-template-rows: auto auto; gap: 9px 11px; padding: 11px 13px; border-radius: 25px; }
+      .track-art { grid-row: 1; width: 52px; height: 52px; padding-right: 10px; }
+      .custom-actions { grid-column: 1 / -1; grid-row: 2; justify-content: space-around; gap: 8px; }
       .about-card { padding: 29px 24px 25px; }
     }
     @media (max-width: 390px) {
@@ -102,7 +113,7 @@
       .custom-mute { min-width: 26px; padding: 0 2px; }
     }
     @media (min-width: 651px) and (max-width: 900px) {
-      .custom-player { width: min(72%, 620px); min-width: 390px; }
+      .custom-player { width: min(58%, 520px); min-width: 370px; }
       .volume-range { width: 48px; }
       .custom-actions { gap: 6px; }
     }
@@ -126,24 +137,23 @@
     <div class="grain" aria-hidden="true"></div>
 
     <header class="topbar">
-      <span class="station-mark">FM · 90s Hindi radio <time class="station-time" id="station-time" aria-label="Current time in India">--:--:-- IST</time></span>
+      <span class="station-mark">Narendra Modi songs <time class="station-time" id="station-time" aria-label="Current time in India">--:--:-- IST</time></span>
       <div class="live-status" aria-label="Radio online">
         <span class="live-dot" aria-hidden="true"></span>
-        <span class="live-count">24/7</span>
-        <span class="online-label">Sabka Saath, Sabka Vikas, Sabka Vishwas, Sabka Prayas</span>
+        <span class="live-count">YOUTUBE</span>
+        <span class="online-label">playlist</span>
       </div>
-      <button class="about-button" type="button" aria-label="About Deluxe Saloon" title="About">
+      <button class="about-button" type="button" aria-label="About this playlist" title="About">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"></circle><path d="M12 11v5M12 8h.01"></path></svg>
       </button>
     </header>
 
-  
-
-    <section class="player-dock" aria-label="Radio player">
+ 
+    <section class="player-dock" aria-label="Narendra Modi songs player">
       <div class="custom-player">
         <img class="track-art" src="https://i.ytimg.com/vi/N0jnLZxYwYc/hqdefault.jpg" alt="">
         <div class="custom-track">
-          <p class="custom-title">90s Hindi songs</p>
+          <p class="custom-title">Narendra Modi songs</p>
           <p class="custom-status" aria-live="polite">Connecting to YouTube…</p>
           <div class="seek-line"><span class="time-readout current-time">0:00</span><input class="seek-range" type="range" min="0" max="0" step="1" value="0" aria-label="Seek in song" disabled><span class="time-readout duration-time">0:00</span></div>
         </div>
@@ -154,7 +164,7 @@
             <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
           </button>
           <button class="custom-skip next-button" type="button" aria-label="Next track" title="Next track" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14M5 6l11 6-11 6V6Z"></path></svg></button>
-          <button class="custom-mute" type="button" aria-label="Mute playback" aria-pressed="false" disabled>Mute</button>
+          <button class="custom-mute" type="button" aria-label="Mute playback" title="Mute playback" aria-pressed="false" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l3 4h2z"></path><path class="volume-waves" d="M15 9a5 5 0 0 1 0 6M18 6a9 9 0 0 1 0 12"></path><path class="mute-slash" d="m15 9 6 6m0-6-6 6"></path></svg></button>
           <input class="volume-range" type="range" min="0" max="100" step="1" value="70" aria-label="Volume" disabled>
         </div>
       </div>
@@ -165,9 +175,9 @@
   <div class="about-overlay" hidden>
     <section class="about-card" role="dialog" aria-modal="true" aria-labelledby="about-title">
       <button class="about-close" type="button" aria-label="Close about panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg></button>
-      <h2 id="about-title">Welcome to Deluxe Saloon</h2>
-      <p>A little corner radio for the Hindi film songs that never left us. Settle in, press play, and let the old favourites roll on.</p>
-      <p class="about-caption">90s Hindi songs · open all hours</p>
+      <h2 id="about-title">About this playlist</h2>
+      <p>Listen to songs about Narendra Modi from the selected public YouTube playlist. Use the controls to play, pause, skip tracks, and adjust the volume. Playback is provided by YouTube.</p>
+      <p class="about-caption">Independent playlist · not an official website</p>
     </section>
   </div>
   <script>
@@ -285,13 +295,13 @@
       if (!youtubePlayer) return;
       if (youtubePlayer.isMuted()) {
         youtubePlayer.unMute();
-        customMute.textContent = 'Mute';
         customMute.setAttribute('aria-label', 'Mute playback');
+        customMute.title = 'Mute playback';
         customMute.setAttribute('aria-pressed', 'false');
       } else {
         youtubePlayer.mute();
-        customMute.textContent = 'Sound';
         customMute.setAttribute('aria-label', 'Unmute playback');
+        customMute.title = 'Unmute playback';
         customMute.setAttribute('aria-pressed', 'true');
       }
     });
@@ -300,8 +310,8 @@
       if (Number(volume.value) > 0 && youtubePlayer?.isMuted()) youtubePlayer.unMute();
       if (Number(volume.value) === 0 && !youtubePlayer?.isMuted()) youtubePlayer.mute();
       customMute.setAttribute('aria-pressed', String(youtubePlayer?.isMuted() || false));
-      customMute.textContent = youtubePlayer?.isMuted() ? 'Sound' : 'Mute';
       customMute.setAttribute('aria-label', youtubePlayer?.isMuted() ? 'Unmute playback' : 'Mute playback');
+      customMute.title = youtubePlayer?.isMuted() ? 'Unmute playback' : 'Mute playback';
     });
     seek.addEventListener('input', () => {
       draggingSeek = true;
