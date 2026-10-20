@@ -48,16 +48,23 @@
     .custom-play { display: grid; flex: 0 0 auto; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid rgba(255,231,191,.38); border-radius: 50%; background: rgba(255,229,185,.11); color: var(--cream); cursor: pointer; transition: background .18s, transform .18s; }
     .custom-play:hover:not(:disabled) { background: rgba(255,229,185,.2); transform: scale(1.04); }
     .custom-play:disabled { cursor: wait; opacity: .5; }
-    .custom-play:focus-visible, .spotify-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .custom-play:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
     .custom-play svg { width: 17px; height: 17px; fill: currentColor; }
     .custom-play .pause-icon { display: none; }
     .custom-play[aria-pressed="true"] .play-icon { display: none; }
     .custom-play[aria-pressed="true"] .pause-icon { display: block; }
-    .custom-mute, .spotify-login { flex: 0 0 auto; padding: 7px 9px; border: 1px solid rgba(255,241,213,.22); border-radius: 999px; background: rgba(255,229,185,.08); color: var(--sand); font-size: 10px; cursor: pointer; }
-    .custom-mute:hover:not(:disabled), .spotify-login:hover { border-color: rgba(255,231,191,.62); color: var(--cream); }
-    .custom-mute:disabled { cursor: wait; opacity: .5; }
-    .custom-mute:focus-visible, .spotify-login:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-    .custom-actions { display: flex; align-items: center; gap: 7px; }
+    .custom-actions { display: flex; align-items: center; gap: 5px; }
+    .custom-skip, .custom-mute { display: grid; flex: 0 0 auto; place-items: center; min-width: 28px; height: 34px; padding: 0 4px; border: 0; background: transparent; color: var(--sand); font-size: 10px; cursor: pointer; }
+    .custom-skip:hover:not(:disabled), .custom-mute:hover:not(:disabled) { color: var(--gold); }
+    .custom-skip:disabled, .custom-mute:disabled { cursor: wait; opacity: .5; }
+    .custom-skip:focus-visible, .custom-mute:focus-visible, .volume-range:focus-visible, .seek-range:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .seek-line { display: flex; align-items: center; gap: 7px; margin-top: 5px; }
+    .seek-range, .volume-range { height: 3px; margin: 0; border-radius: 99px; accent-color: var(--gold); cursor: pointer; }
+    .seek-range { min-width: 0; flex: 1; }
+    .volume-range { width: 48px; }
+    .time-readout { flex: 0 0 auto; color: rgba(255,241,213,.58); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .youtube-player-host { position: fixed; top: 0; left: -10000px; width: 200px; height: 200px; overflow: hidden; opacity: 0; pointer-events: none; }
+    .youtube-player-host iframe { display: block; width: 200px; height: 200px; border: 0; }
     .custom-track { min-width: 0; flex: 1; }
     .custom-title { overflow: hidden; margin: 0; color: var(--cream); font-size: 13px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
     .custom-status { margin: 3px 0 0; color: var(--muted); font-size: 10px; }
@@ -79,6 +86,7 @@
       .player-dock { bottom: max(13px, env(safe-area-inset-bottom)); padding: 0 10px; }
       .about-card { padding: 29px 24px 25px; }
     }
+    @media (max-width: 390px) { .volume-range { width: 34px; } .custom-player { gap: 8px; padding-right: 10px; } .custom-actions { gap: 2px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
@@ -118,14 +126,18 @@
         </button>
         <div class="custom-track">
           <p class="custom-title">90s Hindi songs</p>
-          <p class="custom-status" aria-live="polite">Connecting to Spotify…</p>
+          <p class="custom-status" aria-live="polite">Connecting to YouTube…</p>
+          <div class="seek-line"><span class="time-readout current-time">0:00</span><input class="seek-range" type="range" min="0" max="0" step="1" value="0" aria-label="Seek in song" disabled><span class="time-readout duration-time">0:00</span></div>
         </div>
         <div class="custom-actions">
+          <button class="custom-skip previous-button" type="button" aria-label="Previous track" title="Previous track" disabled>◀|</button>
+          <button class="custom-skip next-button" type="button" aria-label="Next track" title="Next track" disabled>|▶</button>
           <button class="custom-mute" type="button" aria-label="Mute playback" aria-pressed="false" disabled>Mute</button>
-          <button class="spotify-login" type="button">Connect</button>
+          <input class="volume-range" type="range" min="0" max="100" step="1" value="70" aria-label="Volume" disabled>
         </div>
       </div>
     </section>
+    <div class="youtube-player-host" aria-hidden="true"><div id="youtube-player"></div></div>
   </main>
 
   <div class="about-overlay" hidden>
@@ -140,223 +152,122 @@
     const aboutOverlay = document.querySelector('.about-overlay');
     const customPlay = document.querySelector('.custom-play');
     const customMute = document.querySelector('.custom-mute');
-    const spotifyLogin = document.querySelector('.spotify-login');
+    const previousButton = document.querySelector('.previous-button');
+    const nextButton = document.querySelector('.next-button');
+    const seek = document.querySelector('.seek-range');
+    const volume = document.querySelector('.volume-range');
+    const currentTime = document.querySelector('.current-time');
+    const durationTime = document.querySelector('.duration-time');
+    const trackTitle = document.querySelector('.custom-title');
     const customStatus = document.querySelector('.custom-status');
-    const spotifyClientId = '2791510dd9e74332a015dbf993ac47a9';
-    const spotifyRedirectUri = `${location.origin}${location.pathname}`;
-    const spotifyScopes = 'streaming user-read-email user-read-private user-read-playback-state user-modify-playback-state';
-    const tokenKey = 'spotify_access_token';
-    const expiryKey = 'spotify_token_expiry';
-    const refreshKey = 'spotify_refresh_token';
-    let spotifyPlayer;
-    let spotifyDeviceId;
-    let hasStartedPlaylist = false;
-    let previousVolume = 0.5;
+    const playlistId = 'PLfCJZYmp66LI';
+    let youtubePlayer;
+    let draggingSeek = false;
+    let progressFrame = 0;
 
-    const randomString = (length) => {
-      const bytes = crypto.getRandomValues(new Uint8Array(length));
-      return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
-    };
-    const base64Url = (bytes) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-    const getCodeChallenge = async (verifier) => base64Url(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier))));
-
-    const clearAuthResult = () => {
-      const cleanUrl = new URL(location.href);
-      cleanUrl.searchParams.delete('code');
-      cleanUrl.searchParams.delete('state');
-      cleanUrl.searchParams.delete('error');
-      history.replaceState({}, document.title, cleanUrl);
+    const formatTime = (seconds) => {
+      const total = Number.isFinite(seconds) ? Math.floor(seconds) : 0;
+      return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
     };
 
-    const finishSpotifyLogin = async () => {
-      const params = new URLSearchParams(location.search);
-      const code = params.get('code');
-      if (params.has('error')) {
-        customStatus.textContent = 'Spotify connection was cancelled';
-        clearAuthResult();
-        return;
+    const syncTrack = () => {
+      const video = youtubePlayer?.getVideoData?.();
+      if (video?.title) trackTitle.textContent = video.title;
+    };
+
+    const updateProgress = () => {
+      if (!youtubePlayer) return;
+      const duration = youtubePlayer.getDuration() || 0;
+      const time = youtubePlayer.getCurrentTime() || 0;
+      if (duration > 0) {
+        seek.max = Math.floor(duration);
+        durationTime.textContent = formatTime(duration);
+        if (!draggingSeek) seek.value = Math.floor(time);
+        currentTime.textContent = formatTime(draggingSeek ? Number(seek.value) : time);
       }
-      if (!code) return;
-      const expectedState = sessionStorage.getItem('spotify_auth_state');
-      const receivedState = params.get('state');
-      if (!expectedState || receivedState !== expectedState) throw new Error('Spotify login state check failed');
-      const verifier = sessionStorage.getItem('spotify_code_verifier');
-      const response = await fetch('https://accounts.spotify.com/api/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          client_id: spotifyClientId,
-          grant_type: 'authorization_code',
-          code,
-          redirect_uri: spotifyRedirectUri,
-          code_verifier: verifier
-        })
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error_description || 'Spotify could not complete sign-in');
-      sessionStorage.setItem(tokenKey, data.access_token);
-      sessionStorage.setItem(expiryKey, String(Date.now() + data.expires_in * 1000));
-      if (data.refresh_token) sessionStorage.setItem(refreshKey, data.refresh_token);
-      sessionStorage.removeItem('spotify_code_verifier');
-      sessionStorage.removeItem('spotify_auth_state');
-      clearAuthResult();
-    };
-
-    const getSpotifyToken = async () => {
-      const accessToken = sessionStorage.getItem(tokenKey);
-      const expiresAt = Number(sessionStorage.getItem(expiryKey) || 0);
-      if (accessToken && Date.now() < expiresAt - 60000) return accessToken;
-      const refreshToken = sessionStorage.getItem(refreshKey);
-      if (!refreshToken) return null;
-      const response = await fetch('https://accounts.spotify.com/api/token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ client_id: spotifyClientId, grant_type: 'refresh_token', refresh_token: refreshToken })
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error_description || 'Spotify session expired. Connect again.');
-      sessionStorage.setItem(tokenKey, data.access_token);
-      sessionStorage.setItem(expiryKey, String(Date.now() + data.expires_in * 1000));
-      if (data.refresh_token) sessionStorage.setItem(refreshKey, data.refresh_token);
-      return data.access_token;
-    };
-
-    const spotifyApi = async (path, options = {}) => {
-      const token = await getSpotifyToken();
-      if (!token) throw new Error('Connect your Spotify account first');
-      const response = await fetch(`https://api.spotify.com/v1${path}`, {
-        ...options,
-        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...options.headers }
-      });
-      if (!response.ok && response.status !== 204) {
-        const data = await response.json().catch(() => ({}));
-        throw new Error(data.error?.message || 'Spotify playback request failed');
+      if (youtubePlayer.getPlayerState() === YT.PlayerState.PLAYING) {
+        progressFrame = requestAnimationFrame(updateProgress);
+      } else {
+        progressFrame = 0;
       }
-      return response;
     };
 
-    const connectSpotify = async () => {
-      const verifier = randomString(32);
-      const challenge = await getCodeChallenge(verifier);
-      const state = randomString(16);
-      sessionStorage.setItem('spotify_code_verifier', verifier);
-      sessionStorage.setItem('spotify_auth_state', state);
-      const authorizeUrl = new URL('https://accounts.spotify.com/authorize');
-      authorizeUrl.search = new URLSearchParams({
-        response_type: 'code',
-        client_id: spotifyClientId,
-        scope: spotifyScopes,
-        redirect_uri: spotifyRedirectUri,
-        state,
-        code_challenge_method: 'S256',
-        code_challenge: challenge
-      });
-      location.assign(authorizeUrl);
-    };
-
-    const startSpotifyPlayer = async () => {
-      if (window.location.protocol !== 'https:' && window.location.hostname !== '127.0.0.1' && window.location.hostname !== '[::1]') {
-        customStatus.textContent = 'Open this page on HTTPS or 127.0.0.1';
-        return;
-      }
-      try {
-        await finishSpotifyLogin();
-        const token = await getSpotifyToken();
-        if (!token) {
-          customStatus.textContent = 'Connect your Spotify account';
-          return;
-        }
-        customStatus.textContent = 'Starting Spotify player…';
-        window.onSpotifyWebPlaybackSDKReady = () => {
-          spotifyPlayer = new Spotify.Player({
-            name: 'Deluxe Saloon',
-            getOAuthToken: async (callback) => {
-              try { callback(await getSpotifyToken()); }
-              catch (error) { customStatus.textContent = error.message; }
-            },
-            volume: 0.5
-          });
-          spotifyPlayer.addListener('ready', async ({ device_id }) => {
-            spotifyDeviceId = device_id;
-            try {
-              await spotifyApi('/me/player', { method: 'PUT', body: JSON.stringify({ device_ids: [device_id], play: false }) });
-              customPlay.disabled = false;
-              customMute.disabled = false;
-              spotifyLogin.hidden = true;
-              customStatus.textContent = 'Ready to play';
-            } catch (error) {
-              customStatus.textContent = error.message;
+    const initializeYoutube = () => {
+      const playerVars = { listType: 'playlist', list: playlistId, controls: 0, playsinline: 1, rel: 0, autoplay: 0 };
+      if (location.protocol === 'http:' || location.protocol === 'https:') playerVars.origin = location.origin;
+      youtubePlayer = new YT.Player('youtube-player', {
+        width: '200',
+        height: '200',
+        playerVars,
+        events: {
+          onReady: ({ target }) => {
+            youtubePlayer = target;
+            [customPlay, customMute, previousButton, nextButton, seek, volume].forEach((control) => { control.disabled = false; });
+            volume.value = target.getVolume();
+            customStatus.textContent = 'Ready to play';
+            syncTrack();
+          },
+          onStateChange: ({ data }) => {
+            if (data === YT.PlayerState.PLAYING) {
+              customPlay.setAttribute('aria-pressed', 'true');
+              customPlay.setAttribute('aria-label', 'Pause playlist');
+              customStatus.textContent = 'Now playing';
+              syncTrack();
+              if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);
+            } else if ([YT.PlayerState.PAUSED, YT.PlayerState.ENDED, YT.PlayerState.CUED].includes(data)) {
+              customPlay.setAttribute('aria-pressed', 'false');
+              customPlay.setAttribute('aria-label', 'Play playlist');
+              if (data === YT.PlayerState.PAUSED) customStatus.textContent = 'Paused';
+              syncTrack();
+              cancelAnimationFrame(progressFrame);
+              progressFrame = 0;
             }
-          });
-          spotifyPlayer.addListener('player_state_changed', (state) => {
-            if (!state) return;
-            hasStartedPlaylist = true;
-            const playing = !state.paused;
-            customPlay.setAttribute('aria-pressed', String(playing));
-            customPlay.setAttribute('aria-label', playing ? 'Pause playlist' : 'Play playlist');
-            customStatus.textContent = playing ? 'Now playing' : 'Paused';
-          });
-          spotifyPlayer.addListener('initialization_error', ({ message }) => { customStatus.textContent = message; });
-          spotifyPlayer.addListener('authentication_error', ({ message }) => { customStatus.textContent = message; });
-          spotifyPlayer.addListener('account_error', ({ message }) => { customStatus.textContent = message; });
-          spotifyPlayer.connect().then((connected) => {
-            if (!connected) customStatus.textContent = 'Could not connect to Spotify';
-          });
-        };
-        if (!document.querySelector('#spotify-sdk')) {
-          const sdkScript = document.createElement('script');
-          sdkScript.id = 'spotify-sdk';
-          sdkScript.src = 'https://sdk.scdn.co/spotify-player.js';
-          sdkScript.async = true;
-          document.head.append(sdkScript);
+          },
+          onError: () => { customStatus.textContent = 'This YouTube playlist is unavailable'; }
         }
-      } catch (error) {
-        customStatus.textContent = error.message;
-        clearAuthResult();
-      }
+      });
     };
 
-    customPlay.addEventListener('click', async () => {
-      if (!spotifyPlayer || !spotifyDeviceId) return;
-      spotifyPlayer.activateElement();
-      try {
-        if (!hasStartedPlaylist) {
-          customStatus.textContent = 'Loading playlist…';
-          await spotifyApi(`/me/player/play?device_id=${encodeURIComponent(spotifyDeviceId)}`, {
-            method: 'PUT',
-            body: JSON.stringify({ context_uri: 'spotify:playlist:37i9dQZF1DX5cZuAHLNjGz' })
-          });
-          hasStartedPlaylist = true;
-        } else {
-          await spotifyPlayer.togglePlay();
-        }
-      } catch (error) {
-        customStatus.textContent = error.message;
+    customPlay.addEventListener('click', () => {
+      if (!youtubePlayer) return;
+      if (youtubePlayer.getPlayerState() === YT.PlayerState.PLAYING) youtubePlayer.pauseVideo();
+      else youtubePlayer.playVideo();
+    });
+    previousButton.addEventListener('click', () => youtubePlayer?.previousVideo());
+    nextButton.addEventListener('click', () => youtubePlayer?.nextVideo());
+    customMute.addEventListener('click', () => {
+      if (!youtubePlayer) return;
+      if (youtubePlayer.isMuted()) {
+        youtubePlayer.unMute();
+        customMute.textContent = 'Mute';
+        customMute.setAttribute('aria-label', 'Mute playback');
+        customMute.setAttribute('aria-pressed', 'false');
+      } else {
+        youtubePlayer.mute();
+        customMute.textContent = 'Sound';
+        customMute.setAttribute('aria-label', 'Unmute playback');
+        customMute.setAttribute('aria-pressed', 'true');
       }
     });
-
-    customMute.addEventListener('click', async () => {
-      if (!spotifyPlayer) return;
-      const muted = customMute.getAttribute('aria-pressed') === 'true';
-      try {
-        if (muted) {
-          await spotifyPlayer.setVolume(previousVolume || 0.5);
-          customMute.textContent = 'Mute';
-          customMute.setAttribute('aria-label', 'Mute playback');
-        } else {
-          previousVolume = await spotifyPlayer.getVolume();
-          await spotifyPlayer.setVolume(0);
-          customMute.textContent = 'Unmute';
-          customMute.setAttribute('aria-label', 'Unmute playback');
-        }
-        customMute.setAttribute('aria-pressed', String(!muted));
-      } catch (error) {
-        customStatus.textContent = error.message;
-      }
+    volume.addEventListener('input', () => {
+      youtubePlayer?.setVolume(Number(volume.value));
+      if (Number(volume.value) > 0 && youtubePlayer?.isMuted()) youtubePlayer.unMute();
+      if (Number(volume.value) === 0 && !youtubePlayer?.isMuted()) youtubePlayer.mute();
+      customMute.setAttribute('aria-pressed', String(youtubePlayer?.isMuted() || false));
+      customMute.textContent = youtubePlayer?.isMuted() ? 'Sound' : 'Mute';
+      customMute.setAttribute('aria-label', youtubePlayer?.isMuted() ? 'Unmute playback' : 'Mute playback');
     });
+    seek.addEventListener('input', () => {
+      draggingSeek = true;
+      currentTime.textContent = formatTime(Number(seek.value));
+    });
+    seek.addEventListener('change', () => {
+      youtubePlayer?.seekTo(Number(seek.value), true);
+      draggingSeek = false;
+    });
+    seek.addEventListener('pointerup', () => { draggingSeek = false; });
 
-    spotifyLogin.addEventListener('click', connectSpotify);
-    startSpotifyPlayer();
+    window.onYouTubeIframeAPIReady = initializeYoutube;
 
     document.querySelector('.about-button').addEventListener('click', () => { aboutOverlay.hidden = false; });
     document.querySelector('.about-close').addEventListener('click', () => { aboutOverlay.hidden = true; });
@@ -367,5 +278,6 @@
       if (event.key === 'Escape') aboutOverlay.hidden = true;
     });
   </script>
+  <script src="https://www.youtube.com/iframe_api" async></script>
 </body>
 </html>
