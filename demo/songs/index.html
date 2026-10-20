@@ -44,36 +44,23 @@
     .hero h1 span { display: block; }
     .hero-kicker { margin: 18px 0 0; color: rgba(255,241,213,.78); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .34em; text-transform: uppercase; text-shadow: 0 2px 14px rgba(30,16,11,.9); }
     .player-dock { position: absolute; z-index: 5; inset: auto 0 max(20px, env(safe-area-inset-bottom)); display: flex; justify-content: center; padding: 0 14px; }
-    .radio-player { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 13px; width: min(100%, 576px); padding: 10px 13px 10px 10px; border: 1px solid rgba(255,241,213,.24); border-radius: 999px; background: linear-gradient(115deg, rgba(48,31,23,.77), rgba(32,23,20,.72)); box-shadow: 0 16px 50px rgba(22,12,7,.38), inset 0 1px rgba(255,244,223,.13); -webkit-backdrop-filter: blur(18px) saturate(120%); backdrop-filter: blur(18px) saturate(120%); }
-    .record-wrap { display: grid; place-items: center; width: 52px; height: 52px; }
-    .record { width: 52px; height: 52px; border: 1px solid rgba(255,233,194,.26); border-radius: 50%; object-fit: cover; box-shadow: 0 4px 13px rgba(13,8,6,.4); }
-    .radio-player.is-playing .record { animation: spin 12s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .track-info { min-width: 0; }
-    .track-title { overflow: hidden; margin: 0; color: var(--cream); font-size: 14px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
-    .track-artist { overflow: hidden; margin: 2px 0 0; color: var(--muted); font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-    .seek-row { display: flex; align-items: center; gap: 8px; margin-top: 7px; }
-    .time-label { flex: 0 0 auto; color: rgba(255,241,213,.66); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; font-variant-numeric: tabular-nums; }
-    .range { display: block; width: 100%; height: 3px; margin: 0; border-radius: 99px; appearance: none; -webkit-appearance: none; background: linear-gradient(to right, var(--gold) 0%, var(--gold) var(--fill, 0%), rgba(255,241,213,.23) var(--fill, 0%), rgba(255,241,213,.23) 100%); cursor: pointer; }
-    .range::-webkit-slider-thumb { width: 11px; height: 11px; border: 1px solid rgba(255,249,233,.9); border-radius: 50%; appearance: none; -webkit-appearance: none; background: var(--gold); box-shadow: 0 0 9px rgba(239,191,115,.6); }
-    .range::-moz-range-thumb { width: 11px; height: 11px; border: 1px solid rgba(255,249,233,.9); border-radius: 50%; background: var(--gold); box-shadow: 0 0 9px rgba(239,191,115,.6); }
-    .controls { display: flex; align-items: center; gap: 3px; }
-    .icon-button, .play-button, .playlist-button { display: grid; flex: 0 0 auto; place-items: center; padding: 0; border: 0; background: transparent; color: rgba(255,241,213,.86); cursor: pointer; transition: color .18s, transform .18s, background .18s; }
-    .icon-button { width: 33px; height: 38px; }
-    .icon-button:hover, .playlist-button:hover { color: var(--gold); transform: translateY(-1px); }
-    .icon-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .play-button { width: 41px; height: 41px; border: 1px solid rgba(255,231,191,.38); border-radius: 50%; background: rgba(255,229,185,.11); color: var(--cream); }
-    .play-button:hover { border-color: rgba(255,231,191,.7); background: rgba(255,229,185,.2); transform: scale(1.04); }
-    .play-button svg { width: 17px; height: 17px; fill: currentColor; }
-    .playlist-button { width: 30px; height: 38px; margin-left: 3px; color: rgba(255,241,213,.65); }
-    .playlist-button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-    button:disabled, input:disabled { cursor: wait; opacity: .46; }
-    button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-    .playlist-popover { position: absolute; right: max(14px, calc((100vw - 576px) / 2)); bottom: calc(100% + 12px); width: min(280px, calc(100vw - 28px)); padding: 17px 18px; border: 1px solid rgba(255,241,213,.24); border-radius: 18px; background: rgba(42,27,21,.91); box-shadow: 0 14px 40px rgba(20,11,7,.4); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
-    .playlist-popover[hidden] { display: none; }
-    .popover-label { margin: 0 0 9px; color: rgba(255,241,213,.58); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
-    .playlist-popover a { color: var(--cream); font-size: 13px; text-decoration-color: rgba(255,241,213,.4); text-underline-offset: 4px; }
-    .playlist-popover p { margin: 8px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .custom-player { display: flex; align-items: center; gap: 13px; width: min(100%, 390px); padding: 11px 15px 11px 11px; border: 1px solid rgba(255,241,213,.24); border-radius: 999px; background: linear-gradient(115deg, rgba(48,31,23,.88), rgba(32,23,20,.86)); box-shadow: 0 16px 50px rgba(22,12,7,.42), inset 0 1px rgba(255,244,223,.13); -webkit-backdrop-filter: blur(18px) saturate(120%); backdrop-filter: blur(18px) saturate(120%); }
+    .custom-play { display: grid; flex: 0 0 auto; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid rgba(255,231,191,.38); border-radius: 50%; background: rgba(255,229,185,.11); color: var(--cream); cursor: pointer; transition: background .18s, transform .18s; }
+    .custom-play:hover:not(:disabled) { background: rgba(255,229,185,.2); transform: scale(1.04); }
+    .custom-play:disabled { cursor: wait; opacity: .5; }
+    .custom-play:focus-visible, .spotify-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .custom-play svg { width: 17px; height: 17px; fill: currentColor; }
+    .custom-play .pause-icon { display: none; }
+    .custom-play[aria-pressed="true"] .play-icon { display: none; }
+    .custom-play[aria-pressed="true"] .pause-icon { display: block; }
+    .custom-mute, .spotify-login { flex: 0 0 auto; padding: 7px 9px; border: 1px solid rgba(255,241,213,.22); border-radius: 999px; background: rgba(255,229,185,.08); color: var(--sand); font-size: 10px; cursor: pointer; }
+    .custom-mute:hover:not(:disabled), .spotify-login:hover { border-color: rgba(255,231,191,.62); color: var(--cream); }
+    .custom-mute:disabled { cursor: wait; opacity: .5; }
+    .custom-mute:focus-visible, .spotify-login:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .custom-actions { display: flex; align-items: center; gap: 7px; }
+    .custom-track { min-width: 0; flex: 1; }
+    .custom-title { overflow: hidden; margin: 0; color: var(--cream); font-size: 13px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+    .custom-status { margin: 3px 0 0; color: var(--muted); font-size: 10px; }
     .about-overlay { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(19,12,9,.56); -webkit-backdrop-filter: blur(9px); backdrop-filter: blur(9px); }
     .about-overlay[hidden] { display: none; }
     .about-card { position: relative; width: min(100%, 440px); padding: 34px; border: 1px solid rgba(255,241,213,.23); border-radius: 22px; background: linear-gradient(145deg, rgba(59,38,27,.96), rgba(35,24,19,.97)); box-shadow: 0 22px 80px rgba(14,8,5,.55); }
@@ -82,8 +69,6 @@
     .about-card h2 { margin: 0 35px 12px 0; color: var(--cream); font-size: 24px; }
     .about-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
     .about-card .about-caption { margin-top: 17px; color: rgba(255,241,213,.4); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
-    .youtube-host { position: fixed; z-index: -4; top: 0; left: 0; width: 200px; height: 200px; overflow: hidden; opacity: .001; pointer-events: none; }
-    .youtube-host iframe { display: block; width: 200px; height: 200px; border: 0; }
     @media (max-width: 650px) {
       .topbar { padding: 18px 18px; }
       .station-mark { max-width: 90px; font-size: 9px; line-height: 1.5; letter-spacing: .12em; }
@@ -92,26 +77,7 @@
       .hero h1 { font-size: clamp(4.15rem, 20vw, 7.2rem); }
       .hero-kicker { margin-top: 14px; font-size: 9px; letter-spacing: .23em; }
       .player-dock { bottom: max(13px, env(safe-area-inset-bottom)); padding: 0 10px; }
-      .radio-player { grid-template-columns: 43px minmax(0, 1fr) auto; gap: 9px; padding: 8px 8px 8px 8px; }
-      .record-wrap, .record { width: 43px; height: 43px; }
-      .track-title { font-size: 12px; }
-      .track-artist { font-size: 10px; }
-      .seek-row { gap: 6px; margin-top: 6px; }
-      .time-label { font-size: 8px; }
-      .icon-button { width: 28px; height: 34px; }
-      .icon-button svg { width: 15px; height: 15px; }
-      .play-button { width: 36px; height: 36px; }
-      .play-button svg { width: 15px; height: 15px; }
-      .playlist-button { width: 25px; height: 34px; margin-left: 0; }
-      .playlist-button svg { width: 15px; height: 15px; }
       .about-card { padding: 29px 24px 25px; }
-    }
-    @media (max-width: 390px) {
-      .radio-player { grid-template-columns: 38px minmax(0, 1fr) auto; gap: 7px; }
-      .record-wrap, .record { width: 38px; height: 38px; }
-      .controls { gap: 0; }
-      .icon-button { width: 25px; }
-      .playlist-button { width: 23px; }
     }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
@@ -145,36 +111,18 @@
     </section>
 
     <section class="player-dock" aria-label="Radio player">
-      <div class="radio-player" id="radio-player">
-        <div class="record-wrap"><img class="record" src="saloon-backdrop-mobile.jpg" alt=""></div>
-        <div class="track-info">
-          <p class="track-title">Tuning in to the old days…</p>
-          <p class="track-artist">90s Hindi radio</p>
-          <div class="seek-row">
-            <span class="time-label current-time">0:00</span>
-            <input class="range seek-range" type="range" min="0" max="0" step="any" value="0" aria-label="Seek through current song" disabled>
-            <span class="time-label duration-time">0:00</span>
-          </div>
+      <div class="custom-player">
+        <button class="custom-play" type="button" aria-label="Play playlist" aria-pressed="false" disabled>
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.7c0-.8.9-1.3 1.6-.9l10 6.2a1.2 1.2 0 0 1 0 2l-10 6.2A1.1 1.1 0 0 1 8 18.3z"></path></svg>
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+        </button>
+        <div class="custom-track">
+          <p class="custom-title">90s Hindi songs</p>
+          <p class="custom-status" aria-live="polite">Connecting to Spotify…</p>
         </div>
-        <div class="controls" aria-label="Playback controls">
-          <button class="icon-button previous-button" type="button" aria-label="Previous track" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14M19 6 8 12l11 6V6Z"></path></svg>
-          </button>
-          <button class="play-button" type="button" aria-label="Play" disabled>
-            <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.7c0-.8.9-1.3 1.6-.9l10 6.2a1.2 1.2 0 0 1 0 2l-10 6.2A1.1 1.1 0 0 1 8 18.3z"></path></svg>
-            <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
-          </button>
-          <button class="icon-button next-button" type="button" aria-label="Next track" disabled>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14M5 6l11 6-11 6V6Z"></path></svg>
-          </button>
-          <button class="playlist-button" type="button" aria-label="Show playlist link" aria-expanded="false" aria-controls="playlist-popover">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12M4 11h12M4 16h7M19 15v-8l3-1v2l-3 .7v6.3a2 2 0 1 1-2-2"></path></svg>
-          </button>
-        </div>
-        <div class="playlist-popover" id="playlist-popover" hidden>
-          <p class="popover-label">The radio rotation</p>
-          <a href="https://www.youtube.com/playlist?list=PLYA7v8u34qu_hwhRse8iahnoSRX602SH0" target="_blank" rel="noopener noreferrer">Open playlist on YouTube ↗</a>
-          <p>Move through the songs with the skip controls.</p>
+        <div class="custom-actions">
+          <button class="custom-mute" type="button" aria-label="Mute playback" aria-pressed="false" disabled>Mute</button>
+          <button class="spotify-login" type="button">Connect</button>
         </div>
       </div>
     </section>
@@ -188,126 +136,227 @@
       <p class="about-caption">90s Hindi songs · open all hours</p>
     </section>
   </div>
-  <div class="youtube-host" id="youtube-player" aria-hidden="true"></div>
-
   <script>
-    const playlistId = 'PLYA7v8u34qu_hwhRse8iahnoSRX602SH0';
-    const radio = document.querySelector('#radio-player');
-    const playButton = document.querySelector('.play-button');
-    const playIcon = document.querySelector('.play-icon');
-    const pauseIcon = document.querySelector('.pause-icon');
-    const previousButton = document.querySelector('.previous-button');
-    const nextButton = document.querySelector('.next-button');
-    const seek = document.querySelector('.seek-range');
-    const currentTime = document.querySelector('.current-time');
-    const durationTime = document.querySelector('.duration-time');
-    const title = document.querySelector('.track-title');
-    const artist = document.querySelector('.track-artist');
-    const record = document.querySelector('.record');
-    const playlistButton = document.querySelector('.playlist-button');
-    const playlistPopover = document.querySelector('.playlist-popover');
     const aboutOverlay = document.querySelector('.about-overlay');
-    let youtube;
-    let draggingSeek = false;
-    let progressFrame = 0;
+    const customPlay = document.querySelector('.custom-play');
+    const customMute = document.querySelector('.custom-mute');
+    const spotifyLogin = document.querySelector('.spotify-login');
+    const customStatus = document.querySelector('.custom-status');
+    const spotifyClientId = '2791510dd9e74332a015dbf993ac47a9';
+    const spotifyRedirectUri = `${location.origin}${location.pathname}`;
+    const spotifyScopes = 'streaming user-read-email user-read-private user-read-playback-state user-modify-playback-state';
+    const tokenKey = 'spotify_access_token';
+    const expiryKey = 'spotify_token_expiry';
+    const refreshKey = 'spotify_refresh_token';
+    let spotifyPlayer;
+    let spotifyDeviceId;
+    let hasStartedPlaylist = false;
+    let previousVolume = 0.5;
 
-    const formatTime = (seconds) => {
-      const total = Number.isFinite(seconds) ? Math.floor(seconds) : 0;
-      return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
+    const randomString = (length) => {
+      const bytes = crypto.getRandomValues(new Uint8Array(length));
+      return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+    };
+    const base64Url = (bytes) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    const getCodeChallenge = async (verifier) => base64Url(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier))));
+
+    const clearAuthResult = () => {
+      const cleanUrl = new URL(location.href);
+      cleanUrl.searchParams.delete('code');
+      cleanUrl.searchParams.delete('state');
+      cleanUrl.searchParams.delete('error');
+      history.replaceState({}, document.title, cleanUrl);
     };
 
-    const setPlaying = (isPlaying) => {
-      radio.classList.toggle('is-playing', isPlaying);
-      playIcon.hidden = isPlaying;
-      pauseIcon.hidden = !isPlaying;
-      playButton.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
-    };
-
-    const syncSong = () => {
-      const data = youtube?.getVideoData?.();
-      if (!data?.video_id) return;
-      title.textContent = data.title || 'Now playing';
-      artist.textContent = data.author || 'YouTube';
-      record.src = `https://i.ytimg.com/vi/${encodeURIComponent(data.video_id)}/hqdefault.jpg`;
-      record.alt = '';
-    };
-
-    const updateProgress = () => {
-      if (!youtube) return;
-      const duration = youtube.getDuration() || 0;
-      const time = youtube.getCurrentTime() || 0;
-      if (duration > 0) {
-        seek.max = duration;
-        durationTime.textContent = formatTime(duration);
-        if (!draggingSeek) seek.value = time;
-        seek.style.setProperty('--fill', `${Math.min(100, time / duration * 100)}%`);
-        currentTime.textContent = formatTime(draggingSeek ? Number(seek.value) : time);
+    const finishSpotifyLogin = async () => {
+      const params = new URLSearchParams(location.search);
+      const code = params.get('code');
+      if (params.has('error')) {
+        customStatus.textContent = 'Spotify connection was cancelled';
+        clearAuthResult();
+        return;
       }
-      if (youtube.getPlayerState() === YT.PlayerState.PLAYING) {
-        progressFrame = requestAnimationFrame(updateProgress);
-      } else {
-        progressFrame = 0;
-      }
-    };
-
-    const initializeYoutube = () => {
-      const playerVars = { listType: 'playlist', list: playlistId, controls: 0, playsinline: 1, rel: 0, enablejsapi: 1 };
-      if (location.protocol === 'http:' || location.protocol === 'https:') playerVars.origin = location.origin;
-
-      new YT.Player('youtube-player', {
-        width: '200',
-        height: '200',
-        playerVars,
-        events: {
-          onReady: ({ target }) => {
-            youtube = target;
-            [playButton, previousButton, nextButton, seek].forEach((control) => { control.disabled = false; });
-            syncSong();
-          },
-          onStateChange: ({ data }) => {
-            if (data === YT.PlayerState.PLAYING) {
-              setPlaying(true);
-              syncSong();
-              if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);
-            } else if ([YT.PlayerState.PAUSED, YT.PlayerState.ENDED, YT.PlayerState.CUED].includes(data)) {
-              setPlaying(false);
-              syncSong();
-              cancelAnimationFrame(progressFrame);
-              progressFrame = 0;
-            }
-          },
-          onError: () => {
-            title.textContent = 'Radio is taking a break';
-            artist.textContent = 'Open the playlist on YouTube';
-            setPlaying(false);
-          }
-        }
+      if (!code) return;
+      const expectedState = sessionStorage.getItem('spotify_auth_state');
+      const receivedState = params.get('state');
+      if (!expectedState || receivedState !== expectedState) throw new Error('Spotify login state check failed');
+      const verifier = sessionStorage.getItem('spotify_code_verifier');
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          client_id: spotifyClientId,
+          grant_type: 'authorization_code',
+          code,
+          redirect_uri: spotifyRedirectUri,
+          code_verifier: verifier
+        })
       });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error_description || 'Spotify could not complete sign-in');
+      sessionStorage.setItem(tokenKey, data.access_token);
+      sessionStorage.setItem(expiryKey, String(Date.now() + data.expires_in * 1000));
+      if (data.refresh_token) sessionStorage.setItem(refreshKey, data.refresh_token);
+      sessionStorage.removeItem('spotify_code_verifier');
+      sessionStorage.removeItem('spotify_auth_state');
+      clearAuthResult();
     };
 
-    playButton.addEventListener('click', () => {
-      if (!youtube) return;
-      if (youtube.getPlayerState() === YT.PlayerState.PLAYING) youtube.pauseVideo();
-      else youtube.playVideo();
+    const getSpotifyToken = async () => {
+      const accessToken = sessionStorage.getItem(tokenKey);
+      const expiresAt = Number(sessionStorage.getItem(expiryKey) || 0);
+      if (accessToken && Date.now() < expiresAt - 60000) return accessToken;
+      const refreshToken = sessionStorage.getItem(refreshKey);
+      if (!refreshToken) return null;
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ client_id: spotifyClientId, grant_type: 'refresh_token', refresh_token: refreshToken })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error_description || 'Spotify session expired. Connect again.');
+      sessionStorage.setItem(tokenKey, data.access_token);
+      sessionStorage.setItem(expiryKey, String(Date.now() + data.expires_in * 1000));
+      if (data.refresh_token) sessionStorage.setItem(refreshKey, data.refresh_token);
+      return data.access_token;
+    };
+
+    const spotifyApi = async (path, options = {}) => {
+      const token = await getSpotifyToken();
+      if (!token) throw new Error('Connect your Spotify account first');
+      const response = await fetch(`https://api.spotify.com/v1${path}`, {
+        ...options,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', ...options.headers }
+      });
+      if (!response.ok && response.status !== 204) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error?.message || 'Spotify playback request failed');
+      }
+      return response;
+    };
+
+    const connectSpotify = async () => {
+      const verifier = randomString(32);
+      const challenge = await getCodeChallenge(verifier);
+      const state = randomString(16);
+      sessionStorage.setItem('spotify_code_verifier', verifier);
+      sessionStorage.setItem('spotify_auth_state', state);
+      const authorizeUrl = new URL('https://accounts.spotify.com/authorize');
+      authorizeUrl.search = new URLSearchParams({
+        response_type: 'code',
+        client_id: spotifyClientId,
+        scope: spotifyScopes,
+        redirect_uri: spotifyRedirectUri,
+        state,
+        code_challenge_method: 'S256',
+        code_challenge: challenge
+      });
+      location.assign(authorizeUrl);
+    };
+
+    const startSpotifyPlayer = async () => {
+      if (window.location.protocol !== 'https:' && window.location.hostname !== '127.0.0.1' && window.location.hostname !== '[::1]') {
+        customStatus.textContent = 'Open this page on HTTPS or 127.0.0.1';
+        return;
+      }
+      try {
+        await finishSpotifyLogin();
+        const token = await getSpotifyToken();
+        if (!token) {
+          customStatus.textContent = 'Connect your Spotify account';
+          return;
+        }
+        customStatus.textContent = 'Starting Spotify player…';
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          spotifyPlayer = new Spotify.Player({
+            name: 'Deluxe Saloon',
+            getOAuthToken: async (callback) => {
+              try { callback(await getSpotifyToken()); }
+              catch (error) { customStatus.textContent = error.message; }
+            },
+            volume: 0.5
+          });
+          spotifyPlayer.addListener('ready', async ({ device_id }) => {
+            spotifyDeviceId = device_id;
+            try {
+              await spotifyApi('/me/player', { method: 'PUT', body: JSON.stringify({ device_ids: [device_id], play: false }) });
+              customPlay.disabled = false;
+              customMute.disabled = false;
+              spotifyLogin.hidden = true;
+              customStatus.textContent = 'Ready to play';
+            } catch (error) {
+              customStatus.textContent = error.message;
+            }
+          });
+          spotifyPlayer.addListener('player_state_changed', (state) => {
+            if (!state) return;
+            hasStartedPlaylist = true;
+            const playing = !state.paused;
+            customPlay.setAttribute('aria-pressed', String(playing));
+            customPlay.setAttribute('aria-label', playing ? 'Pause playlist' : 'Play playlist');
+            customStatus.textContent = playing ? 'Now playing' : 'Paused';
+          });
+          spotifyPlayer.addListener('initialization_error', ({ message }) => { customStatus.textContent = message; });
+          spotifyPlayer.addListener('authentication_error', ({ message }) => { customStatus.textContent = message; });
+          spotifyPlayer.addListener('account_error', ({ message }) => { customStatus.textContent = message; });
+          spotifyPlayer.connect().then((connected) => {
+            if (!connected) customStatus.textContent = 'Could not connect to Spotify';
+          });
+        };
+        if (!document.querySelector('#spotify-sdk')) {
+          const sdkScript = document.createElement('script');
+          sdkScript.id = 'spotify-sdk';
+          sdkScript.src = 'https://sdk.scdn.co/spotify-player.js';
+          sdkScript.async = true;
+          document.head.append(sdkScript);
+        }
+      } catch (error) {
+        customStatus.textContent = error.message;
+        clearAuthResult();
+      }
+    };
+
+    customPlay.addEventListener('click', async () => {
+      if (!spotifyPlayer || !spotifyDeviceId) return;
+      spotifyPlayer.activateElement();
+      try {
+        if (!hasStartedPlaylist) {
+          customStatus.textContent = 'Loading playlist…';
+          await spotifyApi(`/me/player/play?device_id=${encodeURIComponent(spotifyDeviceId)}`, {
+            method: 'PUT',
+            body: JSON.stringify({ context_uri: 'spotify:playlist:37i9dQZF1DX5cZuAHLNjGz' })
+          });
+          hasStartedPlaylist = true;
+        } else {
+          await spotifyPlayer.togglePlay();
+        }
+      } catch (error) {
+        customStatus.textContent = error.message;
+      }
     });
-    previousButton.addEventListener('click', () => youtube?.previousVideo());
-    nextButton.addEventListener('click', () => youtube?.nextVideo());
-    seek.addEventListener('input', () => {
-      draggingSeek = true;
-      currentTime.textContent = formatTime(Number(seek.value));
-      seek.style.setProperty('--fill', `${Number(seek.value) / Number(seek.max) * 100}%`);
+
+    customMute.addEventListener('click', async () => {
+      if (!spotifyPlayer) return;
+      const muted = customMute.getAttribute('aria-pressed') === 'true';
+      try {
+        if (muted) {
+          await spotifyPlayer.setVolume(previousVolume || 0.5);
+          customMute.textContent = 'Mute';
+          customMute.setAttribute('aria-label', 'Mute playback');
+        } else {
+          previousVolume = await spotifyPlayer.getVolume();
+          await spotifyPlayer.setVolume(0);
+          customMute.textContent = 'Unmute';
+          customMute.setAttribute('aria-label', 'Unmute playback');
+        }
+        customMute.setAttribute('aria-pressed', String(!muted));
+      } catch (error) {
+        customStatus.textContent = error.message;
+      }
     });
-    seek.addEventListener('change', () => {
-      youtube?.seekTo(Number(seek.value), true);
-      draggingSeek = false;
-    });
-    seek.addEventListener('pointerup', () => { draggingSeek = false; });
-    playlistButton.addEventListener('click', () => {
-      const expanded = playlistButton.getAttribute('aria-expanded') === 'true';
-      playlistButton.setAttribute('aria-expanded', String(!expanded));
-      playlistButton.setAttribute('aria-label', expanded ? 'Show playlist link' : 'Hide playlist link');
-      playlistPopover.hidden = expanded;
-    });
+
+    spotifyLogin.addEventListener('click', connectSpotify);
+    startSpotifyPlayer();
 
     document.querySelector('.about-button').addEventListener('click', () => { aboutOverlay.hidden = false; });
     document.querySelector('.about-close').addEventListener('click', () => { aboutOverlay.hidden = true; });
@@ -316,19 +365,7 @@
     });
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') aboutOverlay.hidden = true;
-      if (event.code === 'Space' && !['INPUT', 'BUTTON', 'A'].includes(document.activeElement.tagName)) {
-        event.preventDefault();
-        if (!youtube) return;
-        if (youtube.getPlayerState() === YT.PlayerState.PLAYING) youtube.pauseVideo();
-        else youtube.playVideo();
-      }
     });
-
-    window.onYouTubeIframeAPIReady = initializeYoutube;
-    const apiScript = document.createElement('script');
-    apiScript.src = 'https://www.youtube.com/iframe_api';
-    apiScript.async = true;
-    document.head.append(apiScript);
   </script>
 </body>
 </html>
