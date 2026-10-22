@@ -1,4 +1,4 @@
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+﻿*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;font-size:100%}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
     body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:1rem;line-height:1.6;color:#1e293b;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -443,7 +443,7 @@
     .capability-section{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f5f8fd 100%)}
     .capability-section .wrap{position:relative}
     .capability-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:34px}
-    .capability-heading h2{max-width:700px;margin-top:12px;color:#102a56;font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.05em;line-height:1.06}
+    .capability-heading h2{max-width:700px;margin-top:12px 0px  20px 0px;color:#102a56;font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.05em;line-height:1.06}
     .capability-heading .lead{max-width:390px;margin:0;color:#617692;font-size:.98rem}
     .capability-section .eyebrow{color:#3470d8;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
     .capability-flow{display:flex;align-items:center;gap:14px;margin:0 0 18px;color:#55708f;font-size:.72rem;font-weight:750;letter-spacing:.045em;text-transform:uppercase}
@@ -1356,7 +1356,7 @@ section.capability-section#drafting-support::before{display:none!important}
 #drafting-support.capability-section .capability-heading h2 span{color:#47d5e8!important}
 #drafting-support.capability-section .capability-section .eyebrow,
 #drafting-support.capability-section .eyebrow{color:#a9c9f5}
-#drafting-support.capability-section .lead{color:#c0d2e9!important}
+#drafting-support.capability-section .lead{color:#ffffff!important}
 #drafting-support.capability-section .capability-bento{margin-top:26px}
 #drafting-support.capability-section .capability-service-card.bento-card{border-color:rgba(180,211,249,.2);background:#0d223d;box-shadow:none}
 #drafting-support.capability-section .capability-service-card.bento-card:hover{border-color:rgba(95,188,240,.6);box-shadow:none}
@@ -1687,3 +1687,23 @@ body footer .footer-bottom a{color:#d8e4f3;text-decoration:none}
 .focus-litigation-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("litigation-support-bg-v2.png") center/cover no-repeat}
 .focus-prelitigation-page .focus-detail-hero::before{background:linear-gradient(90deg,rgba(240,246,255,.96),rgba(240,246,255,.66)),url("pre-litigation-bg-v2.png") center/cover no-repeat}
 }
+
+#drafting-support.capability-section .capability-heading h2{max-width:none;white-space:nowrap;font-size:clamp(1.25rem,6vw,5.5rem)}
+
+
+#drafting-support.capability-section .capability-heading h2{font-size:54px}
+#drafting-support.capability-section .capability-heading h2 .capability-title-white{color:#fff!important}
+#drafting-support.capability-section .capability-heading h2 .capability-title-blue{color:#2864dc!important}
+
+/* Animated GIF background for the homepage hero */
+#home.hero{
+  background-image:linear-gradient(120deg,rgba(6,17,38,.42),rgba(7,26,54,.58)),url("AdobeStock_728416692_3C.gif"),linear-gradient(120deg,#061126 0%,#102b55 34%,#071a36 67%,#0c2448 100%),radial-gradient(ellipse at 74% 28%,rgba(52,120,235,.23),transparent 43%),repeating-linear-gradient(0deg,rgba(164,200,235,.035) 0,rgba(164,200,235,.035) 1px,transparent 1px,transparent 48px),repeating-linear-gradient(90deg,rgba(164,200,235,.035) 0,rgba(164,200,235,.035) 1px,transparent 1px,transparent 48px);
+  background-size:cover,cover,300% 300%,150% 150%,100% 48px,48px 100%;
+  background-position:center,center,0% 50%,75% 28%,0 0,0 0;
+  animation:none!important
+}
+#home.hero{isolation:isolate}
+#home.hero>.hero-video{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;pointer-events:none}
+#home.hero{background:none!important}
+#home.hero::before,#home.hero::after{display:none!important}
+#home.hero>.hero-video{opacity:1}
