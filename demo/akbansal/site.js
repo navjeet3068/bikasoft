@@ -1,28 +1,58 @@
 const sidebarPlaceholder = document.querySelector("#sidebar-placeholder");
 
 if (sidebarPlaceholder) {
-  fetch("sidebar.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Sidebar request failed: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then((markup) => {
-      sidebarPlaceholder.innerHTML = markup;
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
-      const currentLink = [...sidebarPlaceholder.querySelectorAll(".nav a")]
-        .find((link) => new URL(link.href).pathname.split("/").pop() === currentPage);
+  const setCurrentSidebarLink = () => {
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const currentLink = [...sidebarPlaceholder.querySelectorAll(".nav a")]
+      .find((link) => new URL(link.href).pathname.split("/").pop() === currentPage);
 
-      if (currentLink) {
-        currentLink.setAttribute("aria-current", "page");
-      }
-    })
-    .catch((error) => {
-      console.error("Unable to load the site sidebar.", error);
-      sidebarPlaceholder.setAttribute("role", "alert");
-      sidebarPlaceholder.textContent = "The navigation menu could not be loaded.";
-    });
+    if (currentLink) {
+      currentLink.setAttribute("aria-current", "page");
+    }
+  };
+
+  const renderSidebarFallback = () => {
+    const links = [
+      ["index.html", "i-user", "Profile"],
+      ["practice-areas.html", "i-user", "About"],
+      ["books.html", "i-book", "Books"],
+      ["foreign-journal-articles.html", "i-file", "Foreign Journal Articles"],
+      ["research-papers.html", "i-file", "Research Papers"],
+      ["international-judgments.html", "i-globe", "International Judgments"],
+      ["contact.html", "i-mail", "Contact"],
+    ];
+    const navLinks = links.map(([href, icon, label]) =>
+      `<a href="${href}"><svg class="icon"><use href="icons.svg#${icon}"></use></svg>${label}</a>`,
+    ).join("");
+
+    sidebarPlaceholder.innerHTML = `
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="brand"><div><div class="brand-rule"></div><p class="brand-name">Dr. Ashwinie<br>Kumar Bansal</p><p class="brand-role">Advocate | Arbitrator | Author</p></div></div>
+        <nav class="nav">${navLinks}</nav>
+        <div class="sidebar-note"><div class="brand-rule"></div><strong>Law<br>Arbitration<br>Scholarship</strong><small>In service of<br>commerce and justice</small></div>
+      </aside>`;
+    setCurrentSidebarLink();
+  };
+
+  if (window.location.protocol === "file:") {
+    renderSidebarFallback();
+  } else {
+    fetch("sidebar.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Sidebar request failed: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((markup) => {
+        sidebarPlaceholder.innerHTML = markup;
+        setCurrentSidebarLink();
+      })
+      .catch((error) => {
+        console.error("Unable to load sidebar.html; using the built-in navigation fallback.", error);
+        renderSidebarFallback();
+      });
+  }
 }
 
 const searchInput = document.querySelector("#site-search");
