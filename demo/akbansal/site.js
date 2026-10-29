@@ -1,6 +1,40 @@
 const sidebarPlaceholder = document.querySelector("#sidebar-placeholder");
 
 if (sidebarPlaceholder) {
+  const setupMobileMenu = () => {
+    const sidebar = sidebarPlaceholder.querySelector(".sidebar");
+    const toggle = sidebar?.querySelector(".menu-toggle");
+    const nav = sidebar?.querySelector(".nav");
+
+    if (!sidebar || !toggle || !nav) return;
+
+    const closeMenu = () => {
+      sidebar.classList.remove("menu-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") !== "true";
+      sidebar.classList.toggle("menu-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeMenu();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!sidebar.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && sidebar.classList.contains("menu-open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+  };
+
   const setCurrentSidebarLink = () => {
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     const currentLink = [...sidebarPlaceholder.querySelectorAll(".nav a")]
@@ -27,11 +61,18 @@ if (sidebarPlaceholder) {
 
     sidebarPlaceholder.innerHTML = `
       <aside class="sidebar" aria-label="Main navigation">
-        <div class="brand"><div><div class="brand-rule"></div><p class="brand-name">Dr. Ashwinie<br>Kumar Bansal</p><p class="brand-role">Advocate | Arbitrator | Author</p></div></div>
-        <nav class="nav">${navLinks}</nav>
+        <div class="brand">
+          <div><div class="brand-rule"></div><p class="brand-name">Dr. Ashwinie<br>Kumar Bansal</p><p class="brand-role">Advocate | Arbitrator | Author</p></div>
+          <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <span>Menu</span>
+          </button>
+        </div>
+        <nav class="nav" id="site-navigation">${navLinks}</nav>
         <div class="sidebar-note"><div class="brand-rule"></div><strong>Law<br>Arbitration<br>Scholarship</strong><small>In service of<br>commerce and justice</small></div>
       </aside>`;
     setCurrentSidebarLink();
+    setupMobileMenu();
   };
 
   if (window.location.protocol === "file:") {
@@ -47,6 +88,7 @@ if (sidebarPlaceholder) {
       .then((markup) => {
         sidebarPlaceholder.innerHTML = markup;
         setCurrentSidebarLink();
+        setupMobileMenu();
       })
       .catch((error) => {
         console.error("Unable to load sidebar.html; using the built-in navigation fallback.", error);

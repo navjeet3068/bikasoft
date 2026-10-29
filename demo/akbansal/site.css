@@ -54,6 +54,22 @@ a { color: inherit; }
 .brand-rule { width: 38px; height: 2px; margin: 13px 0 12px; background: var(--gold); }
 .brand-name { max-width: 190px; margin: 0; font-size: 20px; font-weight: 400; line-height: 1.16; }
 .brand-role { margin: 9px 0 0; color: #c4cbd7; font-size: 12px; }
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 8px;
+  color: #f8f6f1;
+  background: transparent;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+.menu-toggle:focus-visible { outline: 2px solid #e9c77f; outline-offset: 3px; }
+.menu-toggle .icon { width: 18px; height: 18px; }
 
 .nav { display: grid; gap: 5px; margin: 17px -17px 0; }
 .nav a {
@@ -269,11 +285,12 @@ a { color: inherit; }
   .brand-rule { display: none; }
   .brand-name { max-width: none; font-size: 16px; }
   .brand-role { margin-top: 2px; font-size: 11px; }
-  .nav { display: flex; gap: 3px; overflow-x: auto; margin: 0 -16px; padding: 0 12px; scrollbar-width: none; }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav a { min-height: 44px; flex: 0 0 auto; gap: 8px; padding: 8px 11px; border-bottom: 2px solid transparent; border-left: 0; border-radius: 0; font-size: 11px; }
-  .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: #e9c77f; border-left: 0; border-radius: 7px 7px 0 0; }
-  .nav .icon { width: 16px; height: 16px; }
+  .menu-toggle { display: flex; flex: 0 0 auto; margin-left: auto; }
+  .sidebar .nav { display: grid; gap: 2px; margin: 0 -16px; padding: 8px 12px 12px; }
+  .sidebar:not(.menu-open) .nav { display: none; }
+  .sidebar .nav a { min-height: 44px; flex: initial; gap: 11px; padding: 9px 12px; border: 0; border-left: 3px solid transparent; border-radius: 0 8px 8px 0; font-size: 13px; }
+  .sidebar .nav a:hover, .sidebar .nav a[aria-current="page"] { border-bottom: 0; border-left: 3px solid #e9c77f; border-radius: 0 8px 8px 0; }
+  .sidebar .nav .icon { width: 18px; height: 18px; }
   .sidebar-note { display: none; }
   .main { margin-left: 0; }
   .topbar { position: relative; min-height: 62px; gap: 10px; padding: 10px 15px; }
