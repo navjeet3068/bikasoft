@@ -1703,43 +1703,7 @@
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
-
-  <header class="nav is-scrolled" id="siteNav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand" aria-label="Bikasoft home">
-        <img src="assets/logo.png" alt="Bikasoft Logo" fetchpriority="high">
-      </a>
-
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="services.html">Services</a>
-        <a href="#solutions">Solutions</a>
-        <a href="growth.html">Growth</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <a href="contact.html" class="btn btn-solid">Let’s Build</a>
-
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
-
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round">
-          <path d="M4 7h16M4 12h16M4 17h16"></path>
-        </svg>
-      </button>
-    </div>
-  </header>
-
-  <div class="mobile-panel" id="mobilePanel">
-    <a href="services.html">Services</a>
-    <a href="#solutions">Solutions</a>
-    <a href="growth.html">Growth</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <div id="siteHeader"></div>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
@@ -3144,51 +3108,12 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="index.html" class="brand">
-            <img src="assets/logo.png" alt="Bikasoft Logo">
-          </a>
-          <p style="margin-top:14px">Powering business digitally with software development, cloud solutions, AI automation, mobile apps and digital growth.</p>
-        </div>
-        <div>
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="growth.html">Growth</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Services</h3>
-          <ul>
-            <li><a href="services.html#engineering">Software Development</a></li>
-            <li><a href="services.html#engineering">Cloud Solutions</a></li>
-            <li><a href="services.html#automation">AI &amp; Automation</a></li>
-            <li><a href="services.html#growth">Digital Marketing</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Contact</h3>
-          <ul>
-            <li>Bikasoft</li>
-            <li>Chennai, India</li>
-            <li><a href="tel:+919878169696">+91 9878169696</a></li>
-            <li><a href="mailto:info@bikasoft.com">info@bikasoft.com</a></li>
-            <li><a href="https://www.instagram.com/bika.soft" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">© 2026 Bikasoft. Build the future digitally.</div>
-    </div>
-  </footer>
+  <div id="siteFooter"></div>
 
+  <script src="site-components.js"></script>
   <script>
-    const nav = document.getElementById('siteNav');
+    window.siteComponentsReady.then(() => {
+      const nav = document.getElementById('siteNav');
     const menuBtn = document.getElementById('menuBtn');
     const mobilePanel = document.getElementById('mobilePanel');
 
@@ -3616,6 +3541,7 @@
       });
     }
 
+      });
   </script>
 
 </body></html>
